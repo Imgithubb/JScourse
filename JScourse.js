@@ -53,7 +53,20 @@
 
 // playerRankUp(99)
 
-function maps(x) {
-	for (var maps = [], i = 0; i < 40; ++i) a[i] = i;
-	let y = maps.map(num => num * 2)
+// function maps(x) {
+// 	for (var maps = [], i = 0; i < 40; ++i) a[i] = i;
+// 	let y = maps.map(num => num * 2)
+// }
+
+function sameCase(a, b) {
+	if (a.toLowerCase() === a.toUpperCase() || b.toLowerCase() === b.toUpperCase()) { return -1 }
+	else if (a.toLowerCase() != a.toUpperCase() || b.toLowerCase() != b.toUpperCase()) {
+		if (a === a.toLowerCase() && b === b.toLowerCase()) { return 1 }
+		else if (a === a.toUpperCase() && b === b.toUpperCase()) { return 1 }
+		else if (a === a.toUpperCase() && b === b.toLowerCase()) { return 0 }
+		else if (a === a.toLowerCase() && b === b.toUpperCase()) { return 0 }
+	}
+	else { return -1 }
 }
+
+console.log(sameCase('a', '6'))
