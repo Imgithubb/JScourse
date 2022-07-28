@@ -71,3 +71,32 @@
 
 // console.log(sameCase('a', '6'))
 
+// function warnTheSheep(queue) {
+// 	for (let num of queue.reverse()) {
+// 	  if (num[i] === 'sheep'&& num[(i+1)]==='wolf'){
+// 	    return 'Oi! Sheep number ' + String(queue.indexOf(num))+ '! You are about to be eaten by a wolf!'
+// 	  } 
+// 	  else if (num[0]==='wolf') {return "Pls go away and stop eating my sheep"} 
+// 	}
+// }
+// console.log(warnTheSheep(["sheep", "sheep", "sheep", "wolf", "sheep"]));
+
+// function warnTheSheep(queue) {
+// 	for (let num of queue.reverse()) {
+// 	  if (num[i] === 'sheep'&& num[(i+1)]==='wolf'){
+// 	    return 'Oi! Sheep number ' + String(queue.indexOf(num))+ '! You are about to be eaten by a wolf!'
+// 	  } 
+// 	  else if (num[0]==='wolf') {return "Pls go away and stop eating my sheep"} 
+// 	}
+// }
+// console.log(warnTheSheep(["sheep", "sheep", "sheep", "wolf", "sheep"]));
+
+function warnTheSheep(queue) {
+	if (queue.indexOf('wolf') === queue.length) { return "Pls go away and stop eating my sheep" }
+	else { return 'Oi! Sheep number ' + String((queue.length - queue.indexOf('wolf') - 1)) + '! You are about to be eaten by a wolf!' + 'Oi! Sheep number ' + String((queue.length - queue.indexOf('wolf') + 1)) + '! You are about to be eaten by a wolf!' }
+
+}
+
+
+console.log(warnTheSheep(["sheep", "wolf", "sheep", "sheep", "sheep"]));
+console.log(warnTheSheep(["sheep", "sheep", "wolf", "sheep", "sheep"])); 
