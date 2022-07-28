@@ -58,11 +58,7 @@
 // 	let y = maps.map(num => num * 2)
 // }
 
-<<<<<<< HEAD
-// function sameCase(a, b) { 
-=======
 // function sameCase(a, b) {
->>>>>>> caefc0d996bed645f2cabcf86f8fe0cfdd68623a
 // 	if (a.toLowerCase() === a.toUpperCase() || b.toLowerCase() === b.toUpperCase()) { return -1 }
 // 	else if (a.toLowerCase() != a.toUpperCase() || b.toLowerCase() != b.toUpperCase()) {
 // 		if (a === a.toLowerCase() && b === b.toLowerCase()) { return 1 }
@@ -73,49 +69,5 @@
 // 	else { return -1 }
 // }
 
-<<<<<<< HEAD
-// console.log(sameCase('a', '6'))
-=======
 // console.log(sameCase('a', '6'))
 
-
-// function warnTheSheep(queue) {
-// 	for (let num of queue.reverse()) {
-// 	  if (num === 'sheep'){
-// 	    return "Oi! Sheep number N! You are about to be eaten by a wolf!"
-// 	  } 
-// 	  else {return "Pls go away and stop eating my sheep"} 
-// 	}
-	  
-// 	}
-// 	console.log(warnTheSheep(["sheep", "sheep", "sheep", "wolf"]))
-
-// function warnTheSheep(queue) {
-// 	for (let num of queue.reverse()) {
-// 	  if (num[i] === 'sheep'&& num[(i+1)]==='wolf'){
-// 	    return 'Oi! Sheep number ' + String(queue.indexOf(num))+ '! You are about to be eaten by a wolf!'
-// 	  } 
-// 	  else if (num[0]==='wolf') {return "Pls go away and stop eating my sheep"} 
-// 	}
-// }
-// console.log(warnTheSheep(["sheep", "sheep", "sheep", "wolf", "sheep"]));
-
-// function warnTheSheep(queue) {
-// 	for (let num of queue.reverse()) {
-// 	  if (num[i] === 'sheep'&& num[(i+1)]==='wolf'){
-// 	    return 'Oi! Sheep number ' + String(queue.indexOf(num))+ '! You are about to be eaten by a wolf!'
-// 	  } 
-// 	  else if (num[0]==='wolf') {return "Pls go away and stop eating my sheep"} 
-// 	}
-// }
-// console.log(warnTheSheep(["sheep", "sheep", "sheep", "wolf", "sheep"]));
-
-function warnTheSheep(queue) {
-	  if (queue.indexOf('wolf') ===  queue.length){return "Pls go away and stop eating my sheep"} 
-	else {return 'Oi! Sheep number ' + String((queue.length - queue.indexOf('wolf')+1))+ '! You are about to be eaten by a wolf!'}
-}
-console.log(["sheep", "wolf", "sheep", "sheep",  "sheep"].reverse().length);
-console.log(["sheep", "wolf", "sheep", "sheep",  "sheep"].reverse());
-console.log(warnTheSheep(["sheep", "wolf", "sheep", "sheep",  "sheep"]));
-console.log(warnTheSheep(["sheep", "sheep", "wolf", "sheep",  "sheep"]));
->>>>>>> caefc0d996bed645f2cabcf86f8fe0cfdd68623a
