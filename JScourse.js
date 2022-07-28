@@ -92,11 +92,11 @@
 // console.log(warnTheSheep(["sheep", "sheep", "sheep", "wolf", "sheep"]));
 
 function warnTheSheep(queue) {
-	if (queue.indexOf('wolf') === queue.length) { return "Pls go away and stop eating my sheep" }
-	else { return 'Oi! Sheep number ' + String((queue.length - queue.indexOf('wolf') - 1)) + '! You are about to be eaten by a wolf!' + 'Oi! Sheep number ' + String((queue.length - queue.indexOf('wolf') + 1)) + '! You are about to be eaten by a wolf!' }
-
+	if (queue.reverse().indexOf('wolf') === 0) { return "Pls go away and stop eating my sheep" }
+	else { return 'Oi! Sheep number ' + String(queue.indexOf('wolf')) + '! You are about to be eaten by a wolf!' }
 }
 
 
 console.log(warnTheSheep(["sheep", "wolf", "sheep", "sheep", "sheep"]));
-console.log(warnTheSheep(["sheep", "sheep", "wolf", "sheep", "sheep"])); 
+console.log(warnTheSheep(["sheep", "sheep", "wolf", "sheep", "sheep"]));
+console.log(warnTheSheep(["sheep", "sheep", "sheep", "wolf"])); 
