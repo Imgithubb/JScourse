@@ -72,31 +72,22 @@
 // console.log(sameCase('a', '6'))
 
 // function warnTheSheep(queue) {
-// 	for (let num of queue.reverse()) {
-// 	  if (num[i] === 'sheep'&& num[(i+1)]==='wolf'){
-// 	    return 'Oi! Sheep number ' + String(queue.indexOf(num))+ '! You are about to be eaten by a wolf!'
-// 	  } 
-// 	  else if (num[0]==='wolf') {return "Pls go away and stop eating my sheep"} 
-// 	}
+// 	if (queue.reverse().indexOf('wolf') === 0) { return "Pls go away and stop eating my sheep" }
+// 	else { return 'Oi! Sheep number ' + String(queue.indexOf('wolf')) + '! You are about to be eaten by a wolf!' }
 // }
-// console.log(warnTheSheep(["sheep", "sheep", "sheep", "wolf", "sheep"]));
+// console.log(warnTheSheep(["sheep", "wolf", "sheep", "sheep", "sheep"]));
+// console.log(warnTheSheep(["sheep", "sheep", "wolf", "sheep", "sheep"]));
+// console.log(warnTheSheep(["sheep", "sheep", "sheep", "wolf"]));
 
-// function warnTheSheep(queue) {
-// 	for (let num of queue.reverse()) {
-// 	  if (num[i] === 'sheep'&& num[(i+1)]==='wolf'){
-// 	    return 'Oi! Sheep number ' + String(queue.indexOf(num))+ '! You are about to be eaten by a wolf!'
-// 	  } 
-// 	  else if (num[0]==='wolf') {return "Pls go away and stop eating my sheep"} 
-// 	}
+
+
+// function elevator(left, right, call) {
+// 	return = (right - call) <= (left - call) ? 'right' : 'left'
 // }
-// console.log(warnTheSheep(["sheep", "sheep", "sheep", "wolf", "sheep"]));
+// console.log(elevator(2, 1, 0));
 
-function warnTheSheep(queue) {
-	if (queue.reverse().indexOf('wolf') === 0) { return "Pls go away and stop eating my sheep" }
-	else { return 'Oi! Sheep number ' + String(queue.indexOf('wolf')) + '! You are about to be eaten by a wolf!' }
+function points(games) {
+
+
+
 }
-
-
-console.log(warnTheSheep(["sheep", "wolf", "sheep", "sheep", "sheep"]));
-console.log(warnTheSheep(["sheep", "sheep", "wolf", "sheep", "sheep"]));
-console.log(warnTheSheep(["sheep", "sheep", "sheep", "wolf"])); 
