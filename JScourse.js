@@ -86,8 +86,21 @@
 // }
 // console.log(elevator(2, 1, 0));
 
-function points(games) {
+// function points(games) {
+// 	let x = games.reduce((total, game) => {
+// 		let x = Number(game.charAt(0))
+// 		let y = Number(game.charAt(2))
+// 		if (x > y) { game = 3 }
+// 		else if (x === y) { game = 1 }
+// 		else if (x < y) { game = 0 }
+// 		return total + game
+// 	}, 0)
+// 	return x
+// }
+// console.log(points(['0:1', '0:2', '0:3', '0:4', '1:2', '1:3', '1:4', '2:3', '2:4', '3:4']));
 
+let x = '3'
+let y = 1
 
+console.log(x < y ? true : false);
 
-}
