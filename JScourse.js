@@ -86,6 +86,7 @@
 // }
 // console.log(elevator(2, 1, 0));
 
+// 7 .
 // function points(games) {
 // 	let x = games.reduce((total, game) => {
 // 		let x = Number(game.charAt(0))
@@ -99,8 +100,8 @@
 // }
 // console.log(points(['0:1', '0:2', '0:3', '0:4', '1:2', '1:3', '1:4', '2:3', '2:4', '3:4']));
 
-let x = '3'
-let y = 1
-
-console.log(x < y ? true : false);
-
+function pillars(numPill, dist, width) {
+	if (numPill >= 2 && (10 <= dist && dist <= 30) && (10 <= width && width <= 50)) { return (numPill - 2) * width + (numPill - 1) * dist * 100 }
+	else { return 0 }
+}
+console.log(pillars(1, 10, 10));
