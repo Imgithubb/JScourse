@@ -100,8 +100,36 @@
 // }
 // console.log(points(['0:1', '0:2', '0:3', '0:4', '1:2', '1:3', '1:4', '2:3', '2:4', '3:4']));
 
-function pillars(numPill, dist, width) {
-	if (numPill >= 2 && (10 <= dist && dist <= 30) && (10 <= width && width <= 50)) { return (numPill - 2) * width + (numPill - 1) * dist * 100 }
-	else { return 0 }
-}
-console.log(pillars(1, 10, 10));
+// 8
+// function pillars(numPill, dist, width) {
+// 	if (numPill >= 2 && (10 <= dist && dist <= 30) && (10 <= width && width <= 50)) { return (numPill - 2) * width + (numPill - 1) * dist * 100 }
+// 	else { return 0 }
+// }
+// console.log(pillars(1, 10, 10));
+
+
+// 9
+// function getCount(str) {
+// 	return str.split(/[AaEeIiOoUu]/).length - 1
+// }
+// console.log(getCount('abracadabra'));
+
+// function disemvowel(str) {
+// 	return str.replace(/[AaEeIiOoUu]/gi, '');
+// }
+// console.log(disemvowel("What are you, a communist?"));
+
+// function squareDigits(num) {
+// 	let nNum = String(num).split('')
+// 	let nArr = new Array
+// 	for (let nSNum of nNum) {
+// 		nArr.push(String(Number(nSNum) ** 2))
+// 	}
+// 	return Number(nArr.join(''))
+// }
+
+
+// function squareDigits(num) {
+// 	return Number(String(num).split('').map(i => i * i).join(''))
+// }
+// console.log(squareDigits(333));
