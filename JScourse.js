@@ -133,3 +133,12 @@
 // 	return Number(String(num).split('').map(i => i * i).join(''))
 // }
 // console.log(squareDigits(333));
+function plZero() {
+	return number + "0"
+}
+
+function highAndLow(numbers) {
+	return String(Math.max(...(numbers.split(' ')).map(plZero, this))) + ' ' + String(Math.min(...(numbers.split(' ')).map(Number)))
+}
+
+console.log(highAndLow("1 2 3 4 5"));
