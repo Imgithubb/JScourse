@@ -133,12 +133,21 @@
 // 	return Number(String(num).split('').map(i => i * i).join(''))
 // }
 // console.log(squareDigits(333));
-function plZero() {
-	return number + "0"
-}
 
-function highAndLow(numbers) {
-	return String(Math.max(...(numbers.split(' ')).map(plZero, this))) + ' ' + String(Math.min(...(numbers.split(' ')).map(Number)))
-}
+// 10
+// function highAndLow(numbers) {
+// 	return String(Math.max(...(numbers.split(' ')).map(Number))) + ' ' + String(Math.min(...(numbers.split(' ')).map(Number)))
+// }
 
-console.log(highAndLow("1 2 3 4 5"));
+// console.log(highAndLow("1 2 3 4 5"));
+
+// 11
+// function descendingOrder(n) {
+// 	const nN = String(n).split('').sort((a, b) => b - a)
+// 	return Number(nN.map(Number).join(''))
+// }
+// console.log(descendingOrder(42145));
+
+
+
+
