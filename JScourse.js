@@ -148,6 +148,11 @@
 // }
 // console.log(descendingOrder(42145));
 
-
+function accum(s) {
+	const spl = s.split('')
+	const mp = spl.map((p) => p.toUpperCase() + p.toLowerCase().repeat(p[i] + 1))
+	return mp.join('-')
+}
+console.log(accum("ZpglnRxqenU"));
 
 
