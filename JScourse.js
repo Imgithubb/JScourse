@@ -148,11 +148,26 @@
 // }
 // console.log(descendingOrder(42145));
 
-function accum(s) {
-	const spl = s.split('')
-	const mp = spl.map((p) => p.toUpperCase() + p.toLowerCase().repeat(p[i] + 1))
-	return mp.join('-')
-}
-console.log(accum("ZpglnRxqenU"));
+// 12
+// function accum(s) {
+// 	const spl = s.split('')
+// 	const mp = spl.map((p, index) => p.toUpperCase() + p.toLowerCase()
+// 		.repeat(index))
 
+// 	return mp.join('-')
+// }
+// console.log(accum("ZpglnRxqenU"));
+
+// function accum(s) {
+// 	return s.split('').map((x, index) => x.toUpperCase() + Array(index + 1).join(x.toLowerCase())).join('-');
+// }
+// console.log(accum("ZpglnRxqenU"))
+
+//
+
+// function getMiddle(s) {
+// 	return s.substr(Math.ceil(s.length / 2 - 1), s.length % 2 === 0 ? 2 : 1);
+// }
+
+// console.log(getMiddle('ABCDEFGIJKLMNOPQRST'));
 
