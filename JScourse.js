@@ -170,4 +170,12 @@
 // }
 
 // console.log(getMiddle('ABCDEFGIJKLMNOPQRST'));
-
+// 13
+// const isSquare = function (n) {
+// 	if (Number.isInteger(Math.sqrt(n))) {
+// 		let result = Math.sqrt(n) * Math.sqrt(n) === n ? true : false
+// 		return result
+// 	}
+// 	else { return false }
+// }
+// console.log(isSquare(46));
