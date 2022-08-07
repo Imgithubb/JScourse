@@ -1,3 +1,5 @@
 
-const b = (spl => Array.from(spl.entries()))
-console.log(b([a, c]))
+do {
+	r += 1;
+	console.log(i);
+      } while (i < 5)

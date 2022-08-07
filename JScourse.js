@@ -179,3 +179,28 @@
 // 	else { return false }
 // }
 // console.log(isSquare(46));
+
+// 14
+// function filter_list(l) {
+// 	console.log(Number.isNaN('a'));
+// 	return l.filter(num => Number.isInteger(num) === true)
+// }
+// console.log(filter_list([1, 2, 'a', 'b']))
+
+
+// function filter_list(l) {
+// 	console.log(Number.isNaN('a'));
+// 	return l.filter(num => typeof num === 'number')
+// }
+// console.log(filter_list([1, 2, 'a', 'b']))
+// 15
+// String.prototype.toJadenCase = function (quote) {
+// 	let i = 0
+// 	return quote.split(' ')
+// 		.map(word => word[i].toUpperCase() + word.slice(1)).join(' ')
+// }
+// console.log(String.prototype.toJadenCase("How can mirrors be real if our eyes aren't real"));
+
+function isIsogram(str){
+	
+      }
