@@ -210,3 +210,18 @@
 // 	return !/(\w).*\1/i.test(str)
 // }
 // console.log(isIsogram('m'));
+// 17
+// function XO(str) {
+// 	let nStr = str.split('')
+// 	let numStr1 = nStr.filter(el => el === 'O' || el === 'o')
+// 	let numStr2 = nStr.filter(el => el === 'X' || el === 'x')
+// 	return numStr1.length === numStr2.length ? true : false
+// }
+// console.log(XO("ooxXm"));
+
+// function XO(str) {
+// 	let x = str.match(/x/gi);
+// 	let o = str.match(/o/gi);
+// 	return x.length === o.length
+//       }
+//       console.log(XO("ooxXm"))
