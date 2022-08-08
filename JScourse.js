@@ -200,13 +200,13 @@
 // 		.map(word => word[i].toUpperCase() + word.slice(1)).join(' ')
 // }
 // console.log(String.prototype.toJadenCase("How can mirrors be real if our eyes aren't real"));
-16
-function isIsogram(str){
-      let i = 0
-	//  if (str.split().map(letter => letter[i] === letter[++i])){
-	 if (str.split('').map(letter => str.split().indexOf(letter) ) ===str.split('').map(letter => str.split().findLastIndex(letter))){
-            return true
-       }
-       else { return false}
-      }
-      console.log(isIsogram('mareNgo'));
+// 16
+// function isIsogram(str) {
+// 	return new Set(str.toUpperCase()).size == str.length
+// }
+// console.log(isIsogram('marNg'));
+
+// function isIsogram(str) {
+// 	return !/(\w).*\1/i.test(str)
+// }
+// console.log(isIsogram('m'));
