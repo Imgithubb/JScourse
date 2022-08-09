@@ -225,3 +225,66 @@
 // 	return x.length === o.length
 //       }
 //       console.log(XO("ooxXm"))
+
+// 18
+// function findShort(s){
+//   let pr = s.split(' ').reduce((prev, item) => {
+// if (prev.length>item.length){
+//       return item
+// }
+// else {return prev}
+
+//   })
+//   return pr.length
+// }
+// console.log((findShort("turns out random test cases are easier than writing out basic ones")))
+
+// function findShort(s){
+//       return s.split(' ').reduce((prev, item) => prev.length>item.length?item:prev).length
+//     }
+//     console.log((findShort("turns out random test cases are easier than writing out basic ones")))
+
+// const findShort = (s) => s
+//   .split(' ')
+//   .sort((a, b) => a.length - b.length)
+//   .shift()
+//   .length;
+//   console.log((findShort("turns out random test cases are easier than writing out basic ones")))
+
+// 19
+
+// function DNAStrand(dna){
+//         let dnaArr = dna.split('')
+//         let newDna = dnaArr.map(gen => {
+//          if (gen === 'A') {return 'T'}
+//          else if (gen === 'T') {return 'A'}
+//           else if (gen === 'G') {return 'C'}
+//           else if (gen === 'C') {return 'G'}
+//         })
+//         return newDna.join('')
+//        }
+//        console.log(DNAStrand("ACGT"));
+
+//        function DNAStrand(dna) {
+//         return dna.split('').map(function(v) {return {A:'T', T:'A', C:'G', G:'C'}[v];}).join('');
+//       }
+//       console.log(DNAStrand("ACGT"));
+
+// function DNAStrand(dna) {
+//         return dna.split('').map(function(v) {return {A:'T', T:'A', C:'G', G:'C'}[v];}).join('');
+//       }
+//       console.log(DNAStrand("ACGT"));
+
+// 20
+// function maskify(cc) {
+//         let ccArr = cc.split('')
+//         let rCcArr = ccArr.reverse()
+//         let nRCcArr = rCcArr.map((num, index) => { 
+//                 if (index<=3){return num}
+//                  else {return '#'}
+//         })
+//          ccArr = cc.split('')
+//         if (ccArr.length<=4){return ccArr.join('')}
+//         else {return  nRCcArr.reverse().join('')}
+//       }
+//       console.log((maskify('sf')));
