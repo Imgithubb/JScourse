@@ -1,5 +1,6 @@
+function slicce(str) {
+	let x2 = str.slice(2)
+	return x2
+}
 
-do {
-	r += 1;
-	console.log(i);
-      } while (i < 5)
+console.log(slicce('asdfghjkl'))

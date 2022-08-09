@@ -288,3 +288,42 @@
 //         else {return  nRCcArr.reverse().join('')}
 //       }
 //       console.log((maskify('sf')));
+// function maskify(cc) {
+// 	return cc.slice(0, -4).replace(/./g, '#') + cc.slice(-4);
+//       }
+//       console.log(maskify("4556364607935616"));
+
+// function slicce(str) {
+// 	let x2 = str.slice(0,-8)
+// 	return x2
+// }
+
+// console.log(slicce('123456789'))
+
+// function maskify(cc) {
+// 	return cc.replace(/.(?=.{4})/g, "#");
+//       }
+//       console.log(maskify('123456789'))
+
+// 21
+// function sumTwoSmallestNumbers(numbers) {
+// 	let newNumbers =numbers.sort((a,b)=>a-b)
+// 	return newNumbers.slice(0,2).reduce((a,b) => a+b)
+// }
+
+// console.log(sumTwoSmallestNumbers([2, 3, 4, 8, 9]));
+
+// 22
+function getSum( a,b )
+{
+   if (a===b){return a}
+   else if (b-a ===1){return 1}
+  else {
+    let abk = Math.abs(b-a)-1
+    let newArr = []
+     for (let i=0; i<abk; i++){newArr.push(a+1)}
+ let g = newArr.unshift(a)
+let f =  g.concat(b)
+ return f.reduce((pr,con)=> pr+con )
+}}
+console.log(getSum(1,3));
