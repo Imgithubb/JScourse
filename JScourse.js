@@ -320,3 +320,29 @@
 //         return (max - min + 1) * (min + max) / 2;
 //       }
 //       console.log(getSum(0,-5));
+
+// 23
+// function longest(s1,s2) {
+// let s1A = s1.split('')
+// let s1AS = s1A.sort()
+// let s2A = s2.split('')
+// let s2AS = s2A.sort()
+// let set = new Set()
+// let ns1AS = s1AS.map(let1 => set.add(let1))
+// let ns2AS = s2AS.map(let2 => set.add(let2))
+// let newArr =[]
+// for(let let3 of set){
+// newArr.push(let3)
+// }
+// return newArr.sort().join('')
+
+// }
+// console.log(longest('xyaabbbccccdefw' , 'xxxxyyyyabklmopq' ));
+
+// const longest = (s1, s2) => [...new Set(s1+s2)].sort().join('')
+// console.log(longest('xyaabbbccccdefw' , 'xxxxyyyyabklmopq' ));
+
+// function longest(s1, s2) {
+// 	return (s1+s2).split('').sort().join('').replace(/(.)\1+/g, '$1');
+//       }
+//       console.log(longest('xyaabbbccccdefw' , 'xxxxyyyyabklmopq' ));
