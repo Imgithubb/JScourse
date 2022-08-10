@@ -314,16 +314,9 @@
 // console.log(sumTwoSmallestNumbers([2, 3, 4, 8, 9]));
 
 // 22
-function getSum( a,b )
-{
-   if (a===b){return a}
-   else if (b-a ===1){return 1}
-  else {
-    let abk = Math.abs(b-a)-1
-    let newArr = []
-     for (let i=0; i<abk; i++){newArr.push(a+1)}
- let g = newArr.unshift(a)
-let f =  g.concat(b)
- return f.reduce((pr,con)=> pr+con )
-}}
-console.log(getSum(1,3));
+// const getSum = (a, b) => {
+//         let min = Math.min(a, b),
+//             max = Math.max(a, b);
+//         return (max - min + 1) * (min + max) / 2;
+//       }
+//       console.log(getSum(0,-5));
