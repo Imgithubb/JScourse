@@ -4,3 +4,5 @@ function slicce(str) {
 }
 
 console.log(slicce('asdfghjkl'))
+
+
