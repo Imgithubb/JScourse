@@ -346,3 +346,20 @@
 // 	return (s1+s2).split('').sort().join('').replace(/(.)\1+/g, '$1');
 //       }
 //       console.log(longest('xyaabbbccccdefw' , 'xxxxyyyyabklmopq' ));
+
+// 24
+// function friend(friends){
+//         return friends.filter(bro => bro.length===4)
+//       }
+//       console.log(friend(["Love", "Your", "Face", "1"]));
+
+// 25
+// function nbYear(p0, percent, aug, p) {
+//         let i = 0
+//       do  { p0+= Math.floor(p0*(percent *0.01) + aug)
+//                 i=Math.round(i+1)
+// }
+//       while(p0<=p)
+//       return i
+//     }
+//     console.log(nbYear(1000, 2, 50, 1200));
