@@ -425,14 +425,41 @@
 //       }
 //       console.log(rowSumOddNumbers(2))
 
-29
-function printerError(s) {
-	let len = s.length
-	if s.includes(/[n-z]/gi){
-		let x = s.match(/[n-z]/gi).length
-		return String(x) + '/' + String(len)
-	}
-	else { `0/${len}` }
-}
-console.log(printerError('aaxyyyz'));
+// 29
+// function printerError(s) {
+// 	let len = s.length
+// 		let x = s.match(/[n-z]/gi)
+// 		if (x === null){ return `0/${len}`} 
+// 		else {return x.length + '/' + len}
+// 	}
+// console.log(printerError(''));
 
+// function printerError(s) {
+// 	let len = s.length
+// 		let x = s.match(/[n-z]/gi)||[]
+// 		return x.length + '/' + len
+// 	}
+// console.log(printerError(''));
+
+// const printerError = s => `${s.replace(/[a-m]/gi, "").length}/${s.length}`;
+// console.log(printerError(''));
+// 30
+// function validatePIN (pin) {
+// 	if (pin == pin.match(/^\d{4}$/gi) ||pin == pin.match(/^\d{6}$/gi)){return true}
+// 	else{return false}
+//       }
+//       console.log(validatePIN('1111'));
+
+//       function validatePIN (pin) {
+// 	return /^(\d{4}|\d{6})$/gi.test(pin)
+//       }
+//       console.log(validatePIN('1111111'))
+
+31
+function addBinary(a, b) {
+	let sum = a + b
+	let arr = []
+	for (leti = 0; i < sum; i++)
+
+}
+console.log(addBinary(1, 1));
