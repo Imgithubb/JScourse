@@ -457,9 +457,9 @@
 
 31
 function addBinary(a, b) {
-	let sum = a + b
-	let arr = []
-	for (leti = 0; i < sum; i++)
-
+      let sum = a + b
+      for (let i = 0; i <= sum; i++) {
+            if (sum % 2 === 0) { return 0 }
+      }
 }
 console.log(addBinary(1, 1));
