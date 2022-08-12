@@ -394,11 +394,45 @@
 //     }
 //     console.log(findNextSquare(9));
 
-28
-function rowSumOddNumbers(n) {
-	let x = n - 1
-	for (let i = 0; i <= x; i++) {
-		return x += x - i
+// 28
+// function rowSumOddNumbers(n) {
+// 	let x = n - 1
+// 	for (let i = 0; i <= x; i++) {
+// 		return x += x - i
+// 	}
+// }
+// console.log(rowSumOddNumbers(5));
+
+// function rowSumOddNumbers(n) {
+//         let x =0
+//         let z = 1
+//         let y = []
+//                 for(let i = 0; i<=n; i++){
+//                         x +=  i        
+//                  }
+//         y.push(z)
+//                  for (let i= 0; i <x-1; i++){
+//                         y.push(z+=2)
+//                   }
+//         let u =  y.slice(-n)
+//         return u.reduce((prev,cont)=> prev +cont)
+// }
+// console.log(rowSumOddNumbers(2));
+
+// function rowSumOddNumbers(n) {
+//         const out = Array.from( {length: n*(n+1)/2}, (_,i) => i * 2 + 1 );
+//         return out.slice( out.length - n ).reduce((a, b) => a + b, 0)
+//       }
+//       console.log(rowSumOddNumbers(2))
+
+29
+function printerError(s) {
+	let len = s.length
+	if s.includes(/[n-z]/gi){
+		let x = s.match(/[n-z]/gi).length
+		return String(x) + '/' + String(len)
 	}
+	else { `0/${len}` }
 }
-console.log(rowSumOddNumbers(5));
+console.log(printerError('aaxyyyz'));
+
