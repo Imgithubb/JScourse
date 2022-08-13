@@ -455,11 +455,32 @@
 //       }
 //       console.log(validatePIN('1111111'))
 
-31
-function addBinary(a, b) {
-      let sum = a + b
-      for (let i = 0; i <= sum; i++) {
-            if (sum % 2 === 0) { return 0 }
-      }
-}
-console.log(addBinary(1, 1));
+// 31
+// function addBinary(a, b) {
+//      let sum = a + b
+//      return sum.toString(2)
+// }
+// console.log(addBinary(1, 1));
+
+// 32
+// function isTriangle(a, b, c) {
+//      if (a < 0 || b < 0 || c < 0 || a + b <= c || a + c <= b || b + c <= a) { return false; }
+//      else { return true }
+// }
+// console.log(isTriangle(2,2,6));
+
+// 33
+// const binaryArrayToNumber = arr => parseInt(arr.join(''), 2)
+// console.log(binaryArrayToNumber([0, 1, 1, 0]));
+
+// function binaryArrayToNumber(arr) {
+//      return arr.reduce((a, b) => a << 1 | b);
+// }
+// console.log(binaryArrayToNumber([0, 1, 1, 0]));
+
+34
+function brightest(a){
+     const f=s=>Math.max(...s.slice(1).match(/../g).map(e=>parseInt(e,16)))
+     return a.sort((a,b)=>f(b)-f(a))[0]
+   }
+console.log(brightest(["#00FF00", "#FFFF00"]))
