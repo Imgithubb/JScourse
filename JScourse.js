@@ -478,9 +478,40 @@
 // }
 // console.log(binaryArrayToNumber([0, 1, 1, 0]));
 
-34
-function brightest(a){
-     const f=s=>Math.max(...s.slice(1).match(/../g).map(e=>parseInt(e,16)))
-     return a.sort((a,b)=>f(b)-f(a))[0]
-   }
-console.log(brightest(["#00FF00", "#FFFF00"]))
+// 34
+// function brightest(a){
+//      const f=s=>Math.max(...s.slice(1)
+//      .match(/../g)
+//      .map(e=>parseInt(e,16)))
+//      return a.sort((a,b)=>f(b)-f(a))[0]
+//    }
+// console.log(brightest(["#00FF00", "#FFFF00"]))
+
+// Методи Number
+// let sum = 0.1 +0.3
+// sum == 0.4?console.log(true):console.log(false)
+// let x = isNaN('12jj')
+// console.log(x);
+// console.log(sum);
+
+// 35
+// function racePodium(blocks) {
+// 	if(blocks == 7) return [2, 4, 1]
+// 	let second = Math.ceil(blocks / 3)
+// 	return [second, second + 1, blocks - second * 2 - 1]
+//       }
+// console.log(racePodium(11));      
+
+// 36
+// function likeOrDislike(buttons) {
+// 	if (buttons.length == 0) { return 'Nothing' }
+// 	return buttons.reduce((prev, cont) => {
+// 		if (!(prev === cont)) { return cont }
+// 		else if (prev === cont) { return 'Nothing' }
+// 	})}
+// console.log(likeOrDislike([1,2,3,3,100,101,201]));
+
+37
+function solution(number){
+  
+}

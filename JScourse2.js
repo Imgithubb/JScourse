@@ -52,11 +52,14 @@ console.log(slicce('asdfghjkl'))
 //     }
 //     console.log(findNextSquare(9));
 
-28
-function rowSumOddNumbers(n) {
-	let x = n - 1
-	for (let i = 0; i <= x; i++) {
-		return x += x - i
-	}
-}
-console.log(rowSumOddNumbers(5));
+// 28
+// function rowSumOddNumbers(n) {
+// 	let x = n - 1
+// 	for (let i = 0; i <= x; i++) {
+// 		return x += x - i
+// 	}
+// }
+// console.log(rowSumOddNumbers(5));
+
+
+bcdfghjklmnpqrstvwxyz
