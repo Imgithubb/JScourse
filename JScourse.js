@@ -511,7 +511,67 @@
 // 	})}
 // console.log(likeOrDislike([1,2,3,3,100,101,201]));
 
-37
-function solution(number){
-  
-}
+// 37
+// function solution(number) {
+// 	if (number <= 0) { return 0 }
+// 	else {
+// 		let set = new Set()
+// 		for (let i = 0; i * 3 < number; i++) { set.add(i * 3) }
+// 		for (let i = 0; i * 5 < number; i++) { set.add(i * 5) }
+// 		let sum = [...set]
+// 		return sum.reduce((prev, cont) => prev + cont)
+// 	}
+// }
+// console.log(solution(3));
+
+// function solution(number) {
+// 	var sum = 0;
+// 	for (var i = 1; i < number; i++) {
+// 		if (i % 3 === 0 || i % 5 === 0) { sum += i }
+// 	}
+// 	return sum;
+// }
+// console.log(solution(2));
+
+// function solution(number){
+// 	var n3 = Math.floor(--number/3), n5 = Math.floor(number/5), n15 = Math.floor(number/15);
+// 	return (3 * n3 * (n3 + 1) + 5 * n5 * (n5 + 1) - 15 * n15 * (n15+1)) /2;
+//    }
+// console.log(solution(15))
+
+//    function solution(number){
+// 	for(acc=0; --number > 2;){
+// 	  acc = !(number%3) || !(number%5) ? acc + number : acc;
+// 	}
+// 	return acc;
+//    }
+//    console.log(solution(15))
+
+// function solution(number){
+// // 	let y = ['a','b','c']
+// // console.log([...new Array(3)])
+// // for (let z of y.keys()){
+// // 	console.log(z);
+// // }
+
+// 	return number < 0 
+// 	  ? 0
+// 	  : [...Array(number).keys()]
+// 	  .filter(n => n % 3 === 0 || n % 5 === 0 )
+// 	  .reduce((n, i) => n + i, 0);
+// 	}
+// 	console.log(solution(15))
+
+// 38
+// let spinWords = (string) => string.split(' ').map(word => word.length >= 5 ? word.split('').reverse().join('') :word).join(' ')
+// console.log(spinWords("This is another test"));
+
+// 39
+// function findOdd(A) {
+// 	let z = A.sort()
+// 	for (let i = 0; i < z.length; i++) {
+// 		if (z[i] === z[(i + 1)]) { i++ }
+// 		else { return z[i] }
+// 	}
+// }
+// console.log(findOdd([20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5]));
