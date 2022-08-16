@@ -575,3 +575,12 @@
 // 	}
 // }
 // console.log(findOdd([20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5]));
+
+// 40
+// function digitalRoot(n) {
+//         for (; String(n).length >1;){
+//                 n = [...String(n).split('')].reduce((prev,cont)=> Number(prev) + Number(cont))
+//         }
+//         return n
+// }
+// console.log(digitalRoot(493193));
