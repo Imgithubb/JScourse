@@ -576,11 +576,55 @@
 // }
 // console.log(findOdd([20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5]));
 
+// let num1 = 3
+// let num2 = 1
+// let num3 = '01'
+// console.log(parseInt(num3,2))
+// console.log(num1.toString(2));
+// console.log(num2.toString(2));
+// const findOdd = (xs) => xs.reduce((a, b) => a ^ b)
+// console.log(findOdd([3, 1, 2, 2, 1]));
+
+// function findOdd(A) {
+// 	var obj = {};
+// 	A.forEach(function(el){
+// 	  obj[el] ? obj[el]++ : obj[el] = 1;
+// 	});
+// 	for(prop in obj) {
+// 	  if(obj[prop] % 2 !== 0) return Number(prop);
+// 	}
+//    }
+//    console.log(findOdd([3, 1, 2, 2, 1]));
+
+// function findOdd(arr) {
+// 	return arr.find(function (item) {
+// 		// let z =  arr.filter(function (el) {
+// 		// 	return el == item
+// 		// })
+// 		return arr.filter(function (el) {
+// 			return el == item
+// 		})
+// 			.length % 2
+// 	})
+// }
+// console.log(findOdd([1, 2, 1]));
+
 // 40
 // function digitalRoot(n) {
 //         for (; String(n).length >1;){
-//                 n = [...String(n).split('')].reduce((prev,cont)=> Number(prev) + Number(cont))
+//                 n = String(n).split('').reduce((prev,cont)=> Number(prev) + Number(cont))
 //         }
 //         return n
 // }
 // console.log(digitalRoot(493193));
+
+41
+
+function arrayDiff(a, b) {
+	let aN = a.join(','),
+		bN = b.join(','),
+		RegEx = new RegExp(`[${bN}]`, 'g'),
+		result = aN.replace(RegEx, '').split(',').map(el => {if (el === '') {return '' } else {Number(el)}}).filter(elem=>!(elem===''))
+	return result
+}
+console.log(arrayDiff([],[]));
