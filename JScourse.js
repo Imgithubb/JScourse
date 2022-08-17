@@ -671,3 +671,41 @@
 // console.log(likes(['Alex', 'Jacob',]));
 // console.log(likes(['Alex', 'Jacob', 'Mark',]));
 // console.log(likes(["Alex", "Jacob", "Mark", "Max"]));
+
+// function likes(names) {
+// 	return {
+// 		0: 'no one likes this',
+// 		1: `${names[0]} likes this`,
+// 		2: `${names[0]} and ${names[1]} like this`,
+// 		3: `${names[0]}, ${names[1]} and ${names[2]} like this`,
+// 		4: `${names[0]}, ${names[1]} and ${names.length - 2} others like this`,
+// 	}[Math.min(4, names.length)]
+// }
+// console.log(likes([]));
+// console.log(likes(['Alex',]));
+// console.log(likes(['Alex', 'Jacob',]));
+// console.log(likes(['Alex', 'Jacob', 'Mark',]));
+// console.log(likes(["Alex", "Jacob", "Mark", "Max"]));
+
+// function likes(names) {
+// 	var templates = [
+// 		'no one likes this',
+// 		'{name} likes this',
+// 		'{name} and {name} like this',
+// 		'{name}, {name} and {name} like this',
+// 		'{name}, {name} and {n} others like this'
+// 	];
+// 	var idx = Math.min(names.length, 4);
+
+// 	return templates[idx].replace(/{name}|{n}|and/g, function (val) {
+// 		return val === '{name}' ? names.shift() : names.length;
+// 	});
+// }
+// console.log(likes(['Alex',]));
+// console.log(likes(['Alex', 'Jacob',]));
+// console.log(likes(['Alex', 'Jacob', 'Mark',]));
+// console.log(likes(["Alex", "Jacob", "Mark", "Max"]));
+
+44
+const countBits =  (n) =>  n.toString(2).split('').map(el=>Number(el)).reduce((prev,cont)=> prev +cont)
+console.log(countBits(7));
