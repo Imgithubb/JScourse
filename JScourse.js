@@ -618,7 +618,7 @@
 // }
 // console.log(digitalRoot(493193));
 
-41
+// 41
 // let x = y => {if (y.length ===1 ){return y} else { return ' ' + y.join(',| ') +','}}
 // let z = u => {if (u.length ===1 ){return u} else { return ' '+ u.join(', ')+','}}
 // function arrayDiff(a, b) {
@@ -630,18 +630,44 @@
 // }
 // console.log(arrayDiff([5],[5]));
 
-function arrayDiff  (a, b) { 
-        
-let z = []
-        let u = a.filter(el=>{if(!(b.includes(el))){return z.push(el)}})
-        return z
-}
-console.log(arrayDiff([-20,4,15,4,-13],[]));
-[ 8, -11, -2, 7, -1, 13, 5, 19, 4 ]
+// function arrayDiff(a, b) {
+// 	let z = []
+// 	let u = a.filter(el => { if (!(b.includes(el))) { return z.push(el) } })
+// 	return z
+// }
+// console.log(arrayDiff([-20, 4, 15, 4, -13], []));
 
-// let arrayDiff = (a, b) => a.filter(el=>{if(!(b.includes(el))){return el}})
+// let arrayDiff = (a, b) => a.map(el=>!(b.includes(el))?el:'').filter(elem=>!(elem===''))
 // console.log(arrayDiff([-19,0,0,0,8],[-19]));
 
-let arrayDiff =  (a, b) =>a.filter(el=>!(b.includes(el)))
-console.log(arrayDiff([-20,4,15,4,-13],[]));
+// let arrayDiff = (a, b) => a.filter(el => !(b.includes(el)))
+// console.log(arrayDiff([-20, 4, 15, 4, -13], []));
 
+// 43
+// function likes(names) {
+// 	switch (names.length) {
+// 		case 0: return 'no one likes this'
+// 		case 1: return `${names[0]} likes this`
+// 		case 2: return `${names[0]} and ${names[1]} like this`
+// 		case 3: return `${names[0]}, ${names[1]} and ${names[2]} like this`
+// 		default: return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`
+// 	}
+// }
+// console.log(likes([]));
+// console.log(likes(['Alex',]));
+// console.log(likes(['Alex', 'Jacob',]));
+// console.log(likes(['Alex', 'Jacob', 'Mark',]));
+// console.log(likes(["Alex", "Jacob", "Mark", "Max", ' John']));
+
+// function likes(names) {
+// 	if (names.length === 0) { return 'no one likes this' }
+// 	else if (names.length === 1) { return `${names[0]} likes this` }
+// 	else if (names.length === 2) { return `${names[0]} and ${names[1]} like this` }
+// 	else if (names.length === 3) { return `${names[0]}, ${names[1]} and ${names[2]} like this` }
+// 	else if (names.length > 3) { return `${names[0]}, ${names[1]} and ${names.length - 2} others like this` }
+// }
+// console.log(likes([]));
+// console.log(likes(['Alex',]));
+// console.log(likes(['Alex', 'Jacob',]));
+// console.log(likes(['Alex', 'Jacob', 'Mark',]));
+// console.log(likes(["Alex", "Jacob", "Mark", "Max"]));
