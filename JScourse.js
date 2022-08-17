@@ -619,12 +619,23 @@
 // console.log(digitalRoot(493193));
 
 41
+// let x = y => {if (y.length ===1 ){return y} else { return ' ' + y.join(',| ') +','}}
+// let z = u => {if (u.length ===1 ){return u} else { return ' '+ u.join(', ')+','}}
+// function arrayDiff(a, b) {
+// 	let aN = z(a),
+// 		bN = x(b),
+// 		RegEx = new RegExp(`${bN}`, 'g'),
+// 		result = aN.replace(RegEx, '',).split(',').map(el => {if (el === ''){return'' } else {return Number(el)}}).filter(elem=>!(elem===''))
+// 	return result
+// }
+// console.log(arrayDiff([5],[5]));
 
-function arrayDiff(a, b) {
-	let aN = a.join(','),
-		bN = b.join(','),
-		RegEx = new RegExp(`[${bN}]`, 'g'),
-		result = aN.replace(RegEx, '').split(',').map(el => {if (el === '') {return '' } else {Number(el)}}).filter(elem=>!(elem===''))
-	return result
+let z = []
+function arrayDiff  (a, b) { 
+        let u = a.filter(el=>{if(!(b.includes(el))){return z.push(el)}})
+        return z
 }
-console.log(arrayDiff([],[]));
+console.log(arrayDiff([-19,0,0,0,8],[-19,0]));
+
+// let arrayDiff = (a, b) => a.filter(el=>{if(!(b.includes(el))){return el}})
+// console.log(arrayDiff([-19,0,0,0,8],[-19]));
