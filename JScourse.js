@@ -630,12 +630,18 @@
 // }
 // console.log(arrayDiff([5],[5]));
 
-let z = []
 function arrayDiff  (a, b) { 
+        
+let z = []
         let u = a.filter(el=>{if(!(b.includes(el))){return z.push(el)}})
         return z
 }
-console.log(arrayDiff([-19,0,0,0,8],[-19,0]));
+console.log(arrayDiff([-20,4,15,4,-13],[]));
+[ 8, -11, -2, 7, -1, 13, 5, 19, 4 ]
 
 // let arrayDiff = (a, b) => a.filter(el=>{if(!(b.includes(el))){return el}})
 // console.log(arrayDiff([-19,0,0,0,8],[-19]));
+
+let arrayDiff =  (a, b) =>a.filter(el=>!(b.includes(el)))
+console.log(arrayDiff([-20,4,15,4,-13],[]));
+
