@@ -279,7 +279,7 @@
 // function maskify(cc) {
 //         let ccArr = cc.split('')
 //         let rCcArr = ccArr.reverse()
-//         let nRCcArr = rCcArr.map((num, index) => { 
+//         let nRCcArr = rCcArr.map((num, index) => {
 //                 if (index<=3){return num}
 //                  else {return '#'}
 //         })
@@ -408,7 +408,7 @@
 //         let z = 1
 //         let y = []
 //                 for(let i = 0; i<=n; i++){
-//                         x +=  i        
+//                         x +=  i
 //                  }
 //         y.push(z)
 //                  for (let i= 0; i <x-1; i++){
@@ -429,7 +429,7 @@
 // function printerError(s) {
 // 	let len = s.length
 // 		let x = s.match(/[n-z]/gi)
-// 		if (x === null){ return `0/${len}`} 
+// 		if (x === null){ return `0/${len}`}
 // 		else {return x.length + '/' + len}
 // 	}
 // console.log(printerError(''));
@@ -500,7 +500,7 @@
 // 	let second = Math.ceil(blocks / 3)
 // 	return [second, second + 1, blocks - second * 2 - 1]
 //       }
-// console.log(racePodium(11));      
+// console.log(racePodium(11));
 
 // 36
 // function likeOrDislike(buttons) {
@@ -554,7 +554,7 @@
 // // 	console.log(z);
 // // }
 
-// 	return number < 0 
+// 	return number < 0
 // 	  ? 0
 // 	  : [...Array(number).keys()]
 // 	  .filter(n => n % 3 === 0 || n % 5 === 0 )
@@ -706,6 +706,69 @@
 // console.log(likes(['Alex', 'Jacob', 'Mark',]));
 // console.log(likes(["Alex", "Jacob", "Mark", "Max"]));
 
-44
-const countBits =  (n) =>  n.toString(2).split('').map(el=>Number(el)).reduce((prev,cont)=> prev +cont)
-console.log(countBits(7));
+// 44
+// const countBits =  (n) =>  n.toString(2).split('').map(el=>Number(el)).reduce((prev,cont)=> prev +cont)
+// console.log(countBits(7));
+
+// countBits = n => n.toString(2).split('0').join('').length;
+// console.log(countBits(7));
+
+// function countBits(n) {
+// 	console.log(n.toString(2));
+// 	for (c = 0; n; n >>= 1)c += n & 1
+// 	return c;
+// }
+// console.log(countBits(8));
+
+// let countBits = function (n) {
+// 	console.log(n.toString(2));
+// 	let count = 0;
+// 	while (n > 0) {
+// 		if (n % 2 === 1) {
+// 			count++;
+// 		}
+// 		n = Math.floor(n / 2);
+// 	}
+// 	return count;
+// };
+// console.log(countBits(9));
+
+// let countBits = function (n) {
+// 	console.log(n.toString(2));
+// 	a = n.toString(2).match(/1/g);
+// 	return a == null ? 0 : a.length;
+// };
+// console.log(countBits(8));
+
+// 45
+// function createPhoneNumber(numbers) {
+// 	let y = numbers.join(''),
+// 		a1 = y.slice(0, 3),
+// 		a2 = y.slice(3, 6),
+// 		a3 = y.slice(6, 10)
+// 	return `(${a1}) ${a2}-${a3}`
+// }
+// console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+
+// function createPhoneNumber(numbers) {
+// 	return numbers.join('').replace(/(...)(...)(.*)/, '($1) $2-$3');
+// }
+// console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+
+// createPhoneNumber=n=>'(###) ###-####'.replace(/#/g,()=>n.shift())
+// console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+
+// function createPhoneNumber(numbers){
+// 	numbers.unshift("(");
+// 	numbers.splice(4, 0, ")", " ");
+// 	numbers.splice(9, 0, "-");
+// 	return numbers.join("");
+//    }
+//    console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+
+46
+function findOutlier(integers) {
+	let z = integers.filter(int => int % 2)
+	return z.length > 1 ? integers.filter(int2 => !(int2 % 2)).shift() : z.shift()
+}
+console.log(findOutlier([1, 2, 3]));
