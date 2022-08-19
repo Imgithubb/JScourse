@@ -766,6 +766,35 @@
 //    }
 //    console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
 
+// function createPhoneNumber(n) {
+// 	return "(012) 345-6789".replace(/\d/g, d => n[d])
+//    }
+//    console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+
+// if (!String.prototype.format) {
+// 	String.prototype.format = function () {
+// 		var args = arguments;
+// 		return this.replace(/{(\d+)}/g, function (match, number) {
+// 			return typeof args[number] != 'undefined'
+// 				? args[number]
+// 				: match
+// 				;
+// 		});
+// 	};
+// }
+
+// function createPhoneNumber(numbers) {
+// 	var phoneNumber = "({0}{1}{2}) {3}{4}{5}-{6}{7}{8}{9}"
+// 		.format(numbers[0], numbers[1], numbers[2],
+// 			numbers[3], numbers[4], numbers[5],
+// 			numbers[6], numbers[7], numbers[8],
+// 			numbers[9]);
+
+// 	return phoneNumber;
+// }
+
+// console.log(createPhoneNumber([0, 9, 8, 7, 6, 5, 4, 3, 2, 1]))
+
 // 46
 // function findOutlier(integers) {
 // 	let z = integers.filter(int => int % 2)
@@ -773,16 +802,85 @@
 // }
 // console.log(findOutlier([1, 2, 3]));
 
-47
+// function findOutlier(int) {
+// 	let even = int.filter(a => a % 2 == 0);
+// 	let odd = int.filter(a => a % 2 !== 0);
+// 	return even.length == 1 ? even[0] : odd[0];
+// }
+// console.log(findOutlier([1, 2, 3]));
 
-function duplicateCount(text){
-let y = text.toLowerCase().split('')
-let z = y.sort()
-let u = new Set()
-for (i=0;i<z.length;i++){
-        if (!(z[i]===z[i+1])){i++}
-        else {u.add(z[i])}
+// function findOutlier(integers) {
+// 	return integers.filter(even).length >= 2 ? integers.find(odd) : integers.find(even);
+// }
+// function even(num) {
+// 	return (num % 2 == 0);
+// }
+// function odd(num) {
+// 	return !even(num)
+// }
+// console.log(findOutlier([1, 1, 1, 1, 2]));
+
+// function findOutlier(integers) {
+// 	let res;
+// 	let odd = integers.filter(function (e) {
+// 		if (e % 2 != 0) {
+// 			res = e;
+// 		};
+// 		return e % 2 == 0;
+// 	});
+// 	return odd.length > 1 ? res : odd.pop();
+// }
+// console.log(findOutlier([2,1,2,4,4]));
+
+// function findOutlier(integers) {
+// 	console.log(1%2);
+// 	var len = integers.length;
+// 	var first = Math.abs(integers[0]) % 2,
+// 		second = Math.abs(integers[1]) % 2,
+// 		third = Math.abs(integers[2]) % 2,
+// 		base = (first + second + third) >= 2 ? 1 : 0;
+// 	for (var i = 0; i < len; i++) {
+// 		let y = Math.abs(integers[i])
+// 		if (( y % 2) != base) {
+// 			return integers[i];
+// 		}
+// 	}
+// };
+// console.log(findOutlier([1,1,4,5,5]));
+
+// 47
+// function duplicateCount(text) {
+// 	let y = text.toLowerCase().split('')
+// 	let z = y.sort()
+// 	let u = new Set()
+// 	for (i = 0; i < z.length; i++) {
+// 		if (!(z[i] === z[i + 1])) { continue }
+// 		else { u.add(z[i]) }
+// 	}
+// 	return u.size
+// }
+// console.log(duplicateCount("Indivisibility"));
+
+// function duplicateCount(text){
+// 	return (text
+// 		.toLowerCase()
+// 		.split('')
+// 		.sort()
+// 		.join('')
+// 		.match(/([^])\1+/g) || [])
+// 		.length;
+//    }
+//    console.log(duplicateCount("Indivisibility"));
+
+48
+function duplicateEncode(word) {
+	let z = word.toLowerCase().split('').sort()
+	u = new Set()
+	for (i = 0; i < z.length; i++) {
+		if (!(z[i] === z[i + 1])) { continue }
+		else { u.add(z[i]) }
+	}
+	let y = [...u]
+	return word.toLowerCase().split('').map(char => y.includes(char) ? ')' : '(').join('')
 }
-return u.length
-      }
-      console.log(duplicateCount("aabbcde"));
+console.log(duplicateEncode("IlIFIIIIIk"));
