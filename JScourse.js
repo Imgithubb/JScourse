@@ -766,9 +766,23 @@
 //    }
 //    console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
 
-46
-function findOutlier(integers) {
-	let z = integers.filter(int => int % 2)
-	return z.length > 1 ? integers.filter(int2 => !(int2 % 2)).shift() : z.shift()
+// 46
+// function findOutlier(integers) {
+// 	let z = integers.filter(int => int % 2)
+// 	return z.length > 1 ? integers.filter(int2 => !(int2 % 2)).shift() : z.shift()
+// }
+// console.log(findOutlier([1, 2, 3]));
+
+47
+
+function duplicateCount(text){
+let y = text.toLowerCase().split('')
+let z = y.sort()
+let u = new Set()
+for (i=0;i<z.length;i++){
+        if (!(z[i]===z[i+1])){i++}
+        else {u.add(z[i])}
 }
-console.log(findOutlier([1, 2, 3]));
+return u.length
+      }
+      console.log(duplicateCount("aabbcde"));
