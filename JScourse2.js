@@ -62,4 +62,3 @@ console.log(slicce('asdfghjkl'))
 // console.log(rowSumOddNumbers(5));
 
 
-bcdfghjklmnpqrstvwxyz

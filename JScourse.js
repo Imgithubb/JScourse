@@ -862,25 +862,97 @@
 // console.log(duplicateCount("Indivisibility"));
 
 // function duplicateCount(text){
-// 	return (text
-// 		.toLowerCase()
-// 		.split('')
-// 		.sort()
-// 		.join('')
-// 		.match(/([^])\1+/g) || [])
-// 		.length;
+// 	let y = text.toLowerCase().split('').sort().join(''),
+// 		k = (y.match(/([^])\1+/g) || [])
+// 		return k.length;
 //    }
-//    console.log(duplicateCount("Indivisibility"));
+//    console.log(duplicateCount("aadfgakiiu"));
 
-48
-function duplicateEncode(word) {
-	let z = word.toLowerCase().split('').sort()
-	u = new Set()
-	for (i = 0; i < z.length; i++) {
-		if (!(z[i] === z[i + 1])) { continue }
-		else { u.add(z[i]) }
-	}
-	let y = [...u]
-	return word.toLowerCase().split('').map(char => y.includes(char) ? ')' : '(').join('')
-}
-console.log(duplicateEncode("IlIFIIIIIk"));
+// function duplicateCount(text){
+// 	let y = text.toLowerCase().split('')
+// 	return y.filter(function(val, i, arr){
+// 	  return arr.indexOf(val) !== i && arr.lastIndexOf(val) === i;
+// 	}).length;
+//    }
+//    console.log(duplicateCount("aadfgakiiu"));
+
+// let x = 'herllo'
+// let y = new RegExp('([^her])', 'g')
+// let z = x.match(y, )
+// // return z
+// let m = 'sdf\\dsd\fs\zf'
+// console.log(m);
+
+// 48
+// function duplicateEncode(word) {
+// 	let z = word.toLowerCase().split('').sort()
+// 	u = new Set()
+// 	for (i = 0; i < z.length; i++) {
+// 		if (!(z[i] === z[i + 1])) { continue }
+// 		else { u.add(z[i]) }
+// 	}
+// 	let y = [...u]
+// 	return word.toLowerCase().split('').map(char => y.includes(char) ? ')' : '(').join('')
+// }
+// console.log(duplicateEncode("IlIFIIIIIk"));
+
+// 49
+// function isValidWalk(walk) {
+// 	let nAm = walk.filter(direction => direction === 'n'),
+// 		sAm = walk.filter(direction => direction === 's'),
+// 		wAm = walk.filter(direction => direction === 'w'),
+// 		eAm = walk.filter(direction => direction === 'e')
+
+// 	return walk.length === 10 && nAm.length === sAm.length && wAm.length === eAm.length ? true : false
+// }
+// console.log(isValidWalk(['n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's']));
+
+// function isValidWalk(walk) {
+// 	let res1 = walk.map(direction => {
+// 		switch (direction) {
+// 			case 'n': return 1
+// 			case 's': return -1
+// 			case 'w': return 2
+// 			case 'e': return -2
+// 		}
+// 	})
+// 	let res2 = res1.reduce((a, b) => a + b)
+// 	return walk.length === 10 && res2 === 0 ? true : false
+// }
+// console.log(isValidWalk(['n','s','n','s','n','s','n','s','n','s']));
+
+// 50
+// function persistence(num) {
+// 	for (i = 0; num.toString().length > 1; i++) {
+// 		num = num.toString().split('').reduce((a, b) => a * b)
+// 	}
+// 	return i
+// }
+// console.log(persistence(9));
+
+// const persistence = num => {
+// 	return `${num}`.length > 1
+// 	  ? 1 + persistence(`${num}`.split('').reduce((a, b) => a * +b))
+// 	  : 0;
+//    }
+//    console.log(persistence());
+
+51
+
+// function sdf(text){
+// 	let y = text.split('').map((char,index)=> `${char}: ${index+1},`)
+// 		do { console.log(y.shift())} 
+// 		while (y.length>0)
+// 	}
+// 		console.log(sdf('abcdefghijklmnopqrstuvwxyz'));  
+
+// function alphabetPosition(text) {
+// 	let obj = {
+// 		a: 1, b: 2, c: 3, d: 4, e: 5, f: 6, g: 7, h: 8, i: 9, j: 10, k: 11, l: 12, m: 13, n: 14, o: 15, p: 16, q: 17, r: 18, s: 19, t: 20, u: 21, v: 22, w: 23, x: 24, y: 25, z: 26
+// 	}
+// 	return text.toLowerCase().replace(/[^a-z]*/g, '').split('').map(char => obj[char]).join(' ').toString()
+// }
+// console.log(alphabetPosition("The sunset sets at twelve o' clock."));
+
+
+
