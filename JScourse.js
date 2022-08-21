@@ -937,14 +937,13 @@
 //    }
 //    console.log(persistence());
 
-51
-
+// 51
 // function sdf(text){
 // 	let y = text.split('').map((char,index)=> `${char}: ${index+1},`)
-// 		do { console.log(y.shift())} 
+// 		do { console.log(y.shift())}
 // 		while (y.length>0)
 // 	}
-// 		console.log(sdf('abcdefghijklmnopqrstuvwxyz'));  
+// 		console.log(sdf('abcdefghijklmnopqrstuvwxyz'));
 
 // function alphabetPosition(text) {
 // 	let obj = {
@@ -955,4 +954,81 @@
 // console.log(alphabetPosition("The sunset sets at twelve o' clock."));
 
 
+// function alphabetPosition(text) {
+// 	return text
+// 	  .toUpperCase()
+// 	  .match(/[a-z]/gi)
+// 	  .map(c => c.charCodeAt() - 64)
+// 	  .join(' ');
+//    }
+//    console.log(alphabetPosition("The sunset sets at twelve o' clock."));
 
+// function alphabetPosition(text) {
+// 	let result = "";
+// 	for (let i = 0; i < text.length; i++) {
+// 		let code = text.toUpperCase().charCodeAt(i)
+// 		if (code > 64 && code < 91) result += (code - 64) + " ";
+// 	}
+// 	return result.slice(0, result.length - 1);
+// }
+// console.log(alphabetPosition("The sunset sets at twelve o' clock."));
+
+// 52
+// function order(words) {
+// 	let newWords = []
+// 	if (!words.match(/\d/)) { return words }
+// 	words.split(' ').map((el) => newWords[el.match(/\d/)] = el)
+// 	return newWords.join(' ').slice(1)
+// }
+// console.log(order("4of Fo1r pe6ople g3ood th5e the2"));
+
+// function order(words) {
+// 	let newWords = []
+// 	if (!words.match(/\d/)) { return words }
+// 	words.split(' ').map((el) => newWords[/\d/.exec(el)] = el)
+// 	return newWords.join(' ').slice(1)
+// }
+// console.log(order("4of Fo1r pe6ople g3ood th5e the2"));
+
+// function order(words) {
+// 	var array = words.split(' ');
+// 	var sortedArray = [];
+// 	for (i = 0; i <= array.length; i++) {
+// 		for (j = 0; j < array.length; j++) {
+// 			if (array[j].indexOf(i) >= 0) {
+// 				sortedArray.push(array[j]);
+// 			}
+// 		}
+// 	}
+// 	return sortedArray.join(' ');
+// }
+// console.log(order("4of Fo1r pe6ople g3ood th5e the2"));
+
+// var reg = /\d/;
+
+// function order(words){
+//   return words.split(' ').sort(comparator).join(' ');
+// }
+
+// function comparator(word, nextWord) {
+//   return word.match(reg) - nextWord.match(reg)
+// }
+
+// 53
+
+// function tribonacci(signature, n) {
+// 	if (n === 0) { return [] }
+// 	if (n <= 3) { return signature.slice(0, n) }
+// 	else {
+// 		let oldSignature = signature
+// 		let tribArr = []
+// 		for (i = 0; i < n - 3; i++) {
+// 			tribArr.push(signature.reduce((a, b) => a + b))
+// 			let r = signature.slice(1, 3)
+// 			r.push(signature.reduce((a, b) => a + b))
+// 			signature = r
+// 		}
+// 		return oldSignature.concat(tribArr)
+// 	}
+// }
+// console.log(tribonacci([1, 1, 1], 0));
