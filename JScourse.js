@@ -1032,3 +1032,65 @@
 // 	}
 // }
 // console.log(tribonacci([1, 1, 1], 0));
+
+// function tribonacci(signature, n) {
+// 	let result = signature.slice(0, n);
+// 	while (result.length < n) {
+// 		result[result.length] = result.slice(-3).reduce((p, c) => p + c);
+// 	}
+// 	return result;
+// }
+// console.log(tribonacci([1, 1, 1], 2));
+
+// function tribonacci(s,n){
+// 	let arr = [];
+// 	for(let i=0; i<n; i++) {
+// 	  arr.push((i<3) ? s[i] : arr[i-1]+arr[i-2]+arr[i-3]);
+// 	}
+// 	return arr;
+//    }
+// console.log(tribonacci([1, 1, 1], 5));
+
+// function tribonacci(arr,n){
+// 	if (n < 3) return arr.slice(0, n);
+// 	return [arr[0]].concat(tribonacci([arr[1], arr[2], arr[0] + arr[1] + arr[2]], n-1));
+//    }
+//    console.log(tribonacci([1, 1, 1], 5));
+
+// let uniqueInOrder = function (iterable) {
+// 	let arr = []
+// 	typeof iterable === 'string' ? iterable.split``.map((el, i, arrr) => !(arrr[i] === arrr[i + 1]) ? arr.push(el) : {})
+// 		: iterable.map((el, i, ar) => !(ar[i] === ar[i + 1]) ? arr.push(el) : {})
+// 	return arr
+// }
+// console.log(uniqueInOrder('AAAABBBCCDAABBB'))
+
+// var uniqueInOrder = function (iterable) {
+// 	console.log(iterable[-1]);
+// 	return [...iterable].filter((a, i) => a !== iterable[i - 1])
+// }
+// console.log(uniqueInOrder('AAAABBBCCDAABBB'))
+
+// function uniqueInOrder(it) {
+// 	let result = []
+// 	let last
+// 	for (let i = 0; i < it.length; i++) {
+// 		if (it[i] !== last) {
+// 			result.push(last = it[i])
+// 		}
+// 	}
+// 	return result
+// }
+// console.log(uniqueInOrder('AAAABBBCCDAABBB'))
+
+// let uniqueInOrder = function (iterable) {
+// 	return [].filter.call(iterable, (a, i) => iterable[i - 1] !== a);
+// }
+// console.log(uniqueInOrder('AAAABBBCCDAABBB'))
+
+// let x = [1,1,1]
+// let y = [2,2,2]
+// let z = [3,3,3]
+// let r = x.concat.call(y,z, x.map(x1=> x1=4).call(x))
+// console.log(r);
+// console.log(x);
