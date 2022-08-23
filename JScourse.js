@@ -1057,6 +1057,7 @@
 //    }
 //    console.log(tribonacci([1, 1, 1], 5));
 
+// 54
 // let uniqueInOrder = function (iterable) {
 // 	let arr = []
 // 	typeof iterable === 'string' ? iterable.split``.map((el, i, arrr) => !(arrr[i] === arrr[i + 1]) ? arr.push(el) : {})
@@ -1094,3 +1095,16 @@
 // let r = x.concat.call(y,z, x.map(x1=> x1=4).call(x))
 // console.log(r);
 // console.log(x);
+
+55
+function toCamelCase(str) {
+	return str.split``.map((el, i, arr) => {
+		if (str === '') { return '' }
+		if (arr.indexOf(el) === 0) { return el }
+		if (el === '_' || el === '-') { return '' }
+		if (arr[arr.indexOf(el) - 1] === '_' || arr[arr.indexOf(el) - 1] === '-') { return el.toUpperCase() }
+		else { return el.toLowerCase() }
+	}
+	).join``
+}
+console.log(toCamelCase("the_stealth_warrior"));
