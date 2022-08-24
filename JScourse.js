@@ -1100,11 +1100,10 @@
 function toCamelCase(str) {
 	return str.split``.map((el, i, arr) => {
 		if (str === '') { return '' }
-		if (arr.indexOf(el) === 0) { return el }
-		if (el === '_' || el === '-') { return '' }
-		if (arr[arr.indexOf(el) - 1] === '_' || arr[arr.indexOf(el) - 1] === '-') { return el.toUpperCase() }
+		else if (i === 0) { return el }
+		else if (el === '_' || el === '-') { return '' }
+		else if (arr[i - 1] === '_' || arr[i - 1] === '-') { return el.toUpperCase() }
 		else { return el.toLowerCase() }
 	}
 	).join``
 }
-console.log(toCamelCase("the_stealth_warrior"));
