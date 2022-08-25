@@ -1,11 +1,11 @@
-function slicce(str) {
-	let x2 = str.slice(2)
-	return x2
-}
+// function slicce(str) {
+// 	let x2 = str.slice(2)
+// 	return x2
+// }
 
-console.log(slicce('asdfghjkl'))
+// console.log(slicce('asdfghjkl'))
 
-/ 24
+// / 24
 // function friend(friends){
 //         return friends.filter(bro => bro.length===4)
 //       }

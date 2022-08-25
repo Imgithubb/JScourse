@@ -1096,14 +1096,68 @@
 // console.log(r);
 // console.log(x);
 
-55
-function toCamelCase(str) {
-	return str.split``.map((el, i, arr) => {
-		if (str === '') { return '' }
-		else if (i === 0) { return el }
-		else if (el === '_' || el === '-') { return '' }
-		else if (arr[i - 1] === '_' || arr[i - 1] === '-') { return el.toUpperCase() }
-		else { return el.toLowerCase() }
-	}
-	).join``
+// 55
+// function toCamelCase(str) {
+// 	return str.split``.map((el, i, arr) => {
+// 		if (str === '') { return '' }
+// 		else if (i === 0) { return el }
+// 		else if (el === '_' || el === '-') { return '' }
+// 		else if (arr[i - 1] === '_' || arr[i - 1] === '-') { return el.toUpperCase() }
+// 		else { return el.toLowerCase() }
+// 	}
+// 	).join``
+// }
+// console.log(toCamelCase('i-am-programmer'))
+
+// function toCamelCase(str){
+// 	return str.replace(/[-_]\w/g,(m => m.charAt(1).toUpperCase()))
+// }
+// console.log(toCamelCase('i-am-programmer'))
+
+// function toCamelCase(str){
+// 	return str.replace(/([-_])(.)/g, (_, c,b,offset,strd,asd) => b.toUpperCase());
+//    }
+//    console.log(toCamelCase('i-am-programmer'))
+
+// function toCamelCase(str) {
+// 	let y = str.split(/-|_/g)
+// 	let m = y.map((w, i) => (i > 0 ? w.charAt(0).toUpperCase() : w.charAt(0)) + w.slice(1))
+// 	return m.join``
+// }
+// console.log(toCamelCase('i-am-programmer'))
+
+// function toCamelCase(str) {
+// 	return str.split(/\-|_/).reduce(function (previous, current, index) { return camelize(previous, current, index); });
+// }
+
+// function camelize(previous, current, index) {
+// 	return previous + current.capitalizeFirstLetter();
+// }
+
+// String.prototype.capitalizeFirstLetter = function () {
+// 	return this.charAt(0).toUpperCase() + this.slice(1);
+// }
+// console.log(toCamelCase('i-am-programmer'))
+
+// 56
+// function digPow(n, p) {
+// 	let num = String(n).split``.map((e, i) => e ** (p + i)).reduce((p, c) => p += c)
+// 	return num % n === 0 ? num / n : -1
+// }
+// console.log(digPow(46288, 3));
+
+// function digPow(n, p) {
+// 	let x = String(n).split("").reduce((s, d, i) => s + Math.pow(d, p + i), 0)
+// 	return x % n ? -1 : x / n
+//    }
+//    console.log(digPow(46288, 3));
+
+
+function digPow(n, p) {
+	let ans = ('' + n).split('')
+		.map(function (d, i) { return Math.pow(+d, i + p) })
+		.reduce(function (s, v) { return s + v }) / n
+	return ans % 1 ? -1 : ans
 }
+console.log(digPow(46288, 3));
+console.log((5123.3 % 1))
