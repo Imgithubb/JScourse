@@ -1174,7 +1174,7 @@
 //         let str = n.toString()
 //         let res = 0;
 //         for(let i=0; i<str.length; i++){
-//           res += Math.pow(parseInt(str[i]),p++); 
+//           res += Math.pow(parseInt(str[i]),p++);
 //         }
 //         return res%n === 0 ? res/n : -1;
 //       }
@@ -1183,8 +1183,37 @@
 // const digPow = (n, p, k) => (k = [...''+n].reduce((s, d) => s += d**p++, 0) / n, Number.isInteger(k) ? k : -1)
 // console.log(digPow(46289, 3));
 
-57
-decodeMorse = function(morseCode){
-        
-      }
+// 57
+// function moveZeros(arr) {
+// 	let x = []
+// 	let y = arr.filter(el => !(el === 0))
+// 	x.length = arr.length - y.length
+// 	return y.concat(x.fill(0))
+// }
+// console.log(moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"]));
 
+// let moveZeros = function (arr) {
+// 	for(let i = arr.length - 1; i >= 0; i--) {
+// 	  if(arr[i] === 0) {
+// 	    arr.splice(i, 1);
+// 	    arr.push(0);
+// 	  }
+// 	}
+// 	return arr;
+//    }
+//    console.log(moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"]));
+
+//    let moveZeros = function (arr) {
+// 	for(let i = 0; i <= arr.length; i++) {
+// 	  if(arr[i] === 0) {
+// 	    arr.splice(i, 1);
+// 	    arr.push(0);
+// 	  }
+// 	}
+// 	return arr;
+//    }
+//    console.log(moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"]));
+
+// 58
+// const pigIt = str => str.split` `.map(el => el.replace(/(\w)(\w*)/ig, (a, b, c) => c + b + 'ay')).join` `
+// console.log(pigIt('This is my string'));
