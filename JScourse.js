@@ -1153,11 +1153,32 @@
 //    console.log(digPow(46288, 3));
 
 
-function digPow(n, p) {
-	let ans = ('' + n).split('')
-		.map(function (d, i) { return Math.pow(+d, i + p) })
-		.reduce(function (s, v) { return s + v }) / n
-	return ans % 1 ? -1 : ans
-}
-console.log(digPow(46288, 3));
-console.log((5123.3 % 1))
+// function digPow(n, p) {
+// 	let ans = ('' + n).split('')
+// 		.map(function (d, i) { return Math.pow(+d, i + p) })
+// 		.reduce(function (s, v) { return s + v }) / n
+//                 let e = ans % 1
+// 	return e ? -1 : ans
+// }
+// console.log(digPow(46289, 3));
+
+// function digPow(n, p){
+//         let ans = n.toString().split('')
+//                    .map((v,i) => Math.pow(parseInt(v), i+p))
+//                    .reduce((a,b) => a+b) / n;
+//         return ans%1 == 0 ? ans : -1;
+//       }
+//       console.log(digPow(46289, 3));
+
+// function digPow(n, p){
+//         let str = n.toString()
+//         let res = 0;
+//         for(let i=0; i<str.length; i++){
+//           res += Math.pow(parseInt(str[i]),p++); 
+//         }
+//         return res%n === 0 ? res/n : -1;
+//       }
+// console.log(digPow(46289, 3));
+
+// const digPow = (n, p, k) => (k = [...''+n].reduce((s, d) => s += d**p++, 0) / n, Number.isInteger(k) ? k : -1)
+// console.log(digPow(46289, 3));
