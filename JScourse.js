@@ -1152,7 +1152,6 @@
 //    }
 //    console.log(digPow(46288, 3));
 
-
 function digPow(n, p) {
 	let ans = ('' + n).split('')
 		.map(function (d, i) { return Math.pow(+d, i + p) })
