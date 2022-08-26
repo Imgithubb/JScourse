@@ -1182,3 +1182,8 @@
 
 // const digPow = (n, p, k) => (k = [...''+n].reduce((s, d) => s += d**p++, 0) / n, Number.isInteger(k) ? k : -1)
 // console.log(digPow(46289, 3));
+
+57
+decodeMorse = function(morseCode){
+        
+      }
