@@ -1217,3 +1217,111 @@
 // 58
 // const pigIt = str => str.split` `.map(el => el.replace(/(\w)(\w*)/ig, (a, b, c) => c + b + 'ay')).join` `
 // console.log(pigIt('This is my string'));
+
+// function pigIt(str) {
+// 	return str.replace(/(\w)(\w*)(\s|$)/g, "$2$1ay$3")
+// }
+// console.log(pigIt('This is my string'));
+
+// function pigIt(str) {
+// 	return str.replace(/\w+/g, (w) => {
+// 		let y = w.slice(1)
+// 		let z = w[0]
+// 		return y + z + 'ay';
+// 	});
+// }
+// console.log(pigIt('This is my string'))
+
+// function pigIt(str) {
+// 	return str.replace(/\b(\w)(\w*)\b/g, "$2$1ay");
+// }
+// console.log(pigIt('This is my string'))
+
+// const pigIt = str => str.split` `.map(w =>  w.slice(1) + w.charAt(0) + 'ay').join` `
+// console.log(pigIt('This is my string'))
+
+// function pigIt(str){
+// 	return str
+// 	  .split(" ")
+// 	  .map(word =>`${ word.substring(1)}${word.split('').shift()}${word.charCodeAt(0) > 63 ? 'ay' : '' }`)
+// 	  .join(" ");
+//     }
+//     console.log(pigIt('O tempora o mores !'))
+
+59
+// function validParentheses(parens) {
+// 	for (let i = 0; i < 5; i++)
+// 		parens = parens.split``.map((el, ind, arr) => {
+// 			if (el === '(' && arr[ind + 1] === ')') arr[ind + 1] = ''
+// 			else if (el === '') arr[ind - 1] = ''
+// 			else {return el}
+// 		}).filter(elem => !(elem === '')).join``
+// 	return parens.length === 0 ? true : false
+// }
+// console.log(validParentheses("))(("));
+
+// function validParentheses(parens) {
+// 	var n = 0;
+// 	for (var i = 0; i < parens.length; i++) {
+// 		if (parens[i] == '(') n++;
+// 		if (parens[i] == ')') n--;
+// 		if (n < 0) return false;
+// 	}
+// 	return n == 0;
+// }
+// console.log(validParentheses("(())("));
+
+// function validParentheses(string) {
+// 	var tokenizer = /[()]/g,
+// 		count = 0,
+// 		token;
+// 	while (token = tokenizer.exec(string), token !== null) {
+// 		if (token == "(") { count++; }
+// 		else if (token == ")") {
+// 			count--;
+// 			if (count < 0) { return false; }
+// 		}
+// 	}
+// 	return count == 0;
+// }
+// console.log(validParentheses("(())sdfs(df"));
+
+// function execcc(str) {
+// 	let reg = new RegExp('(1)2', 'g')
+// 	console.log(reg.exec(str))
+// 	console.log(reg.exec(str))
+// 	console.log(reg.exec(str))
+// 	console.log(reg.exec(str))
+// 	return reg.exec(str)
+// }
+// console.log(execcc('123123123'));
+
+
+// function validParentheses(parens) {
+// 	var indent = 0;
+// 	for (var i = 0; i < parens.length && indent >= 0; i++) {
+// 		indent += (parens[i] == '(') ? 1 : -1;
+// 	}
+// 	return (indent == 0);
+// }
+// console.log(validParentheses("))(("))
+
+// function validParentheses(parens) {
+// 	var re = /\(\)/;
+// 	while (re.test(parens)) parens = parens.replace(re, "");
+// 	return !parens;
+// }
+// console.log(validParentheses("))(("))
+
+
+
+
+60
+function humanReadable(seconds) {
+	let h = (seconds - (seconds % 3600)) / 3600
+	let m = ((seconds % 3600) - ((seconds % 3600) % 60)) / 60
+	let s = ((seconds % 3600) % 60)
+	let to0 = x => `${x}`.length === 1 ? '0' + x : x
+	return `${to0(h)}:${to0(m)}:${to0(s)}`
+}
+console.log(humanReadable(86400));
