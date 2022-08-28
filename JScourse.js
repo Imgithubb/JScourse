@@ -1308,20 +1308,127 @@
 
 // function validParentheses(parens) {
 // 	var re = /\(\)/;
-// 	while (re.test(parens)) parens = parens.replace(re, "");
+// 	while (re.test(parens)){
+// 		parens = parens.replace(re, "")}
 // 	return !parens;
-// }
+// 	}
 // console.log(validParentheses("))(("))
 
+// function validParentheses(parens) {
+// 	var stack = []
+// 	for (var i = 0; i < parens.length; i++) {
+// 		if (parens[i] === '(') {
+// 			stack.push(parens[i]);
+// 		}
+// 		else if ('(' !== stack.pop()) {
+// 			return false;
+// 		}
+// 	}
+// 	return stack.length === 0;
+// }
+// console.log(validParentheses("(())"))
 
+// function validParentheses(parens){
+// 	while(parens.indexOf('()') != -1){
+// 	  parens = parens.replace('()', '');
+// 	}
+// 	return !parens.length;
+//    }
+//    console.log(validParentheses("(())"))
 
+// function validParentheses(v) {
+// 	while (v.includes("()")) {
+// 		v = v.replace("()", "")
+// 	}
+// 	return !v.length
+// }
+// console.log(validParentheses("(())("))
 
-60
-function humanReadable(seconds) {
-	let h = (seconds - (seconds % 3600)) / 3600
-	let m = ((seconds % 3600) - ((seconds % 3600) % 60)) / 60
-	let s = ((seconds % 3600) % 60)
-	let to0 = x => `${x}`.length === 1 ? '0' + x : x
-	return `${to0(h)}:${to0(m)}:${to0(s)}`
-}
-console.log(humanReadable(86400));
+// function validParentheses(parens) {
+// 	return [...parens].reduce((a, c) => (a + c).replace("()", '')) == "" ? true : false;
+// }
+// console.log(validParentheses("(())"))
+
+// 60
+// function humanReadable(seconds) {
+// 	let h = (seconds - (seconds % 3600)) / 3600
+// 	let m = ((seconds % 3600) - ((seconds % 3600) % 60)) / 60
+// 	let s = ((seconds % 3600) % 60)
+// 	let to0 = x => `${x}`.length === 1 ? '0' + x : x
+// 	return `${to0(h)}:${to0(m)}:${to0(s)}`
+// }
+// console.log(humanReadable(86400));
+
+// function humanReadable(seconds) {
+// 	var pad = function (x) { return (x < 10) ? "0" + x : x; }
+// 	return pad(Math.floor(seconds / (60 * 60))) + ":" +
+// 		pad((Math.floor(seconds / 60 % 60))) + ":" +
+// 		pad(seconds % 60)
+// }
+// console.log(humanReadable(45296))
+
+// function humanReadable(seconds) {
+// 	var hours = parseInt(seconds / 3600);
+// 	var minutes = parseInt(seconds / 60) % 60;
+// 	var seconds = seconds % 60;
+// 	var pad = function (val) {
+// 		return val < 10 ? "0" + val : val;
+// 	}
+// 	return pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
+// }
+// console.log(humanReadable(45296))
+
+// function humanReadable(seconds) {
+// 	return [seconds / 3600, seconds % 3600 / 60, seconds % 60].map(function (v) {
+// 		v = Math.floor(v).toString();
+// 		return v.length == 1 ? '0' + v : v;
+// 	}).join(':');
+// }
+// console.log(humanReadable(45296))
+
+// function humanReadable(seconds) {
+// 	var HH, MM, SS;
+// 	HH = "0" + Math.floor(seconds / 3600);
+// 	seconds -= HH * 3600;
+// 	MM = "0" + Math.floor(seconds / 60);
+// 	seconds -= MM * 60;
+// 	SS = "0" + seconds;
+// 	return HH.slice(-2) + ":" + MM.slice(-2) + ":" + SS.slice(-2);
+// }
+// console.log(humanReadable(45296))
+
+// p = n => `0${n}`.slice(-2), humanReadable = (s) => (m = s / 60 | 0, p(m / 60 | 0) + ':' + p(m % 60) + ':' + p(s % 60))
+// console.log(humanReadable(30))
+
+// let c = x => 	x/60|0
+// let x =(4851/60).toString(2)
+// let y = (0).toString(2)
+// console.log(x|y);
+// console.log(parseInt(`${x|y}`,2));
+// console.log(c(4851));
+
+// 61
+// function anagrams(word, words) {
+// 	let ws = words.filter(w => w.length === word.length)
+// 	let x = word.split``.sort().join``
+// 	let y = ws.map(wew => wew.split``.sort().join``)
+// 	return y.map((wrd, i) => {
+// 		if (wrd.includes(x)) {
+// 			return ws[i]
+// 		}
+// 		else { return '' }
+// 	}).filter(el => el !== '')
+// }
+// console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']));
+
+// 62
+// function dirReduc(arr) {
+// 	let reg = new RegExp('NORTH,SOUTH|SOUTH,NORTH|EAST,WEST|WEST,EAST', 'g')
+// 	let arr1 = arr.join`,`
+// 	while (reg.test(arr1)) {
+// 		arr1 = arr1.replace(reg, '')
+// 		.split`,`.filter(e=>e!=='').join`,`
+// 	}
+// 	return arr1.split`,`.filter(el => el !== '')
+// }
+// console.log(dirReduc(["NORTH","SOUTH","SOUTH","EAST","WEST","NORTH","WEST"]));   
