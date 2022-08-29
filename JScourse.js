@@ -1421,6 +1421,9 @@
 // }
 // console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']));
 
+// let anagrams = (word, words) => words.filter(w => w.split('').sort().join('') === word.split('').sort().join(''));
+// console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']));
+
 // 62
 // function dirReduc(arr) {
 // 	let reg = new RegExp('NORTH,SOUTH|SOUTH,NORTH|EAST,WEST|WEST,EAST', 'g')
@@ -1431,4 +1434,61 @@
 // 	}
 // 	return arr1.split`,`.filter(el => el !== '')
 // }
-// console.log(dirReduc(["NORTH","SOUTH","SOUTH","EAST","WEST","NORTH","WEST"]));   
+// console.log(dirReduc(["NORTH","SOUTH","SOUTH","EAST","WEST","NORTH","WEST"]));
+
+// function dirReduc(plan) {
+// 	var opposite = {
+// 		'NORTH': 'SOUTH', 'EAST': 'WEST', 'SOUTH': 'NORTH', 'WEST': 'EAST'
+// 	};
+// 	return plan.reduce(function (prev, curr) {
+// 		if (prev[prev.length - 1] === opposite[curr])
+// 			prev.pop();
+// 		else
+// 			prev.push(curr);
+// 		return prev;
+// 	}, []);
+// }
+// console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]));
+
+// function dirReduc(arr) {
+// 	var str = arr.join(''), pattern = /NORTHSOUTH|EASTWEST|SOUTHNORTH|WESTEAST/;
+// 	while (pattern.test(str)) str = str.replace(pattern, '');
+// 	return str.match(/(NORTH|SOUTH|EAST|WEST)/g) || [];
+// }
+// console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST","WEST"]));
+
+// function dirReduc(arr) {
+// 	var count = 0;
+// 	for (var i = 0; i < arr.length; i++) {
+// 		if (arr[i] === "WEST" && arr[i + 1] === "EAST" ||
+// 			arr[i] === "EAST" && arr[i + 1] === "WEST" ||
+// 			arr[i] === "NORTH" && arr[i + 1] === "SOUTH" ||
+// 			arr[i] === "SOUTH" && arr[i + 1] === "NORTH") {
+// 			arr.splice(i, 2);
+// 			count++;
+// 			i--;
+// 		}
+// 	}
+// 	return count === 0 ? arr : dirReduc(arr);
+// }
+//
+
+// function isOppo(dir1, dir2) {
+// 	if (dir1 + dir2 === 'SOUTHNORTH') return true;
+// 	if (dir1 + dir2 === 'NORTHSOUTH') return true;
+// 	if (dir1 + dir2 === 'EASTWEST') return true;
+// 	if (dir1 + dir2 === 'WESTEAST') return true;
+// 	return false;
+// }
+
+// function dirReduc(arr) {
+// 	var len = arr.length
+// 	for (var i = 0; i < len - 1; i++) {
+// 		if (isOppo(arr[i], arr[i + 1])) {
+// 			arr.splice(i, 2);
+// 			return dirReduc(arr);
+// 		}
+// 	}
+// 	return arr;
+// }
+// console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST", "WEST"]));
