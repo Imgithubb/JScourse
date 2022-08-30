@@ -1492,3 +1492,45 @@
 // 	return arr;
 // }
 // console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST", "WEST"]));
+
+// function dirReduc(arr){
+// 	for (let i = 0; i < arr.length; i++) {
+// 		switch (arr[i] + arr[i + 1]) {
+
+// 			case "EASTWEST":
+// 				arr.splice(i, 2);
+// 				i = i - i - 1;  // ( i = -1 ) => reset the loop to scan the array from i=0
+// 				break;
+
+// 			case "WESTEAST":
+// 				arr.splice(i, 2);
+// 				i = i - i - 1;
+// 				break;
+
+// 			case "NORTHSOUTH":
+// 				arr.splice(i, 2);
+// 				i = i - i - 1;
+// 				break;
+
+// 			case "SOUTHNORTH":
+// 				arr.splice(i, 2);
+// 				i = i - i - 1;
+// 				break;
+// 		}
+// 	}
+// 	return arr
+// }
+// console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST", "WEST"]));
+
+63
+
+function rgb(r, g, b) {
+	let toRgb = num => {
+		if (num > 255) return num = 'ff'
+		else if (num <= 0) return num = '00'
+		else if (num.toString(16).length === 1) return '0' + num.toString(16)
+		else return num.toString(16)
+	}
+	return `${toRgb(r)}${toRgb(g)}${toRgb(b)}`.toUpperCase()
+}
+console.log(rgb(10, 0, 47));
