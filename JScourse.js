@@ -1522,15 +1522,101 @@
 // }
 // console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST", "WEST"]));
 
-63
+// 63
+// function rgb(r, g, b) {
+// 	let toRgb = num => {
+// 		if (num > 255) return num = 'ff'
+// 		else if (num <= 0) return num = '00'
+// 		else if (num.toString(16).length === 1) return '0' + num.toString(16)
+// 		else return num.toString(16)
+// 	}
+// 	return `${toRgb(r)}${toRgb(g)}${toRgb(b)}`.toUpperCase()
+// }
+// console.log(rgb(10, 0, 47));
+
+// function rgb(r, g, b) {
+// 	return toHex(r) + toHex(g) + toHex(b);
+// }
+// function toHex(d) {
+// 	if (d < 0) { return "00"; }
+// 	if (d > 255) { return "FF"; }
+// 	return ("0" + (Number(d).toString(16))).slice(-2).toUpperCase()
+// }
+// console.log(rgb(10, 0, 47));
+
+// function rgb(r, g, b) {
+// 	return [r, g, b].map(function (x) {
+// 		return ('0' + Math.max(0, Math.min(255, x)).toString(16)).slice(-2);
+// 	}).join('').toUpperCase();
+// }
+// console.log(rgb(10, 0, 245));
+
+// const rgb = (...arg) => arg
+// 	.map(it => Math.max(Math.min(it, 255), 0)
+// 		.toString(16)
+// 		.padStart(2, '0')
+// 		.toUpperCase()
+// 	).join('');
+// console.log(rgb(10, 0, 245));
+
+// function rgb(r, g, b) {
+// 	r = Math.max(0, Math.min(255, r));
+// 	g = Math.max(0, Math.min(255, g));
+// 	b = Math.max(0, Math.min(255, b));
+// 	let r2 = r << 16
+// 	let g2 = g << 8
+// 	let color = r2 + g2 + b;
+
+// 	return ('00000' + color.toString(16).toUpperCase()).slice(-6);
+// }
+// console.log(rgb(15, 16, 17));
+
+// function decToHex(n) {
+
+function decToHex(n) {
+
+	var mods = [];
+	var num = n;
+	var mod;
+	const HEXHASH = {
+		10: 'A',
+		11: 'B',
+		12: 'C',
+		13: 'D',
+		14: 'E',
+		15: 'F'
+	};
+
+	while (num > 0) {
+		mod = num % 16;
+		mod >= 10 ? mods.push(HEXHASH[mod]) : mods.push(mod);
+		num = Math.floor(num / 16);
+	}
+
+	return mods.reverse().map(function (n) {
+		return n.toString();
+	}).join('');
+}
+
+//decToHex(148);
+
+function fillZeroes(s) {
+
+	if (s.length === 0) return '00';
+	if (s.length === 1) return '0' + s;
+	return s;
+}
 
 function rgb(r, g, b) {
-	let toRgb = num => {
-		if (num > 255) return num = 'ff'
-		else if (num <= 0) return num = '00'
-		else if (num.toString(16).length === 1) return '0' + num.toString(16)
-		else return num.toString(16)
-	}
-	return `${toRgb(r)}${toRgb(g)}${toRgb(b)}`.toUpperCase()
+
+	var args = Array.prototype.slice.call(arguments).map(function (n) {
+		return (n > 255) ? 255 : n;
+	});
+
+	var red = decToHex(args[0]);
+	var green = decToHex(args[1]);
+	var blue = decToHex(args[2]);
+
+	return fillZeroes(red) + fillZeroes(green) + fillZeroes(blue);
 }
-console.log(rgb(10, 0, 47));
+console.log(rgb(15, 16, 17));
