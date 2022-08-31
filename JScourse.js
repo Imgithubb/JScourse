@@ -1621,28 +1621,82 @@
 // }
 // console.log(rgb(15, 16, 17));
 
-64
+// 64
 
-function zero() { 0}
-function one(a) {
-	if (arguments.length === 0) {return 1}
-	else {
-		if (a === plus()){return 1+a} 
-	}
-}
-function two() {2}
-function three() {3}
-function four() {4}
-function five() {5}
-function six() {6}
-function seven() {7}
-function eight() {8}
-function nine() {9}
+// function zero(a) {
+// 	if (arguments.length === 0) { return 0 }
+// 	else if (a[0] === '+') { return 0 + Number(a[1]) }
+// 	else if (a[0] === '-') { return 0 - Number(a[1]) }
+// 	else if (a[0] === '*') { return 0 * Number(a[1]) }
+// 	else if (a[0] === '/') { return Math.floor(0 / Number(a[1])) }
+// }
+// function one(a) {
+// 	if (arguments.length === 0) { return 1 }
+// 	else if (a[0] === '+') { return 1 + Number(a[1]) }
+// 	else if (a[0] === '-') { return 1 - Number(a[1]) }
+// 	else if (a[0] === '*') { return 1 * Number(a[1]) }
+// 	else if (a[0] === '/') { return Math.floor(1 / Number(a[1])) }
+// }
+// function two(a) {
+// 	if (arguments.length === 0) { return 2 }
+// 	else if (a[0] === '+') { return 2 + Number(a[1]) }
+// 	else if (a[0] === '-') { return 2 - Number(a[1]) }
+// 	else if (a[0] === '*') { return 2 * Number(a[1]) }
+// 	else if (a[0] === '/') { return Math.floor(2 / Number(a[1])) }
+// }
+// function three(a) {
+// 	if (arguments.length === 0) { return 3 }
+// 	else if (a[0] === '+') { return 3 + Number(a[1]) }
+// 	else if (a[0] === '-') { return 3 - Number(a[1]) }
+// 	else if (a[0] === '*') { return 3 * Number(a[1]) }
+// 	else if (a[0] === '/') { return Math.floor(3 / Number(a[1])) }
+// }
+// function four(a) {
+// 	if (arguments.length === 0) { return 4 }
+// 	else if (a[0] === '+') { return 4 + Number(a[1]) }
+// 	else if (a[0] === '-') { return 4 - Number(a[1]) }
+// 	else if (a[0] === '*') { return 4 * Number(a[1]) }
+// 	else if (a[0] === '/') { return Math.floor(4 / Number(a[1])) }
+// }
+// function five(a) {
+// 	if (arguments.length === 0) { return 5 }
+// 	else if (a[0] === '+') { return 5 + Number(a[1]) }
+// 	else if (a[0] === '-') { return 5 - Number(a[1]) }
+// 	else if (a[0] === '*') { return 5 * Number(a[1]) }
+// 	else if (a[0] === '/') { return Math.floor(5 / Number(a[1])) }
+// }
+// function six(a) {
+// 	if (arguments.length === 0) { return 6 }
+// 	else if (a[0] === '+') { return 6 + Number(a[1]) }
+// 	else if (a[0] === '-') { return 6 - Number(a[1]) }
+// 	else if (a[0] === '*') { return 6 * Number(a[1]) }
+// 	else if (a[0] === '/') { return Math.floor(6 / Number(a[1])) }
+// }
+// function seven(a) {
+// 	if (arguments.length === 0) { return 7 }
+// 	else if (a[0] === '+') { return 7 + Number(a[1]) }
+// 	else if (a[0] === '-') { return 7 - Number(a[1]) }
+// 	else if (a[0] === '*') { return 7 * Number(a[1]) }
+// 	else if (a[0] === '/') { return Math.floor(7 / Number(a[1])) }
+// }
+// function eight(a) {
+// 	if (arguments.length === 0) { return 8 }
+// 	else if (a[0] === '+') { return 8 + Number(a[1]) }
+// 	else if (a[0] === '-') { return 8 - Number(a[1]) }
+// 	else if (a[0] === '*') { return 8 * Number(a[1]) }
+// 	else if (a[0] === '/') { return Math.floor(8 / Number(a[1])) }
+// }
+// function nine(a) {
+// 	if (arguments.length === 0) { return 9 }
+// 	else if (a[0] === '+') { return 9 + Number(a[1]) }
+// 	else if (a[0] === '-') { return 9 - Number(a[1]) }
+// 	else if (a[0] === '*') { return 9 * Number(a[1]) }
+// 	else if (a[0] === '/') { return Math.floor(9 / Number(a[1])) }
+// }
 
-function plus(b) {let x = +b
-	 return x}
+// function plus(b) { return '+' + b }
+// function minus(b) { return '-' + b }
+// function times(b) { return '*' + b }
+// function dividedBy(b) { return '/' + b }
 
-console.log(one(plus(one())));
-function minus() {}
-function times() {}
-function dividedBy() {}
+// console.log(six(dividedBy(two())));
