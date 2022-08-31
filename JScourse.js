@@ -1573,50 +1573,76 @@
 
 // function decToHex(n) {
 
-function decToHex(n) {
+// function decToHex(n) {
 
-	var mods = [];
-	var num = n;
-	var mod;
-	const HEXHASH = {
-		10: 'A',
-		11: 'B',
-		12: 'C',
-		13: 'D',
-		14: 'E',
-		15: 'F'
-	};
+// 	var mods = [];
+// 	var num = n;
+// 	var mod;
+// 	const HEXHASH = {
+// 		10: 'A',
+// 		11: 'B',
+// 		12: 'C',
+// 		13: 'D',
+// 		14: 'E',
+// 		15: 'F'
+// 	};
 
-	while (num > 0) {
-		mod = num % 16;
-		mod >= 10 ? mods.push(HEXHASH[mod]) : mods.push(mod);
-		num = Math.floor(num / 16);
+// 	while (num > 0) {
+// 		mod = num % 16;
+// 		mod >= 10 ? mods.push(HEXHASH[mod]) : mods.push(mod);
+// 		num = Math.floor(num / 16);
+// 	}
+
+// 	return mods.reverse().map(function (n) {
+// 		return n.toString();
+// 	}).join('');
+// }
+
+// //decToHex(148);
+
+// function fillZeroes(s) {
+
+// 	if (s.length === 0) return '00';
+// 	if (s.length === 1) return '0' + s;
+// 	return s;
+// }
+
+// function rgb(r, g, b) {
+
+// 	var args = Array.prototype.slice.call(arguments).map(function (n) {
+// 		return (n > 255) ? 255 : n;
+// 	});
+
+// 	var red = decToHex(args[0]);
+// 	var green = decToHex(args[1]);
+// 	var blue = decToHex(args[2]);
+
+// 	return fillZeroes(red) + fillZeroes(green) + fillZeroes(blue);
+// }
+// console.log(rgb(15, 16, 17));
+
+64
+
+function zero() { 0}
+function one(a) {
+	if (arguments.length === 0) {return 1}
+	else {
+		if (a === plus()){return 1+a} 
 	}
-
-	return mods.reverse().map(function (n) {
-		return n.toString();
-	}).join('');
 }
+function two() {2}
+function three() {3}
+function four() {4}
+function five() {5}
+function six() {6}
+function seven() {7}
+function eight() {8}
+function nine() {9}
 
-//decToHex(148);
+function plus(b) {let x = +b
+	 return x}
 
-function fillZeroes(s) {
-
-	if (s.length === 0) return '00';
-	if (s.length === 1) return '0' + s;
-	return s;
-}
-
-function rgb(r, g, b) {
-
-	var args = Array.prototype.slice.call(arguments).map(function (n) {
-		return (n > 255) ? 255 : n;
-	});
-
-	var red = decToHex(args[0]);
-	var green = decToHex(args[1]);
-	var blue = decToHex(args[2]);
-
-	return fillZeroes(red) + fillZeroes(green) + fillZeroes(blue);
-}
-console.log(rgb(15, 16, 17));
+console.log(one(plus(one())));
+function minus() {}
+function times() {}
+function dividedBy() {}
