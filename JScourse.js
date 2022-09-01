@@ -1248,7 +1248,7 @@
 //     }
 //     console.log(pigIt('O tempora o mores !'))
 
-59
+// 59
 // function validParentheses(parens) {
 // 	for (let i = 0; i < 5; i++)
 // 		parens = parens.split``.map((el, ind, arr) => {
@@ -1420,6 +1420,7 @@
 // 	}).filter(el => el !== '')
 // }
 // console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']));
+
 
 // 62
 // function dirReduc(arr) {
