@@ -1742,10 +1742,31 @@
 //       var seven = n(7);
 //       var eight = n(8);
 //       var nine = n(9);
-      
+
 //       function plus(r) { return function(l) { return l + r; }; }
 //       function minus(r) { return function(l) { return l - r; }; }
 //       function times(r) { return function(l) { return l * r; }; }
 //       function dividedBy(r) { return function(l) { return l / r; }; }
-      
+
 // console.log(one(plus(one())));
+
+// 65
+
+// function rot13(message) {
+// 	let x = [], y = []
+// 	for (let i = 0; x.length < 91 - 65; i++) {
+// 		x.push(65 + i)
+// 		y.push(97 + i)
+// 	}
+// 	return message.split``.map(ch => {
+// 		let chN = ch.charCodeAt(0),
+// 			SCC = String.fromCharCode
+
+// 		if (x.includes(chN) && x.includes(chN + 13)) { return (SCC(chN + 13)) }
+// 		else if (x.includes(chN)) { return SCC(x[13 - (x.length - x.indexOf(chN))]) }
+// 		else if (y.includes(chN) && y.includes(chN + 13)) { return (SCC(chN + 13)) }
+// 		else if (y.includes(chN)) { return SCC(y[13 - (y.length - y.indexOf(chN))]) }
+// 		else { return ch }
+// 	}).join``
+// }
+// console.log(rot13('test'));
