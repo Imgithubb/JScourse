@@ -1701,3 +1701,51 @@
 // function dividedBy(b) { return '/' + b }
 
 // console.log(six(dividedBy(two())));
+
+// function zero(a) { return arguments.length === 0 ? 0 : r(b = 0, c = a) }
+// let one = a => a  ? r(b = 1, c = a) : 1
+// function two(a) { return arguments.length === 0 ? 2 : r(b = 2, c = a) }
+// function three(a) { return arguments.length === 0 ? 3 : r(b = 3, c = a) }
+// function four(a) { return arguments.length === 0 ? 4 : r(b = 4, c = a) }
+// function five(a) { return arguments.length === 0 ? 5 : r(b = 5, c = a) }
+// function six(a) { return arguments.length === 0 ? 6 : r(b = 6, c = a) }
+// function seven(a) { return arguments.length === 0 ? 7 : r(b = 7, c = a) }
+// function eight(a) { return arguments.length === 0 ? 8 : r(b = 8, c = a) }
+// function nine(a) { return arguments.length === 0 ? 9 : r(b = 9, c = a) }
+
+// let r = (b, c) => {
+//         if (c[0] === '+') { return b + Number(c[1]) }
+//         else if (c[0] === '-') { return b - Number(c[1]) }
+//         else if (c[0] === '*') { return b * Number(c[1]) }
+//         else if (c[0] === '/') { return Math.floor(b / Number(c[1])) }
+// }
+
+// function plus(b) { return '+' + b }
+// function minus(b) { return '-' + b }
+// function times(b) { return '*' + b }
+// function dividedBy(b) { return '/' + b }
+
+// console.log(one(plus(one())));
+
+// var n = function(digit) {
+//         return function(op) {
+//           return op ? op(digit) : digit;
+//         }
+//       };
+//       var zero = n(0);
+//       var one = n(1);
+//       var two = n(2);
+//       var three = n(3);
+//       var four = n(4);
+//       var five = n(5);
+//       var six = n(6);
+//       var seven = n(7);
+//       var eight = n(8);
+//       var nine = n(9);
+      
+//       function plus(r) { return function(l) { return l + r; }; }
+//       function minus(r) { return function(l) { return l - r; }; }
+//       function times(r) { return function(l) { return l * r; }; }
+//       function dividedBy(r) { return function(l) { return l / r; }; }
+      
+// console.log(one(plus(one())));
