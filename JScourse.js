@@ -1421,6 +1421,9 @@
 // }
 // console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']));
 
+//s = (word, words) => words.filter(w => w.split('').sort().join('') === word.split('').sort().join(''));
+// console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']));
+
 
 // 62
 // function dirReduc(arr) {
@@ -1432,4 +1435,269 @@
 // 	}
 // 	return arr1.split`,`.filter(el => el !== '')
 // }
-// console.log(dirReduc(["NORTH","SOUTH","SOUTH","EAST","WEST","NORTH","WEST"]));   
+// console.log(dirReduc(["NORTH","SOUTH","SOUTH","EAST","WEST","NORTH","WEST"]));
+
+// function dirReduc(plan) {
+// 	var opposite = {
+// 		'NORTH': 'SOUTH', 'EAST': 'WEST', 'SOUTH': 'NORTH', 'WEST': 'EAST'
+// 	};
+// 	return plan.reduce(function (prev, curr) {
+// 		if (prev[prev.length - 1] === opposite[curr])
+// 			prev.pop();
+// 		else
+// 			prev.push(curr);
+// 		return prev;
+// 	}, []);
+// }
+// console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]));
+
+// function dirReduc(arr) {
+// 	var str = arr.join(''), pattern = /NORTHSOUTH|EASTWEST|SOUTHNORTH|WESTEAST/;
+// 	while (pattern.test(str)) str = str.replace(pattern, '');
+// 	return str.match(/(NORTH|SOUTH|EAST|WEST)/g) || [];
+// }
+// console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST","WEST"]));
+
+// function dirReduc(arr) {
+// 	var count = 0;
+// 	for (var i = 0; i < arr.length; i++) {
+// 		if (arr[i] === "WEST" && arr[i + 1] === "EAST" ||
+// 			arr[i] === "EAST" && arr[i + 1] === "WEST" ||
+// 			arr[i] === "NORTH" && arr[i + 1] === "SOUTH" ||
+// 			arr[i] === "SOUTH" && arr[i + 1] === "NORTH") {
+// 			arr.splice(i, 2);
+// 			count++;
+// 			i--;
+// 		}
+// 	}
+// 	return count === 0 ? arr : dirReduc(arr);
+// }
+//
+
+// function isOppo(dir1, dir2) {
+// 	if (dir1 + dir2 === 'SOUTHNORTH') return true;
+// 	if (dir1 + dir2 === 'NORTHSOUTH') return true;
+// 	if (dir1 + dir2 === 'EASTWEST') return true;
+// 	if (dir1 + dir2 === 'WESTEAST') return true;
+// 	return false;
+// }
+
+// function dirReduc(arr) {
+// 	var len = arr.length
+// 	for (var i = 0; i < len - 1; i++) {
+// 		if (isOppo(arr[i], arr[i + 1])) {
+// 			arr.splice(i, 2);
+// 			return dirReduc(arr);
+// 		}
+// 	}
+// 	return arr;
+// }
+// console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST", "WEST"]));
+
+// function dirReduc(arr){
+// 	for (let i = 0; i < arr.length; i++) {
+// 		switch (arr[i] + arr[i + 1]) {
+
+// 			case "EASTWEST":
+// 				arr.splice(i, 2);
+// 				i = i - i - 1;  // ( i = -1 ) => reset the loop to scan the array from i=0
+// 				break;
+
+// 			case "WESTEAST":
+// 				arr.splice(i, 2);
+// 				i = i - i - 1;
+// 				break;
+
+// 			case "NORTHSOUTH":
+// 				arr.splice(i, 2);
+// 				i = i - i - 1;
+// 				break;
+
+// 			case "SOUTHNORTH":
+// 				arr.splice(i, 2);
+// 				i = i - i - 1;
+// 				break;
+// 		}
+// 	}
+// 	return arr
+// }
+// console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST", "WEST"]));
+
+// 63
+// function rgb(r, g, b) {
+// 	let toRgb = num => {
+// 		if (num > 255) return num = 'ff'
+// 		else if (num <= 0) return num = '00'
+// 		else if (num.toString(16).length === 1) return '0' + num.toString(16)
+// 		else return num.toString(16)
+// 	}
+// 	return `${toRgb(r)}${toRgb(g)}${toRgb(b)}`.toUpperCase()
+// }
+// console.log(rgb(10, 0, 47));
+
+// function rgb(r, g, b) {
+// 	return toHex(r) + toHex(g) + toHex(b);
+// }
+// function toHex(d) {
+// 	if (d < 0) { return "00"; }
+// 	if (d > 255) { return "FF"; }
+// 	return ("0" + (Number(d).toString(16))).slice(-2).toUpperCase()
+// }
+// console.log(rgb(10, 0, 47));
+
+// function rgb(r, g, b) {
+// 	return [r, g, b].map(function (x) {
+// 		return ('0' + Math.max(0, Math.min(255, x)).toString(16)).slice(-2);
+// 	}).join('').toUpperCase();
+// }
+// console.log(rgb(10, 0, 245));
+
+// const rgb = (...arg) => arg
+// 	.map(it => Math.max(Math.min(it, 255), 0)
+// 		.toString(16)
+// 		.padStart(2, '0')
+// 		.toUpperCase()
+// 	).join('');
+// console.log(rgb(10, 0, 245));
+
+// function rgb(r, g, b) {
+// 	r = Math.max(0, Math.min(255, r));
+// 	g = Math.max(0, Math.min(255, g));
+// 	b = Math.max(0, Math.min(255, b));
+// 	let r2 = r << 16
+// 	let g2 = g << 8
+// 	let color = r2 + g2 + b;
+
+// 	return ('00000' + color.toString(16).toUpperCase()).slice(-6);
+// }
+// console.log(rgb(15, 16, 17));
+
+// function decToHex(n) {
+
+// function decToHex(n) {
+
+// 	var mods = [];
+// 	var num = n;
+// 	var mod;
+// 	const HEXHASH = {
+// 		10: 'A',
+// 		11: 'B',
+// 		12: 'C',
+// 		13: 'D',
+// 		14: 'E',
+// 		15: 'F'
+// 	};
+
+// 	while (num > 0) {
+// 		mod = num % 16;
+// 		mod >= 10 ? mods.push(HEXHASH[mod]) : mods.push(mod);
+// 		num = Math.floor(num / 16);
+// 	}
+
+// 	return mods.reverse().map(function (n) {
+// 		return n.toString();
+// 	}).join('');
+// }
+
+// //decToHex(148);
+
+// function fillZeroes(s) {
+
+// 	if (s.length === 0) return '00';
+// 	if (s.length === 1) return '0' + s;
+// 	return s;
+// }
+
+// function rgb(r, g, b) {
+
+// 	var args = Array.prototype.slice.call(arguments).map(function (n) {
+// 		return (n > 255) ? 255 : n;
+// 	});
+
+// 	var red = decToHex(args[0]);
+// 	var green = decToHex(args[1]);
+// 	var blue = decToHex(args[2]);
+
+// 	return fillZeroes(red) + fillZeroes(green) + fillZeroes(blue);
+// }
+// console.log(rgb(15, 16, 17));
+
+// 64
+
+// function zero(a) {
+// 	if (arguments.length === 0) { return 0 }
+// 	else if (a[0] === '+') { return 0 + Number(a[1]) }
+// 	else if (a[0] === '-') { return 0 - Number(a[1]) }
+// 	else if (a[0] === '*') { return 0 * Number(a[1]) }
+// 	else if (a[0] === '/') { return Math.floor(0 / Number(a[1])) }
+// }
+// function one(a) {
+// 	if (arguments.length === 0) { return 1 }
+// 	else if (a[0] === '+') { return 1 + Number(a[1]) }
+// 	else if (a[0] === '-') { return 1 - Number(a[1]) }
+// 	else if (a[0] === '*') { return 1 * Number(a[1]) }
+// 	else if (a[0] === '/') { return Math.floor(1 / Number(a[1])) }
+// }
+// function two(a) {
+// 	if (arguments.length === 0) { return 2 }
+// 	else if (a[0] === '+') { return 2 + Number(a[1]) }
+// 	else if (a[0] === '-') { return 2 - Number(a[1]) }
+// 	else if (a[0] === '*') { return 2 * Number(a[1]) }
+// 	else if (a[0] === '/') { return Math.floor(2 / Number(a[1])) }
+// }
+// function three(a) {
+// 	if (arguments.length === 0) { return 3 }
+// 	else if (a[0] === '+') { return 3 + Number(a[1]) }
+// 	else if (a[0] === '-') { return 3 - Number(a[1]) }
+// 	else if (a[0] === '*') { return 3 * Number(a[1]) }
+// 	else if (a[0] === '/') { return Math.floor(3 / Number(a[1])) }
+// }
+// function four(a) {
+// 	if (arguments.length === 0) { return 4 }
+// 	else if (a[0] === '+') { return 4 + Number(a[1]) }
+// 	else if (a[0] === '-') { return 4 - Number(a[1]) }
+// 	else if (a[0] === '*') { return 4 * Number(a[1]) }
+// 	else if (a[0] === '/') { return Math.floor(4 / Number(a[1])) }
+// }
+// function five(a) {
+// 	if (arguments.length === 0) { return 5 }
+// 	else if (a[0] === '+') { return 5 + Number(a[1]) }
+// 	else if (a[0] === '-') { return 5 - Number(a[1]) }
+// 	else if (a[0] === '*') { return 5 * Number(a[1]) }
+// 	else if (a[0] === '/') { return Math.floor(5 / Number(a[1])) }
+// }
+// function six(a) {
+// 	if (arguments.length === 0) { return 6 }
+// 	else if (a[0] === '+') { return 6 + Number(a[1]) }
+// 	else if (a[0] === '-') { return 6 - Number(a[1]) }
+// 	else if (a[0] === '*') { return 6 * Number(a[1]) }
+// 	else if (a[0] === '/') { return Math.floor(6 / Number(a[1])) }
+// }
+// function seven(a) {
+// 	if (arguments.length === 0) { return 7 }
+// 	else if (a[0] === '+') { return 7 + Number(a[1]) }
+// 	else if (a[0] === '-') { return 7 - Number(a[1]) }
+// 	else if (a[0] === '*') { return 7 * Number(a[1]) }
+// 	else if (a[0] === '/') { return Math.floor(7 / Number(a[1])) }
+// }
+// function eight(a) {
+// 	if (arguments.length === 0) { return 8 }
+// 	else if (a[0] === '+') { return 8 + Number(a[1]) }
+// 	else if (a[0] === '-') { return 8 - Number(a[1]) }
+// 	else if (a[0] === '*') { return 8 * Number(a[1]) }
+// 	else if (a[0] === '/') { return Math.floor(8 / Number(a[1])) }
+// }
+// function nine(a) {
+// 	if (arguments.length === 0) { return 9 }
+// 	else if (a[0] === '+') { return 9 + Number(a[1]) }
+// 	else if (a[0] === '-') { return 9 - Number(a[1]) }
+// 	else if (a[0] === '*') { return 9 * Number(a[1]) }
+// 	else if (a[0] === '/') { return Math.floor(9 / Number(a[1])) }
+// }
+
+// function plus(b) { return '+' + b }
+// function minus(b) { return '-' + b }
+// function times(b) { return '*' + b }
+// function dividedBy(b) { return '/' + b }
+
+// console.log(six(dividedBy(two())));
