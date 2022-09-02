@@ -1770,3 +1770,18 @@
 // 	}).join``
 // }
 // console.log(rot13('test'));
+
+66
+let maxSequence = function (arr){
+	if (arr.length == 0)return 0
+	else{
+	    let x = arr.reduce((p,c)=> p+= c)
+	    let r = []
+	    while (arr!==0){
+	    arr = arr.splice(arr.indexOf(Math.min(...arr)),1)
+	   r.push(arr.reduce((p,c)=>p+=c))}
+	   return Math.max(x,...r)
+	}
+	}
+	console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
+	
