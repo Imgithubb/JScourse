@@ -1771,17 +1771,33 @@
 // }
 // console.log(rot13('test'));
 
-66
-let maxSequence = function (arr){
-	if (arr.length == 0)return 0
-	else{
-	    let x = arr.reduce((p,c)=> p+= c)
-	    let r = []
-	    while (arr!==0){
-	    arr = arr.splice(arr.indexOf(Math.min(...arr)),1)
-	   r.push(arr.reduce((p,c)=>p+=c))}
-	   return Math.max(x,...r)
+// 66
+// let maxSequence = function (arr) {
+// 	if (arr.length == 0) return 0
+// 	else {
+// 		let x = arr.reduce((p, c) => p += c)
+// 		let r = []
+// 		while (arr.length !== 1) {
+// 			arr.splice(arr.indexOf(Math.min(...arr)), 1)
+// 			r.push(arr.reduce((p, c) => p += c))
+// 		}
+// 		return Math.max(x, ...r)
+// 	}
+// }
+// console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
+let maxSequence = function (arr) {
+	if (arr.length == 0) return 0
+	else {
+		let r = []
+		for (let i = 0; arr.length !== 0; i++) {
+			i === 0 ? arr : arr.splice(0, 1)
+			 m = arr
+			for (let i = 0; m.length !== 0; i++) {
+				i === 0 ? m : m = m.filter((e, ind, arr1) => ind !== arr1.length - 1)
+				r.push(m.reduce((p, c) => p += c, 0))
+			}
+		}
+		return Math.max(...r)
 	}
-	}
-	console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
-	
+}
+console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
