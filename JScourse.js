@@ -1624,84 +1624,6 @@
 
 // 64
 
-// function zero(a) {
-// 	if (arguments.length === 0) { return 0 }
-// 	else if (a[0] === '+') { return 0 + Number(a[1]) }
-// 	else if (a[0] === '-') { return 0 - Number(a[1]) }
-// 	else if (a[0] === '*') { return 0 * Number(a[1]) }
-// 	else if (a[0] === '/') { return Math.floor(0 / Number(a[1])) }
-// }
-// function one(a) {
-// 	if (arguments.length === 0) { return 1 }
-// 	else if (a[0] === '+') { return 1 + Number(a[1]) }
-// 	else if (a[0] === '-') { return 1 - Number(a[1]) }
-// 	else if (a[0] === '*') { return 1 * Number(a[1]) }
-// 	else if (a[0] === '/') { return Math.floor(1 / Number(a[1])) }
-// }
-// function two(a) {
-// 	if (arguments.length === 0) { return 2 }
-// 	else if (a[0] === '+') { return 2 + Number(a[1]) }
-// 	else if (a[0] === '-') { return 2 - Number(a[1]) }
-// 	else if (a[0] === '*') { return 2 * Number(a[1]) }
-// 	else if (a[0] === '/') { return Math.floor(2 / Number(a[1])) }
-// }
-// function three(a) {
-// 	if (arguments.length === 0) { return 3 }
-// 	else if (a[0] === '+') { return 3 + Number(a[1]) }
-// 	else if (a[0] === '-') { return 3 - Number(a[1]) }
-// 	else if (a[0] === '*') { return 3 * Number(a[1]) }
-// 	else if (a[0] === '/') { return Math.floor(3 / Number(a[1])) }
-// }
-// function four(a) {
-// 	if (arguments.length === 0) { return 4 }
-// 	else if (a[0] === '+') { return 4 + Number(a[1]) }
-// 	else if (a[0] === '-') { return 4 - Number(a[1]) }
-// 	else if (a[0] === '*') { return 4 * Number(a[1]) }
-// 	else if (a[0] === '/') { return Math.floor(4 / Number(a[1])) }
-// }
-// function five(a) {
-// 	if (arguments.length === 0) { return 5 }
-// 	else if (a[0] === '+') { return 5 + Number(a[1]) }
-// 	else if (a[0] === '-') { return 5 - Number(a[1]) }
-// 	else if (a[0] === '*') { return 5 * Number(a[1]) }
-// 	else if (a[0] === '/') { return Math.floor(5 / Number(a[1])) }
-// }
-// function six(a) {
-// 	if (arguments.length === 0) { return 6 }
-// 	else if (a[0] === '+') { return 6 + Number(a[1]) }
-// 	else if (a[0] === '-') { return 6 - Number(a[1]) }
-// 	else if (a[0] === '*') { return 6 * Number(a[1]) }
-// 	else if (a[0] === '/') { return Math.floor(6 / Number(a[1])) }
-// }
-// function seven(a) {
-// 	if (arguments.length === 0) { return 7 }
-// 	else if (a[0] === '+') { return 7 + Number(a[1]) }
-// 	else if (a[0] === '-') { return 7 - Number(a[1]) }
-// 	else if (a[0] === '*') { return 7 * Number(a[1]) }
-// 	else if (a[0] === '/') { return Math.floor(7 / Number(a[1])) }
-// }
-// function eight(a) {
-// 	if (arguments.length === 0) { return 8 }
-// 	else if (a[0] === '+') { return 8 + Number(a[1]) }
-// 	else if (a[0] === '-') { return 8 - Number(a[1]) }
-// 	else if (a[0] === '*') { return 8 * Number(a[1]) }
-// 	else if (a[0] === '/') { return Math.floor(8 / Number(a[1])) }
-// }
-// function nine(a) {
-// 	if (arguments.length === 0) { return 9 }
-// 	else if (a[0] === '+') { return 9 + Number(a[1]) }
-// 	else if (a[0] === '-') { return 9 - Number(a[1]) }
-// 	else if (a[0] === '*') { return 9 * Number(a[1]) }
-// 	else if (a[0] === '/') { return Math.floor(9 / Number(a[1])) }
-// }
-
-// function plus(b) { return '+' + b }
-// function minus(b) { return '-' + b }
-// function times(b) { return '*' + b }
-// function dividedBy(b) { return '/' + b }
-
-// console.log(six(dividedBy(two())));
-
 // function zero(a) { return arguments.length === 0 ? 0 : r(b = 0, c = a) }
 // let one = a => a  ? r(b = 1, c = a) : 1
 // function two(a) { return arguments.length === 0 ? 2 : r(b = 2, c = a) }
@@ -1748,7 +1670,82 @@
 //       function times(r) { return function(l) { return l * r; }; }
 //       function dividedBy(r) { return function(l) { return l / r; }; }
 
-// console.log(one(plus(one())));
+// console.log(two(plus(one())));
+
+// function zero(func) { return func ? func(0) : 0; };
+// function one(func) { return func ? func(1) : 1; };
+// function two(func) { return func ? func(2) : 2; };
+// function three(func) { return func ? func(3) : 3; };
+// function four(func) { return func ? func(4) : 4; };
+// function five(func) { return func ? func(5) : 5; };
+// function six(func) { return func ? func(6) : 6; };
+// function seven(func) { return func ? func(7) : 7; };
+// function eight(func) { return func ? func(8) : 8; };
+// function nine(func) { return func ? func(9) : 9; };
+
+// function plus(b) { return function (a) { return a + b; }; };
+// function minus(b) { return function (a) { return a - b; }; };
+// function times(b) { return function (a) { return a * b; }; };
+// function dividedBy(b) { return function (a) { return a / b; }; };
+
+// console.log(two(plus(one())));
+
+// ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+// 	.forEach(function (name, n) {
+// 	this[name] = function (f) { return f ? f(n) : n }
+// 	});
+
+// function plus(n) { return function (a) { return a + n } }
+// function minus(n) { return function (a) { return a - n } }
+// function times(n) { return function (a) { return a * n } }
+// function dividedBy(n) { return function (a) { return a / n } }
+// console.log(two(plus(one())));
+
+// 'zero one two three four five six seven eight nine'.split(' ').forEach(
+// 	(mth, num) => this[mth] = (f = val => val) => f(num) 
+//    )
+
+//    let plus      = (r) => (l) => l + r
+//    let minus     = (r) => (l) => l - r
+//    let times     = (r) => (l) => l * r
+//    let dividedBy = (r) => (l) => l / r
+
+//    console.log(two(plus(one())));
+
+// const
+//   id = x => x,
+//   number = x => (f = id) => f(x),
+//   [zero, one, two, three, four, five, six, seven, eight, nine] =
+//     [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(number),
+//   plus = x => y => y + x,
+//   minus = x => y => y - x,
+//   times = x => y => y * x,
+//   dividedBy = x => y => y / x;
+//   console.log(two(plus(one())));
+
+// const [
+// 	zero,
+// 	one,
+// 	two,
+// 	three,
+// 	four,
+// 	five,
+// 	six,
+// 	seven,
+// 	eight,
+// 	nine
+//    ] = Array.from({length:10}).map((item,i) => ((f) => f ? f(i) : i));
+//    let r ={length:10}
+//    let y = Array.from(r).map((item,i) => ((f) => f ? f(i) : i));
+
+//    const [
+// 	plus,
+// 	minus,
+// 	times,
+// 	dividedBy
+//    ] = ['+', '-', '*', '/'].map(op => Function('b', `return a => a ${op} b`));
+
+//    console.log(two(plus(one())));
 
 // 65
 
@@ -1771,33 +1768,44 @@
 // }
 // console.log(rot13('test'));
 
+// const rot13 = str => str.replace(/[a-z]/gi, letter => String.fromCharCode(letter.charCodeAt(0) + (letter.toLowerCase() <= 'm' ? 13: -13)));
+// console.log(rot13('test'));
+
 // 66
+
 // let maxSequence = function (arr) {
 // 	if (arr.length == 0) return 0
 // 	else {
-// 		let x = arr.reduce((p, c) => p += c)
 // 		let r = []
-// 		while (arr.length !== 1) {
-// 			arr.splice(arr.indexOf(Math.min(...arr)), 1)
-// 			r.push(arr.reduce((p, c) => p += c))
+// 		for (let i = 0; arr.length !== 0; i++) {
+// 			i === 0 ? arr : arr.splice(0, 1)
+// 			 m = arr
+// 			for (let i = 0; m.length !== 0; i++) {
+// 				i === 0 ? m : m = m.filter((e, ind, arr1) => ind !== arr1.length - 1)
+// 				r.push(m.reduce((p, c) => p += c, 0))
+// 			}
 // 		}
-// 		return Math.max(x, ...r)
+// 		return Math.max(...r)
 // 	}
 // }
 // console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
-let maxSequence = function (arr) {
-	if (arr.length == 0) return 0
-	else {
-		let r = []
-		for (let i = 0; arr.length !== 0; i++) {
-			i === 0 ? arr : arr.splice(0, 1)
-			 m = arr
-			for (let i = 0; m.length !== 0; i++) {
-				i === 0 ? m : m = m.filter((e, ind, arr1) => ind !== arr1.length - 1)
-				r.push(m.reduce((p, c) => p += c, 0))
-			}
-		}
-		return Math.max(...r)
-	}
-}
-console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
+
+// 67
+
+// function productFib(prod) {
+// 	let y = [0, 1]
+// 	let result = []
+// 	for (let i = 0; y[i + 1] < prod; i++)
+// 		y.push(y[i] + y[i + 1])
+// 	y.reduce((p, c, ci, a) => {
+// 		if (a[ci - 1] * a[ci] === prod) { return result.unshift([a[ci - 1], a[ci], true]) }
+// 		else {
+// 			if (a[ci - 1] * a[ci] > prod) {
+// 				result.push([a[ci - 1], a[ci], false])
+// 			}
+// 			return c
+// 		}
+// 	}, 0)
+// 	return result[0]
+// }
+// console.log(productFib(602070));
