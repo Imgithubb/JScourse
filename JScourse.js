@@ -1702,7 +1702,7 @@
 // console.log(two(plus(one())));
 
 // 'zero one two three four five six seven eight nine'.split(' ').forEach(
-// 	(mth, num) => this[mth] = (f = val => val) => f(num) 
+// 	(mth, num) => this[mth] = (f = val => val) => f(num)
 //    )
 
 //    let plus      = (r) => (l) => l + r
@@ -1771,6 +1771,55 @@
 // const rot13 = str => str.replace(/[a-z]/gi, letter => String.fromCharCode(letter.charCodeAt(0) + (letter.toLowerCase() <= 'm' ? 13: -13)));
 // console.log(rot13('test'));
 
+// var codeA = 'A'.charCodeAt(0),
+//     codeZ = 'Z'.charCodeAt(0),
+//     codea = 'a'.charCodeAt(0),
+//     codez = 'z'.charCodeAt(0);
+// function rot13(message){
+//   return message.split('').map(function(char) {
+//     var code = char.charCodeAt(0);
+//     if(codeA <= code && code <= codeZ){
+//       return String.fromCharCode(((code - codeA) + 13) % 26 + codeA);
+//     } else if(codea <= code && code <= codez){
+// 	console.log(18%26);
+//       return String.fromCharCode(((code - codea) + 13) % 26 + codea);
+//     }
+//     return char;
+//   }).join('');
+// }
+// console.log(rot13('test'));
+
+// function rot13(message) {
+// 	var abc = 'abcdefghijklmnopqrstuvwxyzabcdefghijklmABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLM';
+// 	return message.replace(/[a-z]/gi, c => abc[abc.indexOf(c) + 13]);
+// }
+// console.log(rot13('test'));
+
+// function rot13(message) {
+// 	return (message + '')
+// 		.replace(/[a-z]/gi, function (s) {
+// 			return String.fromCharCode(s.charCodeAt(0) + (s.toLowerCase() < 'n' ? 13 : -13));
+// 		});
+// }
+// console.log(rot13('test!'));
+
+// function rot13(message) {
+// 	return message.replace(/[a-zA-Z]/g, function (match) {
+// 		console.log(match.toUpperCase().localeCompare('M'));
+// 		return String.fromCharCode(match.charCodeAt(0) + (match.toUpperCase().localeCompare('M') > 0 ? -13 : 13));
+// 	});
+// }
+// console.log(rot13('test!'));
+
+// function rot13(message) {
+// 	return message.replace(/[a-zA-Z]/g, function (c) {
+// 		var c13 = c.charCodeAt(0) + 13;
+// 		var endCharCode = (c > 'Z') ? 122 : 90;
+// 		return String.fromCharCode(endCharCode < c13 ? c.charCodeAt(0) - 13 : c13);
+// 	});
+// }
+// console.log(rot13('test!'));
+
 // 66
 
 // let maxSequence = function (arr) {
@@ -1809,3 +1858,55 @@
 // 	return result[0]
 // }
 // console.log(productFib(602070));
+
+// function productFib(prod){
+// 	var n = 0;
+// 	var nPlus = 1;
+// 	while(n*nPlus < prod) {
+// 	  nPlus = n + nPlus;
+// 	  n = nPlus - n;
+// 	}
+// 	return [n, nPlus, n*nPlus===prod];
+//    }
+//    console.log(productFib(602071));
+
+// function productFib(prod) {
+// 	let [a, b] = [0, 1];
+// 	while (a * b < prod) [a, b] = [b, a + b];
+// 	return [a, b, a * b === prod];
+// }
+// console.log(productFib(602071));
+
+// function productFib(prod) // mathy way
+// {
+// 	const r = (1 + Math.sqrt(5)) / 2;
+// 	let fib1 = Math.round(Math.sqrt(prod / r)),
+// 		fib2 = Math.round(fib1 * r);
+// 	if (fib1 * fib2 === prod) return [fib1, fib2, true];
+// 	for ([fib1, fib2] = [0, 1]; fib1 * fib2 < prod; [fib1, fib2] = [fib2, fib1 + fib2]);
+// 	return [fib1, fib2, false];
+// }
+// console.log(productFib(602071));
+
+// function productFib(p) {
+// 	return function f(x, y, z) { if (x * y >= z) return [x, y, x * y == z]; return f(y, x + y, z) }(0, 1, p);
+// }
+// console.log(productFib(602071));
+
+// function x(p) {
+// 	return function c(f, r) { return f + r }(1, p)
+// }
+// console.log(x(9));
+
+// const productFib = (p, pl = 0, l = 1) =>
+// 	p < pl * l ? [pl, l, false] : p === pl * l ? [pl, l, true] : productFib(p, l, pl + l);
+// console.log(productFib(602071));
+
+68
+// function cakes(recipe, available) {
+// 	return
+//    }
+//    console.log(cakes({flour: 500, sugar: 200, eggs: 1}, {flour: 1200, sugar: 1200, eggs: 5, milk: 200}));
+
+let cake = {flour: 500, sugar: 200, eggs: 1}
+console.log(Object.entries(cake));
