@@ -1903,17 +1903,44 @@
 // console.log(productFib(602071));
 
 68
-function cakes(recipe, available) {
-        let result = []
-        if (!(Object.keys(available).sort().includes(...(Object.keys(recipe.sort()))))) return 0
-        else {
-                for (let i = 0; i < Object.keys(recipe).length; i++) {
-                        result.push(Math.floor(Object.values(available)[i] / Object.values(recipe)[i]))
-                }
-        }
-        return Math.min(...result)
-}
-console.log(cakes({ flour: 500, sugar: 200, eggs: 1 }, { flour: 1200, sugar: 1200, eggs: 5 }));
+// function cakes(recipe, available) {
+// 	let result = []
+// 	if (!(Object.keys(available).includes(...(Object.keys(recipe))))) return 0
+// 	else {
+// 		for (let el of Object.keys(available)) {
+// 			if (!(Object.keys(recipe).includes(el))) { delete available[el] }
+// 		}
+// 		let sortObject = o => Object.keys(o).sort().reduce((r, k) => (r[k] = o[k], r), {})
+// 		let a = sortObject(available),
+// 		r = sortObject(recipe)
+// 		for (let i = 0; i < Object.keys(recipe).length; i++) {
+// 			result.push(Math.floor(Object.values(a)[i] / Object.values(r)[i]))
+// 		}
+// 		return Math.min(...result)
+// 	}
+// }
+// console.log(cakes({ flour: 300, sugar: 150, milk: 100 }, { sugar: 500, flour: 2000, lemon: 1, milk: 2000 }));
 
-// let cake = {flour: 500, sugar: 200, eggs: 1}
-// console.log(Object.keys(cake));
+// function cakes(recipe, available) {
+// 	let kR = Object.keys(recipe)
+// 	return kR.reduce(function (val, ingredient) {
+// 		return Math.min(Math.floor(available[ingredient] / recipe[ingredient] || 0), val)
+// 	}, Infinity)
+// }
+// console.log(cakes({ flour: 300, sugar: 150, milk: 100 }, { sugar: 500, flour: 2000, lemon: 1, milk: 2000 }));
+
+// const cakes = (needs, has) => Math.min(...Object.keys(needs).map(key => Math.floor(has[key] / needs[key] || 0)))
+//    console.log(cakes({ flour: 300, sugar: 150, milk: 100 }, { sugar: 500, flour: 2000, lemon: 1, milk: 2000 }));
+
+// function cakes(recipe, available) {
+// 	var numCakes = [];
+// 	for (var key in recipe) {
+// 			if (key in available) {
+// 				numCakes.push(Math.floor(available[key] / recipe[key]));
+// 			} else {
+// 				return 0;
+// 		}
+// 	}
+// 	return Math.min(...numCakes);
+// }
+// console.log(cakes({ flour: 300, sugar: 150, milk: 100 }, { sugar: 500, flour: 2000, lemon: 1, milk: 2000 }));
