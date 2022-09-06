@@ -1903,10 +1903,17 @@
 // console.log(productFib(602071));
 
 68
-// function cakes(recipe, available) {
-// 	return
-//    }
-//    console.log(cakes({flour: 500, sugar: 200, eggs: 1}, {flour: 1200, sugar: 1200, eggs: 5, milk: 200}));
+function cakes(recipe, available) {
+        let result = []
+        if (!(Object.keys(available).sort().includes(...(Object.keys(recipe.sort()))))) return 0
+        else {
+                for (let i = 0; i < Object.keys(recipe).length; i++) {
+                        result.push(Math.floor(Object.values(available)[i] / Object.values(recipe)[i]))
+                }
+        }
+        return Math.min(...result)
+}
+console.log(cakes({ flour: 500, sugar: 200, eggs: 1 }, { flour: 1200, sugar: 1200, eggs: 5 }));
 
-let cake = {flour: 500, sugar: 200, eggs: 1}
-console.log(Object.entries(cake));
+// let cake = {flour: 500, sugar: 200, eggs: 1}
+// console.log(Object.keys(cake));
