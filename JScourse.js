@@ -1902,7 +1902,7 @@
 // 	p < pl * l ? [pl, l, false] : p === pl * l ? [pl, l, true] : productFib(p, l, pl + l);
 // console.log(productFib(602071));
 
-68
+// 68
 // function cakes(recipe, available) {
 // 	let result = []
 // 	if (!(Object.keys(available).includes(...(Object.keys(recipe))))) return 0
@@ -1944,3 +1944,14 @@
 // 	return Math.min(...numCakes);
 // }
 // console.log(cakes({ flour: 300, sugar: 150, milk: 100 }, { sugar: 500, flour: 2000, lemon: 1, milk: 2000 }));
+
+// function cakes(recipe, available) {
+//         return Math.min(...Object.keys(recipe).map(e => available[e] / recipe[e] >> 0));
+// }
+// console.log(cakes({ flour: 300, sugar: 150, milk: 100 }, { sugar: 500, flour: 2000, lemon: 1, milk: 2000 }));
+
+function generateHashtag(str) {
+        if (str.length === 0 || str.length > 140) return false
+        return str.replace(/(\b\w)(\w*\b)/g, (m,p1,p2) => `#${p1.toUpperCase()}` )
+}
+console.log(generateHashtag("Do We have A Hashtag"))
