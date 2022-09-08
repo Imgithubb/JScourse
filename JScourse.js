@@ -1950,8 +1950,14 @@
 // }
 // console.log(cakes({ flour: 300, sugar: 150, milk: 100 }, { sugar: 500, flour: 2000, lemon: 1, milk: 2000 }));
 
-function generateHashtag(str) {
-        if (str.length === 0 || str.length > 140) return false
-        return str.replace(/(\b\w)(\w*\b)/g, (m,p1,p2) => `#${p1.toUpperCase()}` )
-}
-console.log(generateHashtag("Do We have A Hashtag"))
+// 69
+// function generateHashtag(str) {
+//         if (str.length === 0 || str.length > 140) return false
+//         return str.replace(/(\b\w)(\w*\b)/g, (m,p1,p2) => `#${p1.toUpperCase()}` )
+// }
+// console.log(generateHashtag("Do We have A Hashtag"))
+
+const generateHashtag = str =>
+  (val => !!str.trim() && val.length <= 140 && val)
+  (`#${str.replace(/(?:^|\s+)(\w)/g, (_, $1) => $1.toUpperCase())}`);
+  console.log(generateHashtag("Do We have A Hashtag"))
