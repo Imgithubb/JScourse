@@ -1951,6 +1951,13 @@
 // console.log(cakes({ flour: 300, sugar: 150, milk: 100 }, { sugar: 500, flour: 2000, lemon: 1, milk: 2000 }));
 
 // 69
+
+// function generateHashtag(str) {
+//         if (str.length === 0 || str.length > 140) return false
+//         return str.replace(/(\b\w)(\w*\b)/g, (m,p1,p2) => `#${p1.toUpperCase()}` )
+// }
+// console.log(generateHashtag("Do We have A Hashtag"))
+
 // function generateHashtag(str) {
 // 	let r = '#' + str.replace(/(\b\w)(\w*)(?:\b\s*)/g, ((m, p1, p2) => `${p1.toUpperCase()}${p2}`))
 // 	return str === '' || r.length > 140 ? false : r
@@ -1962,3 +1969,21 @@
 // 	return !!str && hashtag.length <= 140 && hashtag
 // }
 // console.log(generateHashtag('git hub'))
+
+// const generateHashtag = str =>
+// 	(val => !!str.trim() && val.length <= 140 && val)
+// 		(`#${str.replace(/(?:^|\s+)(\w)/g, (_, $1) => $1.toUpperCase())}`);
+// console.log(generateHashtag("Do We have A Hashtag"))
+
+70
+function orderWeight(strng) {
+	let k = strng.split` `
+	let v = k.map(el=>el.split``.reduce((p,c)=>+p+(+c)))
+	let y = {}
+	for (let i = 0; i < v.length; i++) {
+		y[k[i]] = v[i]
+	}
+		let m = Object.keys(y).sort((a,b)=>a.value-b.value)
+	return m.join` `
+ }
+ console.log(orderWeight("103 123 4444 99 2000"));
