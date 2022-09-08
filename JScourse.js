@@ -1957,6 +1957,18 @@
 // }
 // console.log(generateHashtag("Do We have A Hashtag"))
 
+// function generateHashtag(str) {
+// 	let r = '#' + str.replace(/(\b\w)(\w*)(?:\b\s*)/g, ((m, p1, p2) => `${p1.toUpperCase()}${p2}`))
+// 	return str === '' || r.length > 140 ? false : r
+// }
+// console.log(generateHashtag('git hub'))
+
+// function generateHashtag(str = "") {
+// 	var hashtag = `#${str.trim().replace(/(?:\b|\s)(\w)/gi, (m, g) => g.toUpperCase())}`
+// 	return !!str && hashtag.length <= 140 && hashtag
+// }
+// console.log(generateHashtag('git hub'))
+
 const generateHashtag = str =>
   (val => !!str.trim() && val.length <= 140 && val)
   (`#${str.replace(/(?:^|\s+)(\w)/g, (_, $1) => $1.toUpperCase())}`);
