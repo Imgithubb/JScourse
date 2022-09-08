@@ -1950,6 +1950,7 @@
 // }
 // console.log(cakes({ flour: 300, sugar: 150, milk: 100 }, { sugar: 500, flour: 2000, lemon: 1, milk: 2000 }));
 
+// 69
 // function generateHashtag(str) {
 // 	let r = '#' + str.replace(/(\b\w)(\w*)(?:\b\s*)/g, ((m, p1, p2) => `${p1.toUpperCase()}${p2}`))
 // 	return str === '' || r.length > 140 ? false : r
