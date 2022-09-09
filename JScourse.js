@@ -1981,9 +1981,14 @@ function orderWeight(strng) {
 	let v = k.map(el=>el.split``.reduce((p,c)=>+p+(+c)))
 	let y = {}
 	for (let i = 0; i < v.length; i++) {
-		y[k[i]] = v[i]
+		y[k[i]+'a'] = v[i]
 	}
-		let m = Object.keys(y).sort((a,b)=>a.value-b.value)
+	let r = (Object.entries(y))
+    let u = []
+    for (let i = 0; i < r.length; i++) {
+        if (r[i][1] !== r[i+1][1]) {u.push(r[i])}
+        else if (r[i][1] == r[i+1][1]) {u.push([[r[i][1], r[i+1][1]].sort().join` `,r[i++][0]])}
+    }
 	return m.join` `
  }
  console.log(orderWeight("103 123 4444 99 2000"));
