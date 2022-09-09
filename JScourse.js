@@ -1975,20 +1975,13 @@
 // 		(`#${str.replace(/(?:^|\s+)(\w)/g, (_, $1) => $1.toUpperCase())}`);
 // console.log(generateHashtag("Do We have A Hashtag"))
 
-70
-function orderWeight(strng) {
-	let k = strng.split` `
-	let v = k.map(el=>el.split``.reduce((p,c)=>+p+(+c)))
-	let y = {}
-	for (let i = 0; i < v.length; i++) {
-		y[k[i]+'a'] = v[i]
-	}
-	let r = (Object.entries(y))
-    let u = []
-    for (let i = 0; i < r.length; i++) {
-        if (r[i][1] !== r[i+1][1]) {u.push(r[i])}
-        else if (r[i][1] == r[i+1][1]) {u.push([[r[i][1], r[i+1][1]].sort().join` `,r[i++][0]])}
-    }
-	return m.join` `
- }
- console.log(orderWeight("103 123 4444 99 2000"));
+// 70
+// function orderWeight(strng) {
+// 	const sum = (str) => str.split('').reduce((sum, el) => (sum + (+el)), 0);
+// 	function comp(a, b) {
+// 		let sumA = sum(a);
+// 		let sumB = sum(b);
+// 		return sumA === sumB ? a.localeCompare(b) : sumA - sumB;
+// 	};
+// 	return strng.split(' ').sort(comp).join(' ');
+// }
