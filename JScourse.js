@@ -1975,7 +1975,30 @@
 // 		(`#${str.replace(/(?:^|\s+)(\w)/g, (_, $1) => $1.toUpperCase())}`);
 // console.log(generateHashtag("Do We have A Hashtag"))
 
-// 70
+70
+function orderWeight(strng) {
+	let k = strng.split` `
+	let v = k.map(el => el.split``.reduce((p, c) => +p + (+c)))
+	let y = {}
+	for (let i = 0; i < v.length; i++) {
+		y[k[i]] = v[i]
+	}
+	let m = (Object.entries(y))
+	let r = m.sort((a,b)=>a[1]-b[1])
+	let u = []
+	for (let i = 0; i < r.length; i++) {
+		if (i + 1 == r.length && r[i][1] !== r[i - 1][1]) { u.push(r[i]) }
+		else if (r[i][1] !== r[i + 1][1]&&r[i][1] !== r[i - 1][1]) { u.push(r[i]) }
+		else if (r[i][1] == r[i + 1][1]||r[i][1] == r[i - 1][1]) { u.push([[r[i][0], r[i + 1][0]].sort().join` `, r[i][1]]) }
+	}
+	let f = Object.fromEntries(u)
+	let q = new Set
+	v.map(el => q.add(el))
+	let h = [...q].sort()
+	return h.map(el => Object.keys(f).find(key => f[key] === el)).join` `
+}
+console.log(orderWeight("56 65 74 100 99 68 86 180 90"));
+
 // function orderWeight(strng) {
 // 	const sum = (str) => str.split('').reduce((sum, el) => (sum + (+el)), 0);
 // 	function comp(a, b) {
@@ -1985,3 +2008,42 @@
 // 	};
 // 	return strng.split(' ').sort(comp).join(' ');
 // }
+// console.log(orderWeight("56 65 74 100 99 68 86 180 90"));
+
+// function orderWeight(strng) {
+// 	let x = strng
+// 		.split(" ")
+// 		.map(function (v) {
+// 			return {
+// 				val: v,
+// 				key: v.split("").reduce(function (prev, curr) {
+// 					return parseInt(prev) + parseInt(curr);
+// 				}, 0)
+// 			};
+// 		})
+// 		let y = x.sort(function (a, b) {
+// 			return a.key == b.key
+// 				? a.val.localeCompare(b.val)
+// 				: (a.key - b.key);
+// 		})
+// 		let r = y
+// 		.map(function (v) {
+// 			return v.val;
+// 		})
+// 		return r.join(" ");
+// }
+// console.log(orderWeight("56 65 74 100 99 68 86 180 90"));
+
+// 71
+// function firstNonRepeatingLetter(s) {
+// 	let j = s.toLowerCase()
+// 	let f = j.split``.sort()
+// 	let y = []
+// 	for (let i = 0; i < f.length; i++) {
+// 		if (f[i] !== f[i + 1] && f[i] !== f[i - 1]) { y.push(f[i]) }
+// 		else if (f[i] == f[i + 1] || f[i] == f[i + 1]) { i++ }
+// 	}
+// 	let x = y.sort((a, b) => j.indexOf(a) - j.indexOf(b))[0]
+// 	return s[j.indexOf(x)] || ''
+// }
+// console.log(firstNonRepeatingLetter('>>ﬁVV>Stresﬁﬁs'))
