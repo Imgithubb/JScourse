@@ -1975,29 +1975,24 @@
 // 		(`#${str.replace(/(?:^|\s+)(\w)/g, (_, $1) => $1.toUpperCase())}`);
 // console.log(generateHashtag("Do We have A Hashtag"))
 
-70
-function orderWeight(strng) {
-	let k = strng.split` `
-	let v = k.map(el => el.split``.reduce((p, c) => +p + (+c)))
-	let y = {}
-	for (let i = 0; i < v.length; i++) {
-		y[k[i]] = v[i]
-	}
-	let m = (Object.entries(y))
-	let r = m.sort((a,b)=>a[1]-b[1])
-	let u = []
-	for (let i = 0; i < r.length; i++) {
-		if (i + 1 == r.length && r[i][1] !== r[i - 1][1]) { u.push(r[i]) }
-		else if (r[i][1] !== r[i + 1][1]&&r[i][1] !== r[i - 1][1]) { u.push(r[i]) }
-		else if (r[i][1] == r[i + 1][1]||r[i][1] == r[i - 1][1]) { u.push([[r[i][0], r[i + 1][0]].sort().join` `, r[i][1]]) }
-	}
-	let f = Object.fromEntries(u)
-	let q = new Set
-	v.map(el => q.add(el))
-	let h = [...q].sort()
-	return h.map(el => Object.keys(f).find(key => f[key] === el)).join` `
-}
-console.log(orderWeight("56 65 74 100 99 68 86 180 90"));
+// 70
+
+// function orderWeight(strng) {
+// 	if (strng == '') return ''
+// 	let k = strng.split` `
+// 	let v = k.map(el => el.split``.map(e=> Number(e)).reduce((p, c) => p + c))
+// 	let e = k.map((el, ind) => { return {
+// 			key: el,
+// 			val: v[ind]
+// 		}})
+// 	let u = e.sort((a, b) => a.val !== b.val? a.val - b.val :  (a.key).localeCompare(b.key))
+// 	return u.map(el => el.key).join` `
+// }
+// console.log(orderWeight("5 104"));
+
+// let y = ['5','104']
+// let x = y.sort((a,b)=> '5'.localeCompare('104'))
+// console.log(x);
 
 // function orderWeight(strng) {
 // 	const sum = (str) => str.split('').reduce((sum, el) => (sum + (+el)), 0);
@@ -2034,6 +2029,19 @@ console.log(orderWeight("56 65 74 100 99 68 86 180 90"));
 // }
 // console.log(orderWeight("56 65 74 100 99 68 86 180 90"));
 
+// function digitSum(str) {
+// 	return str.split('').reduce(function(s, e) {
+// 	  return s + parseInt(e);
+// 	}, 0);
+//    }
+
+//    function orderWeight(str) {
+// 	  return str.split(' ').sort(function(a, b) {
+// 	    return digitSum(a) - digitSum(b) || a.localeCompare(b);
+// 	  }).join(' ');
+//    }
+//    console.log(orderWeight("56 65 74 100 99 68 86 180 90"));
+
 // 71
 // function firstNonRepeatingLetter(s) {
 // 	let j = s.toLowerCase()
@@ -2047,3 +2055,81 @@ console.log(orderWeight("56 65 74 100 99 68 86 180 90"));
 // 	return s[j.indexOf(x)] || ''
 // }
 // console.log(firstNonRepeatingLetter('>>ﬁVV>Stresﬁﬁs'))
+
+// function firstNonRepeatingLetter(s) {
+// 	for (var i in s) {
+// 		if (s.match(new RegExp(s[i], "gi")).length === 1) {
+// 			return s[i];
+// 		}
+// 	}
+// 	return '';
+// }
+// console.log(firstNonRepeatingLetter('>>ﬁVV>Stresﬁﬁs'))
+
+// function firstNonRepeatingLetter(s) {
+// 	var t = s.toLowerCase();
+// 	for (var i = 0; i < t.length; i++)
+// 		if (t.indexOf(t[i]) === t.lastIndexOf(t[i]))
+// 			return s[i];
+// 	return "";
+// }
+// console.log(firstNonRepeatingLetter('>>ﬁVV>Stresﬁﬁs'))
+
+// function firstNonRepeatingLetter(s) {
+// 	var map, len, i, char
+// 	map = {}
+// 	len = s.length
+// 	for (i = 0; i < len; i++) {
+// 		char = s[i].toLowerCase()
+// 		map[char] = (map[char] || 0) + 1
+// 	}
+// 	for (i = 0; i < len; i++) {
+// 		char = s[i]
+// 		if (map[char.toLowerCase()] == 1)
+// 			return char
+// 	}
+// 	return ''
+// }
+// console.log(firstNonRepeatingLetter('>>ﬁVV>Stresﬁﬁs'))
+
+// function firstNonRepeatingLetter(s) {
+// 	var search = s.toLowerCase();
+// 	for (var i = 0; i < search.length; ++i) {
+// 	    var str = search.slice(0, i) + search.slice(i + 1);
+// 	    if((str.indexOf(search[i]) === -1)) {
+// 		   return s[i];
+// 	    }
+// 	}
+// 	return '';
+//  }
+//  console.log(firstNonRepeatingLetter('>>ﬁVV>Stresﬁﬁs'))
+
+// const firstNonRepeatingLetter = s => s[[...s.toLowerCase()].findIndex((c, _ , s) => s.indexOf(c) === s.lastIndexOf(c))] || "";
+//   console.log(firstNonRepeatingLetter('>>ﬁVV>Stresﬁﬁs'))
+
+// const firstNonRepeatingLetter = s =>[...s].find(val => !s.match(new RegExp(val, `gi`))[1]) || ``;
+//   console.log(firstNonRepeatingLetter('>>ﬁVV>Stresﬁﬁs'))
+
+// function firstNonRepeatingLetter(s) {
+// 	let str = s.toLowerCase();
+// 	for (let i = 0; i < s.length; ++i) {
+// 		let str2 = str.split(str[i]).length
+// 		if (str2 === 2) return s[i];
+// 	}
+// 	return '';
+// }
+// console.log(firstNonRepeatingLetter('>>ﬁVV>Stresﬁﬁs'))
+
+72
+function incrementString(strng) {
+	let f = new RegExp('(\\d*)$', "gi")
+	let x = new RegExp('([^\\d]*)(\\d*)$', "")
+	let y = strng.match(f)
+	return y[0] ? strng.replace(x, ((_, g1, g2) => {
+		let t = (g2.length - (parseInt(g2) + 1).toString().length),
+		d= '0'.repeat(t)
+		return g1 + d + (parseInt(g2) + 1)
+	}))
+		: strng + 1
+}
+console.log(incrementString(''))
