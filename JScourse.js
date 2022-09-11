@@ -2126,10 +2126,11 @@ function incrementString(strng) {
 	let x = new RegExp('([^\\d]*)(\\d*)$', "")
 	let y = strng.match(f)
 	return y[0] ? strng.replace(x, ((_, g1, g2) => {
-		let t = (g2.length - (parseInt(g2) + 1).toString().length),
-		d= '0'.repeat(t)
+		let t = g2.length - String(Number(g2) + 1).length
+		if (t < 0) t = 0
+		let d = '0'.repeat(t)
 		return g1 + d + (parseInt(g2) + 1)
 	}))
 		: strng + 1
 }
-console.log(incrementString(''))
+console.log(incrementString('edrherthd-99'))
