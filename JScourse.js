@@ -2156,3 +2156,42 @@
 // 	});
 // }
 // console.log(incrementString('edrherthd-99'))
+
+// let incrementString = str => str.replace(/([0-8]|\d?9+)?$/, (e) => e ? + e + 1 : 1)
+// console.log(incrementString('edrherthd-99'))
+
+// function incrementString(input) {
+// 	return input.replace(/([0-8]?)(9*)$/, function (_, d, ns) {
+// 		return +d + 1 + ns.replace(/9/g, '0');
+// 	});
+// }
+// console.log(incrementString('edrherthd-99'))
+
+// const incrementString = s => s.replace(/[0-8]?9*$/, m =>++m)
+// console.log(incrementString('edrherthd-0099'))
+
+// function incrementString(str) {
+// 	var c = str[str.length - 1];
+// 	switch (c) {
+// 		case '0':
+// 		case '1':
+// 		case '2':
+// 		case '3':
+// 		case '4':
+// 		case '5':
+// 		case '6':
+// 		case '7':
+// 		case '8': return str.substring(0, str.length - 1) + (parseInt(c) + 1);
+// 		case '9': return incrementString(str.substring(0, str.length - 1)) + 0;
+// 		default: return str + "1";
+// 	}
+// }
+// console.log(incrementString('edrherthd-0099'))
+
+// 73
+// function domainName(url){
+// 	let r = new RegExp ('(:?https?:\\/\\/www.|https?:\\/\\/|www.|\\b)([^\.]+)(\.)','')
+// 	let m = url.match(r)
+// 	return m[2]
+//    }
+//    console.log(domainName("601hvxt.biz/index.php"));
