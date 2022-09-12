@@ -2120,17 +2120,39 @@
 // }
 // console.log(firstNonRepeatingLetter('>>ﬁVV>Stresﬁﬁs'))
 
-72
-function incrementString(strng) {
-	let f = new RegExp('(\\d*)$', "gi")
-	let x = new RegExp('([^\\d]*)(\\d*)$', "")
-	let y = strng.match(f)
-	return y[0] ? strng.replace(x, ((_, g1, g2) => {
-		let t = g2.length - String(Number(g2) + 1).length
-		if (t < 0) t = 0
-		let d = '0'.repeat(t)
-		return g1 + d + (parseInt(g2) + 1)
-	}))
-		: strng + 1
-}
-console.log(incrementString('edrherthd-99'))
+// 72
+// function incrementString(strng) {
+// 	let f = new RegExp('(\\d*)$', "gi")
+// 	let x = new RegExp('([^\\d]*)(\\d*)$', "")
+// 	let y = strng.match(f)
+// 	return y[0] ? strng.replace(x, ((_, g1, g2) => {
+// 		let t = g2.length - String(Number(g2) + 1).length
+// 		if (t < 0) t = 0
+// 		let d = '0'.repeat(t)
+// 		return g1 + d + (parseInt(g2) + 1)
+// 	}))
+// 		: strng + 1
+// }
+// console.log(incrementString('edrherthd-0099'))
+
+// function func(p) {
+// 	let x = new RegExp ('([^\\d]*)(\\d*)$', "")
+// 	let l = new RegExp ('\\d*$', "g")
+// 	let y = p.match(x)
+// 	let z = p.matchAll(x)
+// 	console.log(y)
+// 	console.log(z)
+// 	console.log([...z])
+// 	console.log(z.next())
+// 	return p.matchAll(x)
+// }
+// console.log(func('1foo1'))
+
+// function incrementString(input) {
+// 	if (isNaN(parseInt(input[input.length - 1]))) return input + '1';
+// 	return input.replace(/(0*)([0-9]+$)/, function (_, p1, p2) {
+// 		var up = parseInt(p2) + 1;
+// 		return up.toString().length > p2.length ? p1.slice(0, -1) + up : p1 + up;
+// 	});
+// }
+// console.log(incrementString('edrherthd-99'))
