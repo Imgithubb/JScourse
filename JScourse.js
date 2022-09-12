@@ -2188,6 +2188,43 @@
 // }
 // console.log(incrementString('edrherthd-0099'))
 
+// function incrementString(strng) {
+// 	return strng.replace(/\d*$/, i => String(+i + 1).padStart(i.length, 0));
+// }
+// console.log(incrementString('edrherthd-'))
+
+// function incrementString (str) {
+// 	str = str.split('');
+// 	if (!isNaN(str[str.length - 1])) {
+// 	  for (var i = str.length - 1; i >= 0; --i) {
+// 	    if (!isNaN(str[i]) ) {
+// 		 var num = +str[i];
+// 		 if (num !== 9) {
+// 		   str.splice(i, 1, (++num).toString());
+// 		   break;
+// 		 }
+// 		 str.splice(i, 1, '0');
+// 	    } else if (isNaN(str[i + 1]) === false && str[i + 1] === '0') {
+// 		 str.splice(i + 1, 0, '1');
+// 	    } else {
+// 		 break;
+// 	    }
+// 	  }
+// 	} else {
+// 	  str.push('1');
+// 	}
+// 	return str.join('');
+//    }
+//    console.log(incrementString('edrherthd-99'))
+
+// function incrementString(input) {
+// 	return input.replace(/\d*$/, function (n) {
+// 		var x = ~~n + 1
+// 		return ('0000000' + x).slice(-Math.max(n.length, String(x).length))
+// 	})
+// }
+// console.log(incrementString('edrherthd-00000000000000000000000000000000099'))
+
 // 73
 // function domainName(url){
 // 	let r = new RegExp ('(:?https?:\\/\\/www.|https?:\\/\\/|www.|\\b)([^\.]+)(\.)','')
