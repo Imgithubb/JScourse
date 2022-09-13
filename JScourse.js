@@ -2226,17 +2226,66 @@
 // console.log(incrementString('edrherthd-00000000000000000000000000000000099'))
 
 // 73
-function domainName(url){
-	let r = new RegExp ('(https?:\\/\\/www.|https?:\\/\\/|www.|\\b)([^\.]+)(\.)','')
-        console.log(r);
-	let m = url.match(r)
-	return m[2]
-   }
-   console.log(domainName("601hvxt.biz/index.php"));
-   sdf
-//(?:https?:\/\/)(?:www\.)(?:\b)([^.]+)(.)
+// function domainName(url){
+// 	let r = new RegExp ('(https?:\\/\\/www.|https?:\\/\\/|www.|\\b)([^\.]+)(\.)','')
+//         console.log(r);
+// 	let m = url.match(r)
+// 	return m[2]
+//    }
+//    console.log(domainName("601hvxt.biz/index.php"));
 
 // function domainName(url){
 //         return url.match(/(?:http(?:s)?:\/\/)?(?:w{3}\.)?([^\.]+)/i)[1];
 //       }
 //       console.log(domainName("601hvxt.biz/index.php"));
+
+// 74
+// function scramble(str1, str2) {
+// 	let m = new RegExp(`[^${[...new Set([...str2])]}]`, 'gi')
+// 	let m2 = new RegExp(`(${[...new Set([...str2])].join('+|')}+)`, 'g')
+// 	str1 = str1.replace(m, '').split``.sort().join``
+// 	str2 = str2.split``.sort().join``
+// 	str1 = [...str1.matchAll(m2)]
+// 	str2 = [...str2.matchAll(m2)]
+// 	for (let i = 0; i < str1.length; i++) {
+// 		if (str2.length > str1.length) { return false }
+// 		else if (str1[i][1].length >= str2[i][1].length) { }
+// 		else { return false }
+// 	}
+// 	return true
+// }
+
+// function scramble(str1, str2) {
+// 	let m = new RegExp(`[^${[...new Set([...str2])]}]`, 'gi')
+// 	str1 = str1.replace(m, '')
+// 	str2 = str2.split``
+// 		for (let i = 0; i < str2.length; i++) {
+// 		if (str1.includes(str2[i])) {str1 = str1.replace(str2[i],'')}
+// 		else {return false}
+// 	}
+// 	return true
+// }
+
+// console.log(scramble('rkqodlw', 'world'))
+// console.log(scramble('cedewaraaossoqqyt', 'codewars'))
+// console.log(scramble('katas', 'steak'))
+// console.log(scramble('scriptjavx', 'javascript'))
+// console.log(scramble('scriptingjava', 'javascript'))
+// console.log(scramble('scriptsjava', 'javascripts'))
+// console.log(scramble('javscripts', 'javascript'))
+// console.log(scramble('jscripts', 'javascript'))
+// console.log(scramble('aabbcamaomsccdd', 'commas'))
+// console.log(scramble('commas', 'commas'))
+// console.log(scramble('sammoc', 'commas'))
+
+// assert.strictEqual(scramble('rkqodlw','world'),true);
+// assert.strictEqual(scramble('cedewaraaossoqqyt','codewars'),true);
+// assert.strictEqual(scramble('katas','steak'),false);
+// assert.strictEqual(scramble('scriptjavx','javascript'),false);
+// assert.strictEqual(scramble('scriptingjava','javascript'),true);
+// assert.strictEqual(scramble('scriptsjava','javascripts'),true);
+// assert.strictEqual(scramble('javscripts','javascript'),false);
+// assert.strictEqual(scramble('jscripts','javascript'),false);
+// assert.strictEqual(scramble('aabbcamaomsccdd','commas'),true);
+// assert.strictEqual(scramble('commas','commas'),true);
+// assert.strictEqual(scramble('sammoc','commas'),true)
