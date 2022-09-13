@@ -2226,9 +2226,17 @@
 // console.log(incrementString('edrherthd-00000000000000000000000000000000099'))
 
 // 73
+function domainName(url){
+	let r = new RegExp ('(https?:\\/\\/www.|https?:\\/\\/|www.|\\b)([^\.]+)(\.)','')
+        console.log(r);
+	let m = url.match(r)
+	return m[2]
+   }
+   console.log(domainName("601hvxt.biz/index.php"));
+   sdf
+//(?:https?:\/\/)(?:www\.)(?:\b)([^.]+)(.)
+
 // function domainName(url){
-// 	let r = new RegExp ('(:?https?:\\/\\/www.|https?:\\/\\/|www.|\\b)([^\.]+)(\.)','')
-// 	let m = url.match(r)
-// 	return m[2]
-//    }
-//    console.log(domainName("601hvxt.biz/index.php"));
+//         return url.match(/(?:http(?:s)?:\/\/)?(?:w{3}\.)?([^\.]+)/i)[1];
+//       }
+//       console.log(domainName("601hvxt.biz/index.php"));
