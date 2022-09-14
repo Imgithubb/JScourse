@@ -2258,7 +2258,6 @@
 // function scramble(str1, str2) {
 // 	let m = new RegExp(`[^${[...new Set([...str2])]}]`, 'gi')
 // 	str1 = str1.replace(m, '')
-// 	str2 = str2.split``
 // 		for (let i = 0; i < str2.length; i++) {
 // 		if (str1.includes(str2[i])) {str1 = str1.replace(str2[i],'')}
 // 		else {return false}
@@ -2273,8 +2272,7 @@
 // }
 // console.log(scramble('aabbcamaomsccdd', 'commas'))
 
-// const scramble = (str1, str2) =>
-//   [...str2].every(val => str2.split(val).length <= str1.split(val).length)
+// const scramble = (str1, str2) =>[...str2].every(val => str2.split(val).length <= str1.split(val).length)
 
 //   console.log(scramble('aabbcamaomsccdd', 'commas'))
 
@@ -2287,23 +2285,60 @@
 //   }
 //   console.log(scramble('aabbcamaomsccdd', 'commas'))
 
-  function scramble(strToBeChecked, strToCheckFor) {
-        let numLetters = {}
-      
-        for (const letter of strToCheckFor) {
-          if (numLetters[letter]) numLetters[letter]++
-          else numLetters[letter] = 1
-        }
-      
-        for (const letter of strToBeChecked) {
-          if (numLetters[letter] && numLetters[letter] !== 0) numLetters[letter]--
-        }
-      
-        for (const key in numLetters) {
-          if (numLetters[key] !== 0) return false
-        }
-      
-        // Only reaches this far if all good
-        return true
-      }
-      console.log(scramble('aabbcamaomsccdd', 'commas'))
+//   function scramble(str1, srt2) {
+//         let ccharstr2 = {}
+
+//         for (const ch of srt2) {
+//           if (ccharstr2[ch]) ccharstr2[ch]++
+//           else ccharstr2[ch] = 1
+//         }
+
+//         for (const ch of str1) {
+//           if (ccharstr2[ch] && ccharstr2[ch] !== 0) ccharstr2[ch]--
+//         }
+
+//         for (const key in ccharstr2) {
+//           if (ccharstr2[key] !== 0) return false
+//         }
+
+//         return true
+//       }
+//       console.log(scramble('scriptjavx','javascript'))
+
+// function scramble(str1, str2) {
+// 	var hashtab = [...new Array(256)].map(x => 0);
+
+// 	str2.split('').forEach(ele => hashtab[ele.charCodeAt(0)]++);
+// 	str1.split('').forEach(ele => hashtab[ele.charCodeAt(0)]--);
+
+// 	hashtab = hashtab.filter (x=>x > 0);
+
+// 	return hashtab.length == 0;
+//    }
+//    console.log(scramble('scriptjavx','javascript'))
+
+// function scramble(str1, str2) {
+// 	var count = Object.create(null);
+
+// 	Array.prototype.forEach.call(str1, function(a) {
+// 	  count[a] = (count[a] || 0) + 1
+// 	})
+
+// 	return Array.prototype.every.call(str2, function(a) {
+// 	  return count[a]--;
+// 	})
+//    }
+//    console.log(scramble('scriptjaavx','javascript'))
+
+75
+function zeros(n) {
+	let num = 1
+	let culc = (a) => {
+		for (let i = 1; i <= n; i++) {
+			num = num * i
+		}
+		return num
+	}
+	return `${culc(n)}`.toString()
+}
+console.log(zeros(100));
