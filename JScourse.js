@@ -2265,27 +2265,45 @@
 // 	}
 // 	return true
 // }
-
-// console.log(scramble('rkqodlw', 'world'))
-// console.log(scramble('cedewaraaossoqqyt', 'codewars'))
-// console.log(scramble('katas', 'steak'))
-// console.log(scramble('scriptjavx', 'javascript'))
-// console.log(scramble('scriptingjava', 'javascript'))
-// console.log(scramble('scriptsjava', 'javascripts'))
-// console.log(scramble('javscripts', 'javascript'))
-// console.log(scramble('jscripts', 'javascript'))
 // console.log(scramble('aabbcamaomsccdd', 'commas'))
-// console.log(scramble('commas', 'commas'))
-// console.log(scramble('sammoc', 'commas'))
 
-// assert.strictEqual(scramble('rkqodlw','world'),true);
-// assert.strictEqual(scramble('cedewaraaossoqqyt','codewars'),true);
-// assert.strictEqual(scramble('katas','steak'),false);
-// assert.strictEqual(scramble('scriptjavx','javascript'),false);
-// assert.strictEqual(scramble('scriptingjava','javascript'),true);
-// assert.strictEqual(scramble('scriptsjava','javascripts'),true);
-// assert.strictEqual(scramble('javscripts','javascript'),false);
-// assert.strictEqual(scramble('jscripts','javascript'),false);
-// assert.strictEqual(scramble('aabbcamaomsccdd','commas'),true);
-// assert.strictEqual(scramble('commas','commas'),true);
-// assert.strictEqual(scramble('sammoc','commas'),true)
+// function scramble(str1, str2) {
+//         let occurences = str1.split("").reduce((prev, cur) => { prev[cur] ? prev[cur]++ : prev[cur] = 1; return prev; }, {});
+//         return str2.split("").every((character) => --occurences[character] >= 0);
+// }
+// console.log(scramble('aabbcamaomsccdd', 'commas'))
+
+// const scramble = (str1, str2) =>
+//   [...str2].every(val => str2.split(val).length <= str1.split(val).length)
+
+//   console.log(scramble('aabbcamaomsccdd', 'commas'))
+
+//   function scramble  (str1, str2) {
+//   [...str2].every(val => str2.split(val).length <= str1.split(val).length)
+//   console.log( str2.split('c'))
+//   console.log( str2.split('c').length)
+//   console.log( str1.split('c'))
+//   console.log( str1.split('c').length)
+//   }
+//   console.log(scramble('aabbcamaomsccdd', 'commas'))
+
+  function scramble(strToBeChecked, strToCheckFor) {
+        let numLetters = {}
+      
+        for (const letter of strToCheckFor) {
+          if (numLetters[letter]) numLetters[letter]++
+          else numLetters[letter] = 1
+        }
+      
+        for (const letter of strToBeChecked) {
+          if (numLetters[letter] && numLetters[letter] !== 0) numLetters[letter]--
+        }
+      
+        for (const key in numLetters) {
+          if (numLetters[key] !== 0) return false
+        }
+      
+        // Only reaches this far if all good
+        return true
+      }
+      console.log(scramble('aabbcamaomsccdd', 'commas'))
