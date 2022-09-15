@@ -2331,14 +2331,11 @@
 //    console.log(scramble('scriptjaavx','javascript'))
 
 75
-function zeros(n) {
-	let num = 1
-	let culc = (a) => {
-		for (let i = 1; i <= n; i++) {
-			num = num * i
-		}
-		return num
-	}
-	return `${culc(n)}`.toString()
+function zeros(n){
+    let c = 0;
+    for (let i = 5; Math.floor(n / i) >= 1; i *= 5)
+        c += Math.floor(n / i);
+    return c;
 }
-console.log(zeros(100));
+
+console.log(zeros(30));
