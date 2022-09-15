@@ -2330,12 +2330,31 @@
 //    }
 //    console.log(scramble('scriptjaavx','javascript'))
 
-75
-function zeros(n){
-    let c = 0;
-    for (let i = 5; Math.floor(n / i) >= 1; i *= 5)
-        c += Math.floor(n / i);
-    return c;
-}
+// 75
+// function zeros(n) {
+// 	let c = 0;
+// 	for (let i = 5; Math.floor(n / i) >= 1; i *= 5)
+// 		c += Math.floor(n / i);
+// 	return c;
+// }
 
-console.log(zeros(30));
+// console.log(zeros(30));
+
+76
+function score(dice) {
+	let o = Object.create(null)
+	for (let i = 0; i < dice.length; i++) {
+		if (o[dice[i]]) {
+			o[dice[i]]++
+		}
+		else { o[dice[i]] = 1 }
+	}
+	let one = o => o[1] >= 3 || o[1] ? 1000 + ((o[1] - 3) * 100) : (o[1] || 0) * 100
+	let five = o => o[5] >= 3 || o[5] ? 500 + ((o[5] - 3) * 50) : (o[5] || 0) * 50
+	let two = o => o[2] >= 3 || !o[2] ? 200 : 0
+	let three = o => o[3] >= 3 || !o[3] ? 300 : 0
+	let four = o => o[4] >= 3 || !o[4] ? 400 : 0
+	let six = o => o[6] >= 3 || !o[6] ? 600 : 0
+	return one(o) + two(o) + three(o) + four(o) + five(o) + six(o)
+}
+console.log(score([2, 3, 4, 6, 2]))
