@@ -2340,29 +2340,40 @@
 
 // console.log(zeros(30));
 
-76
-function score(dice) {
-  let o = Object.create(null)
-  for (let i = 0; i < dice.length; i++) {
-    if (o[dice[i]]) {
-      o[dice[i]]++
-    }
-    else { o[dice[i]] = 1 }
-  }
-  let one = o => {
-    if (!o[1]) { return 0 }
-    else if (o[1] < 3) { return o[1] * 100 }
-    else if (o[1] >= 3) { return 1000 + ((o[1] - 3) * 100) }
-  }
-  let five = o => {
-    if (!o[5]) { return 0 }
-    else if (o[5] < 3) { return o[5] * 50 }
-    else if (o[5] >= 3) { return 500 + ((o[5] - 3) * 50) }
-  }
-  let two = o => !o[2]||o[2]<3? 0:200
-  let three = o => !o[3]||o[3]<3? 0:300
-  let four = o => !o[4]||o[4]<3? 0:400
-  let six = o => !o[6]||o[6]<3? 0:600
-  return one(o) + two(o)+ three(o) + four(o) + five(o) + six(o)
+// 76
+// function score(dice) {
+//   let o = Object.create(null)
+//   for (let i = 0; i < dice.length; i++) {
+//     if (o[dice[i]]) {
+//       o[dice[i]]++
+//     }
+//     else { o[dice[i]] = 1 }
+//   }
+//   let one = o => {
+//     if (!o[1]) { return 0 }
+//     else if (o[1] < 3) { return o[1] * 100 }
+//     else if (o[1] >= 3) { return 1000 + ((o[1] - 3) * 100) }
+//   }
+//   let five = o => {
+//     if (!o[5]) { return 0 }
+//     else if (o[5] < 3) { return o[5] * 50 }
+//     else if (o[5] >= 3) { return 500 + ((o[5] - 3) * 50) }
+//   }
+//   let two = o => !o[2]||o[2]<3? 0:200
+//   let three = o => !o[3]||o[3]<3? 0:300
+//   let four = o => !o[4]||o[4]<3? 0:400
+//   let six = o => !o[6]||o[6]<3? 0:600
+//   return one(o) + two(o)+ three(o) + four(o) + five(o) + six(o)
+// }
+// console.log(score([2, 4, 4, 5, 4]))
+
+77
+function perimeter(n) {
+	let x = [1, 1]
+	for (let i = 2; i < n + 1; i++) {
+		x[i] = x[i - 1] + x[i - 2]
+	}
+	console.log(x);
+	return n == 0 ? 4 : 4 * x.reduce((p, c) => p + c, 0)
 }
-console.log(score([2, 4, 4, 5, 4]))
+console.log(perimeter(1));
