@@ -2240,7 +2240,7 @@
 //       console.log(domainName("601hvxt.biz/index.php"));
 
 // 74
-// function scramble(str1, str2) {
+// function scramble1(str1, str2) {
 // 	let m = new RegExp(`[^${[...new Set([...str2])]}]`, 'gi')
 // 	let m2 = new RegExp(`(${[...new Set([...str2])].join('+|')}+)`, 'g')
 // 	str1 = str1.replace(m, '').split``.sort().join``
@@ -2254,8 +2254,11 @@
 // 	}
 // 	return true
 // }
+// console.time('1')
+// console.log(scramble1('aabbcamaomsccddsldhvlskdslkdlfkslkflkslkdnfkldfklsdklnfklnsdklnfklnsdklflkklnsdklnflknsdlknflksdlknfklnsdlknflkklnsdklnfklnsklndfklnsdklnfklsdklnfknlnkdlsnlkfslklfkdslkfklnlkdklfknlsdlknfklnsldkfklknsdlkfekfknkcjxoicixzilclkesaiedflefnknslicjioseldfkeficmeljslekflnkefklwiglkwehewngwkwlfjfdjkewlklafeklnklnefwaklefawklnefawklnewfakjlefwlkklr3wlewlkjfndsfmklnewkwekl', 'commas'))
+// console.timeEnd('1')
 
-// function scramble(str1, str2) {
+// function scramble2(str1, str2) {
 // 	let m = new RegExp(`[^${[...new Set([...str2])]}]`, 'gi')
 // 	str1 = str1.replace(m, '')
 // 		for (let i = 0; i < str2.length; i++) {
@@ -2264,17 +2267,20 @@
 // 	}
 // 	return true
 // }
-// console.log(scramble('aabbcamaomsccdd', 'commas'))
+// console.time('2')
+// console.log(scramble2('aabbcamaomsccddsldhvlskdslkdlfkslkflkslkdnfkldfklsdklnfklnsdklnfklnsdklflkklnsdklnflknsdlknflksdlknfklnsdlknflkklnsdklnfklnsklndfklnsdklnfklsdklnfknlnkdlsnlkfslklfkdslkfklnlkdklfknlsdlknfklnsldkfklknsdlkfekfknkcjxoicixzilclkesaiedflefnknslicjioseldfkeficmeljslekflnkefklwiglkwehewngwkwlfjfdjkewlklafeklnklnefwaklefawklnefawklnewfakjlefwlkklr3wlewlkjfndsfmklnewkwekl', 'commas'))
+// console.timeEnd('2')
 
-// function scramble(str1, str2) {
+// function scramble3(str1, str2) {
 //         let occurences = str1.split("").reduce((prev, cur) => { prev[cur] ? prev[cur]++ : prev[cur] = 1; return prev; }, {});
 //         return str2.split("").every((character) => --occurences[character] >= 0);
 // }
-// console.log(scramble('aabbcamaomsccdd', 'commas'))
+// console.time('3')
+// console.log(scramble3('aabbcamaomsccddsldhvlskdslkdlfkslkflkslkdnfkldfklsdklnfklnsdklnfklnsdklflkklnsdklnflknsdlknflksdlknfklnsdlknflkklnsdklnfklnsklndfklnsdklnfklsdklnfknlnkdlsnlkfslklfkdslkfklnlkdklfknlsdlknfklnsldkfklknsdlkfekfknkcjxoicixzilclkesaiedflefnknslicjioseldfkeficmeljslekflnkefklwiglkwehewngwkwlfjfdjkewlklafeklnklnefwaklefawklnefawklnewfakjlefwlkklr3wlewlkjfndsfmklnewkwekl', 'commas'))
+// console.timeEnd('3')
+// const scramble6 = (str1, str2) =>[...str2].every(val => str2.split(val).length <= str1.split(val).length)
 
-// const scramble = (str1, str2) =>[...str2].every(val => str2.split(val).length <= str1.split(val).length)
-
-//   console.log(scramble('aabbcamaomsccdd', 'commas'))
+//   console.log(scramble6('aabbcamaomsccdd', 'commas'))
 
 //   function scramble  (str1, str2) {
 //   [...str2].every(val => str2.split(val).length <= str1.split(val).length)
@@ -2330,6 +2336,20 @@
 //    }
 //    console.log(scramble('scriptjaavx','javascript'))
 
+// let x = [1,2,3,4,5]
+// x.forEach((el,i,arr)=> arr[i] = el*216554615)
+// console.log(x);
+
+// function scramble(str1, str2) {
+// 	const alphaArr = Array(26).fill(0);
+
+// 	str2.split("").forEach(s => alphaArr[s.charCodeAt() - 97]++);
+// 	str1.split("").forEach(s => alphaArr[s.charCodeAt() - 97]--);
+
+// 	return alphaArr.every(v => v <= 0);
+//    }
+//    console.log(scramble('scriptjaavx','javascript'))
+
 // 75
 // function zeros(n) {
 // 	let c = 0;
@@ -2341,6 +2361,20 @@
 // console.log(zeros(30));
 
 // 76
+// let one = o => {
+// 	if (!o[1]) { return 0 }
+// 	else if (o[1] < 3) { return o[1] * 100 }
+// 	else if (o[1] >= 3) { return 1000 + ((o[1] - 3) * 100) }
+//    }
+//    let five = o => {
+// 	if (!o[5]) { return 0 }
+// 	else if (o[5] < 3) { return o[5] * 50 }
+// 	else if (o[5] >= 3) { return 500 + ((o[5] - 3) * 50) }
+//    }
+//    let two = o => !o[2]||o[2]<3? 0:200
+//    let three = o => !o[3]||o[3]<3? 0:300
+//    let four = o => !o[4]||o[4]<3? 0:400
+//    let six = o => !o[6]||o[6]<3? 0:600
 // function score(dice) {
 //   let o = Object.create(null)
 //   for (let i = 0; i < dice.length; i++) {
@@ -2349,31 +2383,33 @@
 //     }
 //     else { o[dice[i]] = 1 }
 //   }
-//   let one = o => {
-//     if (!o[1]) { return 0 }
-//     else if (o[1] < 3) { return o[1] * 100 }
-//     else if (o[1] >= 3) { return 1000 + ((o[1] - 3) * 100) }
-//   }
-//   let five = o => {
-//     if (!o[5]) { return 0 }
-//     else if (o[5] < 3) { return o[5] * 50 }
-//     else if (o[5] >= 3) { return 500 + ((o[5] - 3) * 50) }
-//   }
-//   let two = o => !o[2]||o[2]<3? 0:200
-//   let three = o => !o[3]||o[3]<3? 0:300
-//   let four = o => !o[4]||o[4]<3? 0:400
-//   let six = o => !o[6]||o[6]<3? 0:600
 //   return one(o) + two(o)+ three(o) + four(o) + five(o) + six(o)
 // }
-// console.log(score([2, 4, 4, 5, 4]))
+// console.time('1')
+// console.log(score([1,1,1,1,1]))
+// console.timeEnd('1')
 
-77
-function perimeter(n) {
-	let x = [1, 1]
-	for (let i = 2; i < n + 1; i++) {
-		x[i] = x[i - 1] + x[i - 2]
-	}
-	console.log(x);
-	return n == 0 ? 4 : 4 * x.reduce((p, c) => p + c, 0)
-}
-console.log(perimeter(1));
+// function score(dice) {
+// 	var dc = [0, 0, 0, 0, 0, 0];
+// 	var tdr = [1000, 200, 300, 400, 500, 600];
+// 	var sdr = [100, 0, 0, 0, 50, 0];
+// 	dice.forEach(function (x) { dc[x - 1]++; });
+// 	return dc.reduce(function (p, c, cInd) {
+// 		return p + (c >= 3 ? tdr[cInd] : 0) + sdr[cInd] * (c % 3);
+// 	}, 0);
+// }
+// console.time('2')
+// console.log(score([1, 1, 1, 1, 1]))
+// console.timeEnd('2')
+
+// 77
+// function perimeter(n) {
+// 	let x = [1, 1]
+// 	for (let i = 2; i < n + 1; i++) {
+// 		x[i] = x[i - 1] + x[i - 2]
+// 	}
+// 	console.log(x);
+// 	return n == 0 ? 4 : 4 * x.reduce((p, c) => p + c, 0)
+// }
+
+// console.log(perimeter(1));
