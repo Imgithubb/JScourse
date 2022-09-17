@@ -2402,14 +2402,30 @@
 // console.log(score([1, 1, 1, 1, 1]))
 // console.timeEnd('2')
 
-// 77
+77
 // function perimeter(n) {
 // 	let x = [1, 1]
 // 	for (let i = 2; i < n + 1; i++) {
 // 		x[i] = x[i - 1] + x[i - 2]
 // 	}
-// 	console.log(x);
 // 	return n == 0 ? 4 : 4 * x.reduce((p, c) => p + c, 0)
 // }
-
 // console.log(perimeter(1));
+
+function fib(n) {
+	var a = 1, b = 1, tmp;
+	while (n-- > 0) {
+		tmp = a;
+		a = b;
+		b += tmp;
+	}
+	return a;
+}
+function perimeter(n) {
+	return 4 * (fib(n + 2) - 1)
+}
+console.log(perimeter(4));
+
+const perimeter = n =>
+  4 * Math.round((((1 + 5 ** .5) / 2) ** (n + 3) / 5 ** .5) - 1);
+  console.log(perimeter(4));
