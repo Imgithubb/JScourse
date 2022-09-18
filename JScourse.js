@@ -2402,7 +2402,7 @@
 // console.log(score([1, 1, 1, 1, 1]))
 // console.timeEnd('2')
 
-77
+// 77
 // function perimeter(n) {
 // 	let x = [1, 1]
 // 	for (let i = 2; i < n + 1; i++) {
@@ -2412,20 +2412,71 @@
 // }
 // console.log(perimeter(1));
 
-function fib(n) {
-	var a = 1, b = 1, tmp;
-	while (n-- > 0) {
-		tmp = a;
-		a = b;
-		b += tmp;
-	}
-	return a;
-}
-function perimeter(n) {
-	return 4 * (fib(n + 2) - 1)
-}
-console.log(perimeter(4));
+// function fib(n) {
+// 	var a = 1, b = 1, tmp;
+// 	while (n-- > 0) {
+// 		tmp = a;
+// 		a = b;
+// 		b += tmp;
+// 	}
+// 	return a;
+// }
+// function perimeter(n) {
+// 	return 4 * (fib(n + 2) - 1)
+// }
+// console.log(perimeter(1));
 
-const perimeter = n =>
-  4 * Math.round((((1 + 5 ** .5) / 2) ** (n + 3) / 5 ** .5) - 1);
-  console.log(perimeter(4));
+// const perimeter = n =>
+// 	4 * Math.round((((1 + 5 ** .5) / 2) ** (n + 3) / 5 ** .5) - 1);
+// console.log(perimeter(4));
+
+// const SQRT5 = Math.sqrt(5);
+// const PHI = (SQRT5 + 1) / 2;
+// const fib = n => Math.round(PHI**n / SQRT5);
+// const perimeter = n => 4 * fib(n + 3) - 4;
+// console.log(perimeter(4));
+
+// console.log(Math.sqrt(5)*Math.sqrt(5) - Number.EPSILON);
+
+// const perimeter = N => {
+// 	let [a, b] = [1, 1];
+// 	for (let i = 0; i <= N; i++) [a, b] = [b, a + b];
+// 	return (b - 1) * 4;
+//    }
+//    console.log(perimeter(4));
+
+// perimeter = (a, b = (c, d = 1, e = 0) => c ? d + b(--c, d + e, d) : d) => b(a) * 4
+// console.log(perimeter(4));
+
+// function perimeter(a,  b = (c, d = 1, e = 0)=>{
+// if (c) {return d + b(--c, d + e, d)}
+// else {return d}
+// }
+// ) {
+// 	return b(a) * 4
+// }
+// console.log(perimeter(4));
+
+78
+function nextBigger(n) {
+	n = n.toString().split``
+	let [...n1] = n
+	for (let i = 0; i < n1.length; i++) {
+		let e = n1[i]
+		let e1 = n1[i + 1]
+		let eLast = n1[n1.length - i - 1]
+		let eLast1 = n1[n1.length - i - 2]
+		if (n1[n1.length - i - 1] > n1[n1.length - i - 2]) {
+			n1[n1.length - i - 1] = eLast1
+			n1[n1.length - i - 2] = eLast
+			break
+		}
+		else if (n1[i] < n1[i + 1]) {
+			n1[i] = e1
+			n1[i + 1] = e
+			break
+		}
+	}
+	return n1.join`` == n.join`` ? -1 : +n1.join``
+}
+console.log(nextBigger(2017));
