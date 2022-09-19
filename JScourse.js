@@ -2459,24 +2459,28 @@
 
 78
 function nextBigger(n) {
-	n = n.toString().split``
-	let [...n1] = n
-	for (let i = 0; i < n1.length; i++) {
-		let e = n1[i]
-		let e1 = n1[i + 1]
-		let eLast = n1[n1.length - i - 1]
-		let eLast1 = n1[n1.length - i - 2]
-		if (n1[n1.length - i - 1] > n1[n1.length - i - 2]) {
-			n1[n1.length - i - 1] = eLast1
-			n1[n1.length - i - 2] = eLast
-			break
-		}
-		else if (n1[i] < n1[i + 1]) {
-			n1[i] = e1
-			n1[i + 1] = e
-			break
-		}
-	}
-	return n1.join`` == n.join`` ? -1 : +n1.join``
+   let n2 = n.toString().split``
+   let [...n1] = n2
+   for (let i = 0; i < n1.length; i++) {
+      if (n1[i] < n1[i + 1]) {
+         let n3 = n1.slice(i, n1.length)
+         let n1i =  n1[i]
+         let nmin =String(Math.min(...n3.filter(el=>el>=n1[i])))
+         n1[i]=nmin
+         n1[n1.indexOf(nmin), i]=n1i
+         i++
+         for (; i< n1.length; i++) {
+            let m = n1[i]
+      let m1 = n1[i + 1]
+      if (n1[i] < n1[i + 1]) {
+         n1[i] = m1
+         n1[i + 1] = m
+      }
+   }
+   break
+}
+   }
+   return n1.join`` == n2.join`` ? -1 : +n1.join``
 }
 console.log(nextBigger(2017));
+
