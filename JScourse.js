@@ -2458,29 +2458,84 @@
 // console.log(perimeter(4));
 
 78
-function nextBigger(n) {
-   let n2 = n.toString().split``
-   let [...n1] = n2
-   for (let i = 0; i < n1.length; i++) {
-      if (n1[i] < n1[i + 1]) {
-         let n3 = n1.slice(i, n1.length)
-         let n1i =  n1[i]
-         let nmin =String(Math.min(...n3.filter(el=>el>=n1[i])))
-         n1[i]=nmin
-         n1[n1.indexOf(nmin), i]=n1i
-         i++
-         for (; i< n1.length; i++) {
-            let m = n1[i]
-      let m1 = n1[i + 1]
-      if (n1[i] < n1[i + 1]) {
-         n1[i] = m1
-         n1[i + 1] = m
-      }
-   }
-   break
-}
-   }
-   return n1.join`` == n2.join`` ? -1 : +n1.join``
-}
-console.log(nextBigger(2017));
+// function nextBigger(n) {
+// 	let n2 = n.toString().split``
+// 	let [...n1] = n2
+// 	for (let i = 0; i < n1.length; i++) {
+// 		if (n1[i] < n1[i + 1]) {
+// 			let n3 = n1.slice(i, n1.length)
+// 			let n1i = n1[i]
+// 			if (n3.length <= 2) {
+// 				let nmin = String(Math.min(...n3.filter(el => el > n1[i])))
+// 				n1[i] = nmin
+// 				n1[n1.indexOf(nmin), i + 1] = n1i
+// 			}
+// 			else {
+// 				let nmin = String(Math.min(...n3.filter(el => el >= n1[i])))
+// 				n1[i] = nmin
+// 				n1[n1.indexOf(nmin), i] = n1i
+// 			}
+// 			n1.length > 2 ? i++ : {}
+// 			for (; i < n1.length; i++) {
+// 				let m = n1[i]
+// 				let m1 = n1[i + 1]
+// 				if (n1[i] < n1[i + 1]&&n1.length>2) {
+// 					n1[i] = m1
+// 					n1[i + 1] = m
+// 				}
+// 				else {}
+// 			}
+// 			break
+// 		}
+// 	}
+// 	return n1.join`` == n2.join`` ? -1 : +n1.join``
+// }
+// console.log(nextBigger(21));
 
+function nextBigger(n) {
+	let n2 = n.toString().split``
+	let [...n1] = n2
+	if (n1.length == 1) { return -1 }
+	else if (n1.length == 2) { 
+		{ return n1[0] > n1[1] ? -1 :  +(n1[1]+n1[0]) }
+	}
+
+
+
+	for (let i = 0; i < n1.length; i++) {
+		if (n1[i] < n1[i + 1]) {
+			let n3 = n1.slice(i, n1.length)
+			let n1i = n1[i]
+			if (n3.length == 2) {
+				let nmin = String(Math.min(...n3.filter(el => el > n1[i])))
+				n1[i] = nmin
+				n1[n1.indexOf(nmin), i + 1] = n1i
+			}
+			else if (n3.length==n1.length){
+				let w = n1.slice(1, n1.length)
+				n1[0]== String(Math.min(...w.filter(elem=> elem > n1[0])))
+				
+			}
+				else {
+					let nmin = String(Math.min(...n3.filter(el => el >= n1[i])))
+					n1[i] = nmin
+					n1[n1.indexOf(nmin), i] = n1i
+				}
+			}
+		// 		n1.length > 2 ? i++ : {}
+		// 		for (; i < n1.length; i++) {
+		// 			let m = n1[i]
+		// 			let m1 = n1[i + 1]
+		// 			if (n1[i] < n1[i + 1]&&n1.length>2) {
+		// 				n1[i] = m1
+		// 				n1[i + 1] = m
+		// 			}
+		// 			else {}
+		// 		}
+		// 		break
+		// 	}
+		// }
+	}
+		return n1.join`` == n2.join`` ? -1 : +n1.join``
+	}
+console.log(nextBigger(144));
