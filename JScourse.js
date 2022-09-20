@@ -2512,9 +2512,14 @@ function nextBigger(n) {
 				n1[n1.indexOf(nmin), i + 1] = n1i
 			}
 			else if (n3.length==n1.length){
+            let n1i2 = n1[0]
 				let w = n1.slice(1, n1.length)
-				n1[0]== String(Math.min(...w.filter(elem=> elem > n1[0])))
-				
+				let nmin2 = String(Math.min(...w.filter(elem=> elem > n1[0])))
+            n1[0]=nmin2
+				w[w.indexOf(nmin2)] = n1i2
+            w =w.sort((a,b)=>a-b)
+            n1=[n1[0],...w]
+            break
 			}
 				else {
 					let nmin = String(Math.min(...n3.filter(el => el >= n1[i])))
@@ -2538,4 +2543,4 @@ function nextBigger(n) {
 	}
 		return n1.join`` == n2.join`` ? -1 : +n1.join``
 	}
-console.log(nextBigger(144));
+console.log(nextBigger(526));
