@@ -2458,89 +2458,27 @@
 // console.log(perimeter(4));
 
 78
-// function nextBigger(n) {
-// 	let n2 = n.toString().split``
-// 	let [...n1] = n2
-// 	for (let i = 0; i < n1.length; i++) {
-// 		if (n1[i] < n1[i + 1]) {
-// 			let n3 = n1.slice(i, n1.length)
-// 			let n1i = n1[i]
-// 			if (n3.length <= 2) {
-// 				let nmin = String(Math.min(...n3.filter(el => el > n1[i])))
-// 				n1[i] = nmin
-// 				n1[n1.indexOf(nmin), i + 1] = n1i
-// 			}
-// 			else {
-// 				let nmin = String(Math.min(...n3.filter(el => el >= n1[i])))
-// 				n1[i] = nmin
-// 				n1[n1.indexOf(nmin), i] = n1i
-// 			}
-// 			n1.length > 2 ? i++ : {}
-// 			for (; i < n1.length; i++) {
-// 				let m = n1[i]
-// 				let m1 = n1[i + 1]
-// 				if (n1[i] < n1[i + 1]&&n1.length>2) {
-// 					n1[i] = m1
-// 					n1[i + 1] = m
-// 				}
-// 				else {}
-// 			}
-// 			break
-// 		}
-// 	}
-// 	return n1.join`` == n2.join`` ? -1 : +n1.join``
-// }
-// console.log(nextBigger(21));
 
-function nextBigger(n) {
-	let n2 = n.toString().split``
-	let [...n1] = n2
-	if (n1.length == 1) { return -1 }
-	else if (n1.length == 2) { 
-		{ return n1[0] > n1[1] ? -1 :  +(n1[1]+n1[0]) }
+function nextBigger(n){
+	console.log(n);
+	var chars = n.toString().split('');
+	var i = chars.length-1;
+	while(i > 0) {
+	  if (chars[i]>chars[i-1]) break;
+	  i--;
 	}
-
-
-
-	for (let i = 0; i < n1.length; i++) {
-		if (n1[i] < n1[i + 1]) {
-			let n3 = n1.slice(i, n1.length)
-			let n1i = n1[i]
-			if (n3.length == 2) {
-				let nmin = String(Math.min(...n3.filter(el => el > n1[i])))
-				n1[i] = nmin
-				n1[n1.indexOf(nmin), i + 1] = n1i
-			}
-			else if (n3.length==n1.length){
-            let n1i2 = n1[0]
-				let w = n1.slice(1, n1.length)
-				let nmin2 = String(Math.min(...w.filter(elem=> elem > n1[0])))
-            n1[0]=nmin2
-				w[w.indexOf(nmin2)] = n1i2
-            w =w.sort((a,b)=>a-b)
-            n1=[n1[0],...w]
-            break
-			}
-				else {
-					let nmin = String(Math.min(...n3.filter(el => el >= n1[i])))
-					n1[i] = nmin
-					n1[n1.indexOf(nmin), i] = n1i
-				}
-			}
-		// 		n1.length > 2 ? i++ : {}
-		// 		for (; i < n1.length; i++) {
-		// 			let m = n1[i]
-		// 			let m1 = n1[i + 1]
-		// 			if (n1[i] < n1[i + 1]&&n1.length>2) {
-		// 				n1[i] = m1
-		// 				n1[i + 1] = m
-		// 			}
-		// 			else {}
-		// 		}
-		// 		break
-		// 	}
-		// }
+	if (i == 0) return -1;
+	var suf2 = chars.splice(i)
+	var suf = suf2.sort();
+	var t = chars[chars.length-1];
+	for (i = 0; i < suf.length; ++i) {
+	  if (suf[i] > t) break;
 	}
-		return n1.join`` == n2.join`` ? -1 : +n1.join``
-	}
-console.log(nextBigger(526));
+	chars[chars.length-1] = suf[i]
+	suf[i] = t;
+	var res = chars.concat(suf);
+	var num = parseInt(res.join(''));
+	console.log("->" +num);
+	return num;
+   }
+   console.log(nextBigger(981932));
