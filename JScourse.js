@@ -2608,7 +2608,7 @@
 // }
 // console.log(nextBigger(12));
 
-79
+// 79
 // function createArr(n) {
 // 	let q = []
 // 	while (q.length < n) {
