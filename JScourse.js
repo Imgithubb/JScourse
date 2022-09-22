@@ -2609,19 +2609,35 @@
 // console.log(nextBigger(12));
 
 79
-snail = function (arr) {
-	if (arr.length===0){return undefined}
-	else
-	for (let ind = 0; ind <= arr.length; ind ++) {
-		for (let i = 1; i < arr.length; i++) {
-			arr[0].push(arr[i].pop())
-		}
-		arr[0].push(...arr.pop().reverse())
-		for (let ix = arr.length - 1; ix > 0; ix--) {
-			arr[0].push(arr[ix].shift())
-		}
-		arr[1]? arr[1].unshift(...arr.shift()): {}
-	}
-	return arr[0]
-}
-console.log(snail([]));
+// function createArr(n) {
+// 	let q = []
+// 	while (q.length < n) {
+// 		q.push([])
+// 	}
+// 	let count = 1
+// 	for (let index = 0; index < n; index++) {
+// 		for (let idex = 0; idex < n; idex++) {
+// 			q[index].push(count++)
+// 		}
+// 	}
+// 	return q
+// }
+
+// snail = function (arr) {
+// 	if (arr.length === 1) { return arr[0] }
+// 	else
+// 		while (arr.length > 1) {
+// 			for (let i = 1; i < arr.length; i++) {
+// 				arr[0].push(arr[i].pop())
+// 			}
+// 			if (!arr[1]) return arr[0]
+// 			arr[0].push(...arr.pop().reverse())
+// 			for (let ix = arr.length - 1; ix > 0; ix--) {
+// 				arr[0].push(arr[ix].shift())
+// 			}
+// 			arr[1] ? arr[1].unshift(...arr.shift()) : {}
+// 		}
+// 	return arr[0]
+// }
+// console.log(snail(createArr(9)));
+
