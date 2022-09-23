@@ -2608,6 +2608,34 @@
 // }
 // console.log(nextBigger(12));
 
+// function func(n) {
+// 	for (let index = 0; index < 10; index++) {
+// 	if (n>10) {{if (n>12) {break}}}
+// 	n++
+// 	}
+// }
+// console.log(func(9));
+
+// function func(arr) {
+// 	let y = arr.splice(0,5,3.5,4.5,5.5,6.5,7.5,8.5)
+// 	y.concat(arr)
+// 	return y
+// }
+// console.log(func([1, 2, 3, 4, 5]));
+
+// function nextBigger(n){
+// 	let a = +String(n).split('').sort((a,b) => b-a).join('');
+	
+//        for (let i = n + 1; i <= a; i++) {
+// 	 if (a == +String(i).split('').sort((a,b) => b-a).join('')) return i
+//        }
+//        return -1
+//      }
+//      console.log(nextBigger(2017));
+
+// let func = x => {return x[2]-x[1] } 
+// console.log(func([2,1,8,3,4,5]));
+
 // 79
 // function createArr(n) {
 // 	let q = []
@@ -2640,4 +2668,44 @@
 // 	return arr[0]
 // }
 // console.log(snail(createArr(9)));
+
+// snail = function(array) {
+// 	var result;
+// 	while (array.length) {
+// 	  // Steal the first row.
+// 	  result = (result ? result.concat(array.shift()) : array.shift());
+// 	  // Steal the right items.
+// 	  for (var i = 0; i < array.length; i++)
+// 	    result.push(array[i].pop());
+// 	  // Steal the bottom row.
+// 	  result = result.concat((array.pop() || []).reverse());
+// 	  // Steal the left items.
+// 	  for (var i = array.length - 1; i >= 0; i--)
+// 	    result.push(array[i].shift());
+// 	}
+// 	return result;
+//       }
+//       console.log(snail([[]]));
+
+// snail = function(array) {
+// 	var size = array.length;
+	
+// 	if (size == 1)
+// 	  return array[0];
+	
+// 	var top    = array[0].slice(0, -1);
+// 	var right  = array.slice(0, -1).map(a => a[size - 1]);
+// 	var bottom = array[size -1].slice(1).reverse();
+// 	var left   = array.slice(1).map(a => a[0]).reverse();
+// 	var inner  = array.slice(1, -1).map(a => a.slice(1, -1));
+      
+// 	return [].concat(top, right, bottom, left, snail(inner));
+//       }
+//       console.log(snail(createArr(4)));
+     
+      function func (arr12){
+    let www = arr12.splice(0,-1,100)
+    return www
+      }
+console.log(func([0,1,2,3,4,5] )); 
 
