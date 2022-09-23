@@ -2625,7 +2625,7 @@
 
 // function nextBigger(n){
 // 	let a = +String(n).split('').sort((a,b) => b-a).join('');
-	
+
 //        for (let i = n + 1; i <= a; i++) {
 // 	 if (a == +String(i).split('').sort((a,b) => b-a).join('')) return i
 //        }
@@ -2687,25 +2687,59 @@
 //       }
 //       console.log(snail([[]]));
 
-// snail = function(array) {
+// snail = function (array) {
 // 	var size = array.length;
-	
-// 	if (size == 1)
-// 	  return array[0];
-	
-// 	var top    = array[0].slice(0, -1);
-// 	var right  = array.slice(0, -1).map(a => a[size - 1]);
-// 	var bottom = array[size -1].slice(1).reverse();
-// 	var left   = array.slice(1).map(a => a[0]).reverse();
-// 	var inner  = array.slice(1, -1).map(a => a.slice(1, -1));
-      
-// 	return [].concat(top, right, bottom, left, snail(inner));
-//       }
-//       console.log(snail(createArr(4)));
-     
-      function func (arr12){
-    let www = arr12.splice(0,-1,100)
-    return www
-      }
-console.log(func([0,1,2,3,4,5] )); 
 
+// 	if (size == 0)
+// 		return [];
+
+// 	if (size == 1)
+// 		return array[0];
+
+// 	var top = array[0].slice(0, -1);
+// 	var right = array.slice(0, -1).map(a => a[size - 1]);
+// 	var bottom = array[size - 1].slice(1).reverse();
+// 	var left = array.slice(1).map(a => a[0]).reverse();
+// 	var inner = array.slice(1, -1).map(a => a.slice(1, -1));
+
+// 	return [].concat(top, right, bottom, left, snail(inner));
+// }
+// console.log(snail(createArr(4)));
+
+// snail = function (array) {
+// 	var maxx = array[0].length,
+// 		maxy = maxx,
+// 		minx = -1, miny = 0,
+// 		x = 0, y = 0,
+// 		result = [], dir = "r";
+
+// 	for (var i = maxx * maxx; i > 0; i--) {
+// 		result.push(array[y][x]);
+// 		switch (dir) {
+// 			case "u": y--; break;
+// 			case "l": x--; break;
+// 			case "d": y++; break;
+// 			case "r": x++; break;
+// 		}
+// 		if (x == maxx - 1 && y == miny) { dir = "d"; minx++; }
+// 		else if (x == maxx - 1 && y == maxy - 1) { dir = "l"; miny++; }
+// 		else if (x == minx && y == maxy - 1) { dir = "u"; maxx--; }
+// 		else if (x == minx && y == miny) { dir = "r"; maxy--; }
+// 	}
+// 	return result;
+// }
+// console.log(snail(createArr(4)));
+
+// const snail = function (array) {
+// 	const list = [];
+
+// 	while (array.length) {
+// 		list.push(...array.shift(), ...array.map(row => row.pop()));
+
+// 		array.reverse().map(row => row.reverse());
+// 	}
+
+// 	return list;
+// }
+
+// console.log(snail(createArr(4)));
