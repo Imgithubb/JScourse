@@ -2743,3 +2743,16 @@
 // }
 
 // console.log(snail(createArr(4)));
+
+80
+function formatDuration(seconds) {
+	let sec = seconds % 60
+	let min = ((seconds - sec) / 60) % 60
+	let sumSecMin = min * 60 + sec
+	let hours = (seconds - sumSecMin) / 3600 % 24
+	let days = (((seconds - sumSecMin) / 3600) - hours)/24 % 365
+	let allDays = ((((seconds - sumSecMin) / 3600) - hours))/24 
+	let years = (allDays- days) / 365
+
+}
+console.log(formatDuration(31_556_926))
