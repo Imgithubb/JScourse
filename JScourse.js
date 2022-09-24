@@ -2745,14 +2745,45 @@
 // console.log(snail(createArr(4)));
 
 80
+let sec1 = x => {
+	if (x == 0) return ''
+	else if (x == 1) return '1 second'
+	else { return `${x} seconds` }
+}
+let min1 = x => {
+	if (x == 0) return ''
+	else if (x == 1) return '1 minute'
+	else { return `${x} minutes` }
+}
+let hours1 = x => {
+	if (x == 0) return ''
+	else if (x == 1) return '1 hour'
+	else { return `${x} hours` }
+}
+let days1 = x => {
+	if (x == 0) return ''
+	else if (x == 1) return '1 day'
+	else { return `${x} days` }
+}
+let years1 = x => {
+	if (x == 0) return ''
+	else if (x == 1) return '1 year'
+	else { return `${x} years` }
+}
 function formatDuration(seconds) {
+	if (seconds===0) return 'now'
 	let sec = seconds % 60
 	let min = ((seconds - sec) / 60) % 60
 	let sumSecMin = min * 60 + sec
 	let hours = (seconds - sumSecMin) / 3600 % 24
-	let days = (((seconds - sumSecMin) / 3600) - hours)/24 % 365
-	let allDays = ((((seconds - sumSecMin) / 3600) - hours))/24 
-	let years = (allDays- days) / 365
-
+	let days = (((seconds - sumSecMin) / 3600) - hours) / 24 % 365
+	let allDays = ((((seconds - sumSecMin) / 3600) - hours)) / 24
+	let years = (allDays - days) / 365
+	let y = [years1(years), days1(days), hours1(hours), min1(min), sec1(sec)].filter(el => el !== '')
+	if (y.length == 1) return y.pop()
+	else {
+		let m = y.splice(y.length - 1, 1)
+		return y.join`, ` + ' and ' + m
+	}
 }
-console.log(formatDuration(31_556_926))
+console.log(formatDuration(0))
