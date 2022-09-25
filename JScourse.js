@@ -2744,46 +2744,144 @@
 
 // console.log(snail(createArr(4)));
 
+// 80
+// let sec1 = x => {
+// 	if (x == 0) return ''
+// 	else if (x == 1) return '1 second'
+// 	else { return `${x} seconds` }
+// }
+// let min1 = x => {
+// 	if (x == 0) return ''
+// 	else if (x == 1) return '1 minute'
+// 	else { return `${x} minutes` }
+// }
+// let hours1 = x => {
+// 	if (x == 0) return ''
+// 	else if (x == 1) return '1 hour'
+// 	else { return `${x} hours` }
+// }
+// let days1 = x => {
+// 	if (x == 0) return ''
+// 	else if (x == 1) return '1 day'
+// 	else { return `${x} days` }
+// }
+// let years1 = x => {
+// 	if (x == 0) return ''
+// 	else if (x == 1) return '1 year'
+// 	else { return `${x} years` }
+// }
+// function formatDuration(seconds) {
+// 	if (seconds===0) return 'now'
+// 	let sec = seconds % 60
+// 	let min = ((seconds - sec) / 60) % 60
+// 	let sumSecMin = min * 60 + sec
+// 	let hours = (seconds - sumSecMin) / 3600 % 24
+// 	let days = (((seconds - sumSecMin) / 3600) - hours) / 24 % 365
+// 	let allDays = ((((seconds - sumSecMin) / 3600) - hours)) / 24
+// 	let years = (allDays - days) / 365
+// 	let y = [years1(years), days1(days), hours1(hours), min1(min), sec1(sec)].filter(el => el !== '')
+// 	if (y.length == 1) return y.pop()
+// 	else {
+// 		let m = y.splice(y.length - 1, 1)
+// 		return y.join`, ` + ' and ' + m
+// 	}
+// }
+// console.log(formatDuration(0))
+
+// let x = y=>{
+// 	if (y>0) return true
+// 	let m = 2
+// 	if (y<0) {return false}
+// }
+// console.log(x(-1));
+
+// function formatDuration (seconds) {
+// 	var time = { year: 31536000, day: 86400, hour: 3600, minute: 60, second: 1 },
+// 	    res = [];
+
+// 	if (seconds === 0) return 'now';
+
+// 	for (var key in time) {
+// 	  if (seconds >= time[key]) {
+// 	    var val = Math.floor(seconds/time[key]);
+// 	    res.push(val += val > 1 ? ' ' + key + 's' : ' ' + key);
+// 	    seconds = seconds % time[key];
+// 	  }
+// 	}
+
+// 	return res.length > 1 ? res.join(', ').replace(/,([^,]*)$/,' and'+'$1') : res[0]
+//    }
+//    console.log(formatDuration(14896));
+
+// function formatDuration (seconds) {
+// 	if(!seconds)return "now";
+// 	var strout = "";
+// 	var s = seconds%60;
+// 	seconds = (seconds-s)/60;
+// 	var m = seconds%60;
+// 	seconds = (seconds-m)/60;
+// 	var h = seconds%24;
+// 	seconds = (seconds-h)/24;
+// 	var d = seconds%365;
+// 	seconds = (seconds-d)/365;
+// 	var y = seconds;
+
+// 	var english=[];
+// 	if(y)english.push(y+" year"+(y>1?'s':''));
+// 	if(d)english.push(d+" day"+(d>1?'s':''));
+// 	if(h)english.push(h+" hour"+(h>1?'s':''));
+// 	if(m)english.push(m+" minute"+(m>1?'s':''));
+// 	if(s)english.push(s+" second"+(s>1?'s':''));
+
+// 	return english.join(", ").replace(/,([^,]*)$/," and$1");
+
+//    }
+//    console.log(formatDuration(14896));
+
+//    var formatDuration = (function () {
+
+// 	return function formatDuration (seconds) {
+// 	  return [{name: 'year',   size: 365 * 24 * 60 * 60 * 1},
+// 			{name: 'day',    size:       24 * 60 * 60 * 1},
+// 			{name: 'hour',   size:            60 * 60 * 1},
+// 			{name: 'minute', size:                 60 * 1},
+// 			{name: 'second', size:                      1}].
+// 			reduce(parse, { parts: [], seconds: seconds }).
+// 			parts.
+// 			reduce(join, 'now');
+// 	};
+
+// 	function parse (result, part) {
+// 	  var quantity = Math.floor(result.seconds / part.size);
+// 	  if (quantity > 0) {
+// 	    result.seconds -= quantity * part.size;
+// 	    result.parts.push(quantity + ' ' + part.name + (quantity == 1 ? '' : 's'));
+// 	  }
+// 	  return result;
+// 	}
+
+// 	function join (result, part, index, arr) {
+// 	  switch (index) {
+// 	    case 0: return part;
+// 	    case arr.length - 1: return result + ' and ' + part;
+// 	    default: return result + ', ' + part;
+// 	  }
+// 	}
+
+//    }());
+//    console.log(formatDuration(0));
+
+
+// function x(y) {
+// 	return y.map(reduce2)
+// }
+// let reduce1 = (p, c) => { p += c }
+// function reduce2(p, c) {
+// 	return p += c
+// }
+// console.log(x([1, 2]));
+
 80
-let sec1 = x => {
-	if (x == 0) return ''
-	else if (x == 1) return '1 second'
-	else { return `${x} seconds` }
-}
-let min1 = x => {
-	if (x == 0) return ''
-	else if (x == 1) return '1 minute'
-	else { return `${x} minutes` }
-}
-let hours1 = x => {
-	if (x == 0) return ''
-	else if (x == 1) return '1 hour'
-	else { return `${x} hours` }
-}
-let days1 = x => {
-	if (x == 0) return ''
-	else if (x == 1) return '1 day'
-	else { return `${x} days` }
-}
-let years1 = x => {
-	if (x == 0) return ''
-	else if (x == 1) return '1 year'
-	else { return `${x} years` }
-}
-function formatDuration(seconds) {
-	if (seconds===0) return 'now'
-	let sec = seconds % 60
-	let min = ((seconds - sec) / 60) % 60
-	let sumSecMin = min * 60 + sec
-	let hours = (seconds - sumSecMin) / 3600 % 24
-	let days = (((seconds - sumSecMin) / 3600) - hours) / 24 % 365
-	let allDays = ((((seconds - sumSecMin) / 3600) - hours)) / 24
-	let years = (allDays - days) / 365
-	let y = [years1(years), days1(days), hours1(hours), min1(min), sec1(sec)].filter(el => el !== '')
-	if (y.length == 1) return y.pop()
-	else {
-		let m = y.splice(y.length - 1, 1)
-		return y.join`, ` + ' and ' + m
-	}
-}
-console.log(formatDuration(0))
+function validSolution(board){
+	
+   }
