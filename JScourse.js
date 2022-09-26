@@ -2881,7 +2881,27 @@
 // }
 // console.log(x([1, 2]));
 
-80
-function validSolution(board){
+// const formatDuration = s => s == 0 ? 'now' :
+//      [Math.floor(s/60/60/24/365),
+//       Math.floor(s/60/60/24)%365,
+//       Math.floor(s/60/60)%24,  
+//       Math.floor(s/60)%60 ,
+//       s%60]
+//      .map((e,i)=> e + ' ' + ['year', 'day', 'hour', 'minute', 'second'][i] + (+e>1?'s': ''))
+//      .filter(e=> !/^0/.test(e))
+//      .join(', ')
+//      .replace(/,\s(?=[\d\s\w]*$)/, ' and ');
+// 	console.log(formatDuration(61));
+
+// let quit = 'qu'
+// let noquit = 'qu'
+// let quRegex = /q(?=u)/
+// let qRegex = /q(?!u)/
+// console.log(quit.match(quRegex))
+// console.log(noquit.match(qRegex))
+
+
+// 81
+// function validSolution(board){
 	
-   }
+//    }
