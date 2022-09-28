@@ -2907,6 +2907,19 @@ function validSolution(board) {
 	let res = []
 	let res2 = []
 	let result = 0
+
+	for (let i4 = 0; i4 < 9; i4 = i4 + 3) {
+		for (let i3 = 0; i3 < 9; i3 = i3 + 3) {
+			for (let i2 = i3; i2 < i3 + 3; i2++) {
+				for (let i1 = i4; i1 < i4 + 3; i1++) {
+					result += board[i2][i1]
+				}
+			}
+			res2.push(result)
+			result = 0
+		}
+	}
+
 	for (let i = 0; i < board.length; i++) {
 		for (let ind = 0; ind < board.length; ind++) {
 			result += board[ind][i]
@@ -2914,7 +2927,9 @@ function validSolution(board) {
 		res.push(result)
 		result = 0
 	}
-	return board.every(e=>e.reduce((p,c)=> p+c)==sum) && res.every(el=>el==sum)? true:false
+	
+	return board.every(e => e.reduce((p, c) => p + c) == sum) && res.every(el => el == sum) &&
+		res2.every(elem => elem == sum) ? true : false
 }
 console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
 [6, 7, 2, 1, 9, 5, 3, 4, 8],
