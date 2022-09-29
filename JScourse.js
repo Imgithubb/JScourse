@@ -2901,42 +2901,70 @@
 // console.log(noquit.match(qRegex))
 
 
-81
-function validSolution(board) {
-	let sum = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9
-	let res = []
-	let res2 = []
-	let result = 0
+// 81
+// function validSolution(board) {
+// 	let sum = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9
+// 	let res = []
+// 	let res2 = []
+// 	let result = 0
 
-	for (let i4 = 0; i4 < 9; i4 = i4 + 3) {
-		for (let i3 = 0; i3 < 9; i3 = i3 + 3) {
-			for (let i2 = i3; i2 < i3 + 3; i2++) {
-				for (let i1 = i4; i1 < i4 + 3; i1++) {
-					result += board[i2][i1]
-				}
-			}
-			res2.push(result)
-			result = 0
-		}
-	}
+// 	for (let i4 = 0; i4 < 9; i4 = i4 + 3) {
+// 		for (let i3 = 0; i3 < 9; i3 = i3 + 3) {
+// 			for (let i2 = i3; i2 < i3 + 3; i2++) {
+// 				for (let i1 = i4; i1 < i4 + 3; i1++) {
+// 					result += board[i2][i1]
+// 				}
+// 			}
+// 			res2.push(result)
+// 			result = 0
+// 		}
+// 	}
 
-	for (let i = 0; i < board.length; i++) {
-		for (let ind = 0; ind < board.length; ind++) {
-			result += board[ind][i]
-		}
-		res.push(result)
-		result = 0
-	}
+// 	for (let i = 0; i < board.length; i++) {
+// 		for (let ind = 0; ind < board.length; ind++) {
+// 			result += board[ind][i]
+// 		}
+// 		res.push(result)
+// 		result = 0
+// 	}
 	
-	return board.every(e => e.reduce((p, c) => p + c) == sum) && res.every(el => el == sum) &&
-		res2.every(elem => elem == sum) ? true : false
-}
-console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
-[6, 7, 2, 1, 9, 5, 3, 4, 8],
-[1, 9, 8, 3, 4, 2, 5, 6, 7],
-[8, 5, 9, 7, 6, 1, 4, 2, 3],
-[4, 2, 6, 8, 5, 3, 7, 9, 1],
-[7, 1, 3, 9, 2, 4, 8, 5, 6],
-[9, 6, 1, 5, 3, 7, 0, 8, 4],
-[2, 8, 7, 4, 1, 9, 6, 3, 5],
-[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
+// 	return board.every(e => e.reduce((p, c) => p + c) == sum) && res.every(el => el == sum) &&
+// 		res2.every(elem => elem == sum) ? true : false
+// }
+// console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
+// [6, 7, 2, 1, 9, 5, 3, 4, 8],
+// [1, 9, 8, 3, 4, 2, 5, 6, 7],
+// [8, 5, 9, 7, 6, 1, 4, 2, 3],
+// [4, 2, 6, 8, 5, 3, 7, 9, 1],
+// [7, 1, 3, 9, 2, 4, 8, 5, 6],
+// [9, 6, 1, 5, 3, 7, 0, 8, 4],
+// [2, 8, 7, 4, 1, 9, 6, 3, 5],
+// [3, 4, 5, 2, 8, 6, 1, 7, 9]]));
+
+function equals45(n){
+	return n == 45;
+   }
+   
+   function validSolution(board){
+	var sumh = [0,0,0,0,0,0,0,0,0];
+	var sumv = [0,0,0,0,0,0,0,0,0];
+	osums = [[0,0,0],[0,0,0],[0,0,0]];
+	for (var i=0;i<9;i++){
+	  for (var j=0;j<9;j++){
+	    sumh[i] += board[i][j];
+	    sumv[j] += board[i][j];
+	    osums[Math.floor(i/3)][Math.floor(j/3)] += board[i][j];
+	  }
+	}
+	for (var i=0;i<3;i++) if (!osums[i].every(equals45)) return false;
+	return (sumh.every(equals45) && sumv.every(equals45));
+   }
+   console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
+	[6, 7, 2, 1, 9, 5, 3, 4, 8],
+	[1, 9, 8, 3, 4, 2, 5, 6, 7],
+	[8, 5, 9, 7, 6, 1, 4, 2, 3],
+	[4, 2, 6, 8, 5, 3, 7, 9, 1],
+	[7, 1, 3, 9, 2, 4, 8, 5, 6],
+	[9, 6, 1, 5, 3, 7, 0, 8, 4],
+	[2, 8, 7, 4, 1, 9, 6, 3, 5],
+	[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
