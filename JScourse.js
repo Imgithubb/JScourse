@@ -2941,23 +2941,30 @@
 // [2, 8, 7, 4, 1, 9, 6, 3, 5],
 // [3, 4, 5, 2, 8, 6, 1, 7, 9]]));
 
-function equals45(n){
-	return n == 45;
+function hasOneDigit(elem){
+	return elem.filter(e=>e===1).length === 9
    }
    
    function validSolution(board){
-	var sumh = [0,0,0,0,0,0,0,0,0];
-	var sumv = [0,0,0,0,0,0,0,0,0];
-	osums = [[0,0,0],[0,0,0],[0,0,0]];
+	let sumh = Array(9).fill(null).map(e=>new Array(10).fill(0));
+	let sumv = Array(9).fill(null).map(e=>new Array(10).fill(0));
+   
+	let osums = Array(3).fill(null)
+	    .map( e => 
+		  new Array(3).fill(null)
+			 .map(e=>new Array(10).fill(0))
+	   )
+    
 	for (var i=0;i<9;i++){
 	  for (var j=0;j<9;j++){
-	    sumh[i] += board[i][j];
-	    sumv[j] += board[i][j];
-	    osums[Math.floor(i/3)][Math.floor(j/3)] += board[i][j];
+	    if (board[i][j] === 0) return false
+	    sumh[i][board[i][j]] += 1;
+	    sumv[j][board[i][j]] += 1;
+	    osums[Math.floor(i/3)][Math.floor(j/3)][board[i][j]] += 1;
 	  }
 	}
-	for (var i=0;i<3;i++) if (!osums[i].every(equals45)) return false;
-	return (sumh.every(equals45) && sumv.every(equals45));
+	for (var i=0;i<3;i++) if (!osums[i].every(hasOneDigit)) return false;
+	return (sumh.every(hasOneDigit) && sumv.every(hasOneDigit));
    }
    console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
 	[6, 7, 2, 1, 9, 5, 3, 4, 8],
@@ -2968,3 +2975,24 @@ function equals45(n){
 	[9, 6, 1, 5, 3, 7, 0, 8, 4],
 	[2, 8, 7, 4, 1, 9, 6, 3, 5],
 	[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
+
+	// function validSolution(board){
+	// 	var validSet = s => s.size == 9 && !s.has(0);
+	// 	var rowSet = i => board[i].reduce((s,v) => s.add(v), new Set());
+	// 	var columnSet = i => board.reduce((s,v) => s.add(v[i]), new Set());
+	// 	var boxSet = ([r,c]) => board.slice(r,r+3).reduce((s,v) => v.slice(c,c+3).reduce((s,v) => s.add(v), s), new Set());
+	// 	var boxCorner = i => [Math.floor(i / 3) * 3,(i % 3) * 3];
+	// 	for (var i = 0; i < 9; i++)
+	// 	  if ( !validSet(rowSet(i)) || !validSet(columnSet(i)) || !validSet(boxSet(boxCorner(i))) )
+	// 	    return false;
+	// 	return true;
+	//    }
+	//    console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
+	// 	[6, 7, 2, 1, 9, 5, 3, 4, 8],
+	// 	[1, 9, 8, 3, 4, 2, 5, 6, 7],
+	// 	[8, 5, 9, 7, 6, 1, 4, 2, 3],
+	// 	[4, 2, 6, 8, 5, 3, 7, 9, 1],
+	// 	[7, 1, 3, 9, 2, 4, 8, 5, 6],
+	// 	[9, 6, 1, 5, 3, 7, 0, 8, 4],
+	// 	[2, 8, 7, 4, 1, 9, 6, 3, 5],
+	// 	[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
