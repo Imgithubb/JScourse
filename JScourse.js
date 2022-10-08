@@ -3166,6 +3166,20 @@
 					// 	[9, 6, 1, 5, 3, 7, 0, 8, 4],
 					// 	[2, 8, 7, 4, 1, 9, 6, 3, 5],
 					// 	[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
+
+					 	//BOT
+				// 	const bl = board[6].slice(0,3).concat(board[7].slice(0,3)).concat(board[8].slice(0,3));
+				// 	const bm = board[6].slice(3,6).concat(board[7].slice(3,6)).concat(board[8].slice(3,6));
+				// 	const br = board[6].slice(6,9).concat(board[7].slice(6,9)).concat(board[8].slice(6,9));
+				// 	const sectors = [tl,tm,tr,ml,mm,mr,bl,bm,br];
+				// 	return sectors.reduce((acc,cur) => {
+				// 	  let range = [];
+				// 	  cur.every((element) => {return range.push(element);})
+				// 	  if((new Set(range)).size !== range.length) return false;
+				// 	  return true;
+				// 	})
+				//    }
+				
 			82
 			function solution(list){
 				// TODO: complete solution 
