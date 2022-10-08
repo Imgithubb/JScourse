@@ -2976,26 +2976,62 @@
 // 	[2, 8, 7, 4, 1, 9, 6, 3, 5],
 // 	[3, 4, 5, 2, 8, 6, 1, 7, 9]])))
 
-	function validSolution(board){
-		var validSet = s => s.size == 9 && !s.has(0);
-		var rowSet = i => board[i].reduce((s,v) => s.add(v), new Set());
-		var columnSet = i => board.reduce((s,v) => s.add(v[i]), new Set());
-		var boxSet = ([r,c]) => board.slice(r,r+3).reduce((s,v) => v.slice(c,c+3).reduce((s,v) => s.add(v), s), new Set());
-		var boxCorner = i => [Math.floor(i / 3) * 3,(i % 3) * 3];
-		for (var i = 0; i < 9; i++)
-		  if ( !validSet(rowSet(i)) || !validSet(columnSet(i)) || !validSet(boxSet(boxCorner(i))) )
-		    return false;
-		return true;
-	   }
-	   console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
-		[6, 7, 2, 1, 9, 5, 3, 4, 8],
-		[1, 9, 8, 3, 4, 2, 5, 6, 7],
-		[8, 5, 9, 7, 6, 1, 4, 2, 3],
-		[4, 2, 6, 8, 5, 3, 7, 9, 1],
-		[7, 1, 3, 9, 2, 4, 8, 5, 6],
-		[9, 6, 1, 5, 3, 7, 0, 8, 4],
-		[2, 8, 7, 4, 1, 9, 6, 3, 5],
-		[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
+
+	// function validSolution(board){
+	// 	var validSet = s => s.size == 9 && !s.has(0);
+	// 	var rowSet = i => board[i].reduce((s,v) => s.add(v), new Set());
+	// 	var columnSet = i => board.reduce((s,v) => s.add(v[i]), new Set());
+	// 	var boxSet = ([r,c]) => board.slice(r,r+3).reduce((s,v) => v.slice(c,c+3).reduce((s,v) => s.add(v), s), new Set());
+	// 	var boxCorner = i => [Math.floor(i / 3) * 3,(i % 3) * 3];
+	// 	for (var i = 0; i < 9; i++)
+	// 	  if ( !validSet(rowSet(i)) || !validSet(columnSet(i)) || !validSet(boxSet(boxCorner(i))) )
+	// 	    return false;
+	// 	return true;
+	//    }
+	//    console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
+	// 	[6, 7, 2, 1, 9, 5, 3, 4, 8],
+	// 	[1, 9, 8, 3, 4, 2, 5, 6, 7],
+	// 	[8, 5, 9, 7, 6, 1, 4, 2, 3],
+	// 	[4, 2, 6, 8, 5, 3, 7, 9, 1],
+	// 	[7, 1, 3, 9, 2, 4, 8, 5, 6],
+	// 	[9, 6, 1, 5, 3, 7, 0, 8, 4],
+	// 	[2, 8, 7, 4, 1, 9, 6, 3, 5],
+	// 	[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
+
+  // function validSolution(board){
+  //   for (i = 0; i < 9; i++) {
+  //     let sq1 = new Set(),
+  //         sq2 = new Set();
+  //     for (j = 0; j < 9; j++) {
+  //       sq1.add(board[i][j]);
+  //       sq2.add(board[j][i]);
+  //     }
+  //     if (sq1.size !== 9 || sq2.size !== 9) return false;
+  //   }
+    
+  //   for (k1 = 0; k1 < 3; k1++) {
+  //     for (k2 = 0; k2 < 3; k2++) {
+  //       let sq = new Set();
+  //       for (i = k1 * 3; i < (k1 + 1) * 3; i++) {
+  //         for(j = k2 * 3; j < (k2 + 1) * 3; j++) {
+  //           sq.add(board[i][j])
+  //         }
+  //       }
+  //       if (sq.size < 9) return false;
+  //     }
+  //   }
+  //   return true;
+  // }
+
+  //console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
+    // 	[6, 7, 2, 1, 9, 5, 3, 4, 8],
+    // 	[1, 9, 8, 3, 4, 2, 5, 6, 7],
+    // 	[8, 5, 9, 7, 6, 1, 4, 2, 3],
+    // 	[4, 2, 6, 8, 5, 3, 7, 9, 1],
+    // 	[7, 1, 3, 9, 2, 4, 8, 5, 6],
+    // 	[9, 6, 1, 5, 3, 7, 0, 8, 4],
+    // 	[2, 8, 7, 4, 1, 9, 6, 3, 5],
+    // 	[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
 
 	// function validArr(arr){
 	// 	return arr.sort(function(a,b){return a-b}).join("") === "123456789" && arr.reduce(function(a,b){return a + b},0) == 45
