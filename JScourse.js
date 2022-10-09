@@ -2927,7 +2927,7 @@
 // 		res.push(result)
 // 		result = 0
 // 	}
-	
+
 // 	return board.every(e => e.reduce((p, c) => p + c) == sum) && res.every(el => el == sum) &&
 // 		res2.every(elem => elem == sum) ? true : false
 // }
@@ -2941,282 +2941,252 @@
 // [2, 8, 7, 4, 1, 9, 6, 3, 5],
 // [3, 4, 5, 2, 8, 6, 1, 7, 9]]));
 
-// function hasOneDigit(elem){
-// 	return elem.filter(e=>e===1).length === 9
+// function validSolution(board){
+// 	var validSet = s => s.size == 9 && !s.has(0);
+// 	var rowSet = i => board[i].reduce((s,v) => s.add(v), new Set());
+// 	var columnSet = i => board.reduce((s,v) => s.add(v[i]), new Set());
+// 	var boxSet = ([r,c]) => board.slice(r,r+3).reduce((s,v) => v.slice(c,c+3).reduce((s,v) => s.add(v), s), new Set());
+// 	var boxCorner = i => [Math.floor(i / 3) * 3,(i % 3) * 3];
+// 	for (var i = 0; i < 9; i++)
+// 	  if ( !validSet(rowSet(i)) || !validSet(columnSet(i)) || !validSet(boxSet(boxCorner(i))) )
+// 	    return false;
+// 	return true;
 //    }
-   
-//    function validSolution(board){
-// 	let sumh = Array(9).fill(null).map(e=>new Array(10).fill(0));
-// 	let sumv = Array(9).fill(null).map(e=>new Array(10).fill(0));
-   
-// 	let osums = Array(3).fill(null)
-// 	    .map( e => 
-// 		  new Array(3).fill(null)
-// 			 .map(e=>new Array(10).fill(0))
-// 	   )
-    
-// 	for (var i=0;i<9;i++){
-// 	  for (var j=0;j<9;j++){
-// 	    if (board[i][j] === 0) return false
-// 	    sumh[i][board[i][j]] += 1;
-// 	    sumv[j][board[i][j]] += 1;
-// 	    osums[Math.floor(i/3)][Math.floor(j/3)][board[i][j]] += 1;
-// 	  }
-// 	}
-// 	for (var i=0;i<3;i++) if (!osums[i].every(hasOneDigit)) return false;
-// 	return (sumh.every(hasOneDigit) && sumv.every(hasOneDigit));
-//    }
-//    console.log(validSolution(([[5, 3, 4, 6, 7, 8, 9, 1, 2], 
+//    console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
 // 	[6, 7, 2, 1, 9, 5, 3, 4, 8],
 // 	[1, 9, 8, 3, 4, 2, 5, 6, 7],
 // 	[8, 5, 9, 7, 6, 1, 4, 2, 3],
 // 	[4, 2, 6, 8, 5, 3, 7, 9, 1],
 // 	[7, 1, 3, 9, 2, 4, 8, 5, 6],
-// 	[9, 6, 1, 5, 3, 7, 2, 8, 4],
+// 	[9, 6, 1, 5, 3, 7, 0, 8, 4],
 // 	[2, 8, 7, 4, 1, 9, 6, 3, 5],
-// 	[3, 4, 5, 2, 8, 6, 1, 7, 9]])))
+// 	[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
+
+// function validSolution(board){
+//   for (i = 0; i < 9; i++) {
+//     let sq1 = new Set(),
+//         sq2 = new Set();
+//     for (j = 0; j < 9; j++) {
+//       sq1.add(board[i][j]);
+//       sq2.add(board[j][i]);
+//     }
+//     if (sq1.size !== 9 || sq2.size !== 9) return false;
+//   }
+
+//   for (k1 = 0; k1 < 3; k1++) {
+//     for (k2 = 0; k2 < 3; k2++) {
+//       let sq = new Set();
+//       for (i = k1 * 3; i < (k1 + 1) * 3; i++) {
+//         for(j = k2 * 3; j < (k2 + 1) * 3; j++) {
+//           sq.add(board[i][j])
+//         }
+//       }
+//       if (sq.size < 9) return false;
+//     }
+//   }
+//   return true;
+// }
+
+//console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
+// 	[6, 7, 2, 1, 9, 5, 3, 4, 8],
+// 	[1, 9, 8, 3, 4, 2, 5, 6, 7],
+// 	[8, 5, 9, 7, 6, 1, 4, 2, 3],
+// 	[4, 2, 6, 8, 5, 3, 7, 9, 1],
+// 	[7, 1, 3, 9, 2, 4, 8, 5, 6],
+// 	[9, 6, 1, 5, 3, 7, 0, 8, 4],
+// 	[2, 8, 7, 4, 1, 9, 6, 3, 5],
+// 	[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
+
+// function validArr(arr){
+// 	return arr.sort(function(a,b){return a-b}).join("") === "123456789" && arr.reduce(function(a,b){return a + b},0) == 45
+//  }
+
+//  function validSolution(board){
+//    var arrh = [[],[],[],[],[],[],[],[],[]];
+//    var arrv = [[],[],[],[],[],[],[],[],[]];
+//    var arrb = [[[],[],[]],[[],[],[]],[[],[],[]]];
+//    for (var i=0;i<9;i++){
+// 	for (var j=0;j<9;j++){
+// 	  arrh[i].push(board[i][j]);
+// 	  arrv[j].push(board[i][j]);
+// 	  arrb[Math.floor(i/3)][Math.floor(j/3)].push(board[i][j]);
+// 	}
+//    }
+//    for (var i=0;i<3;i++) if (!arrb[i].every(validArr)) return false;
+//    return (arrh.every(validArr) && arrv.every(validArr));
+//  }
+//    console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
+// 	[6, 7, 2, 1, 9, 5, 3, 4, 8],
+// 	[1, 9, 8, 3, 4, 2, 5, 6, 7],
+// 	[8, 5, 9, 7, 6, 1, 4, 2, 3],
+// 	[4, 2, 6, 8, 5, 3, 7, 9, 1],
+// 	[7, 1, 3, 9, 2, 4, 8, 5, 6],
+// 	[9, 6, 1, 5, 3, 7, 0, 8, 4],
+// 	[2, 8, 7, 4, 1, 9, 6, 3, 5],
+// 	[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
+
+// function validSolution(bd){
+// 	var o=[0,1,2,3,4,5,6,7,8] , p=[[0,1,2],[3,4,5],[6,7,8]],
+// 	a = o.map(i=>bd[i].slice().sort().join("")),
+// 	b = o.map(i=>o.map(j=>bd[j][i]).sort().join("")),
+// 	c = p.map(x=>p.map(y=>y.reduce((m,n)=>m.concat(x.map(z=>bd[z][n])),[]))).reduce((m,n)=>m.concat(n.map(x=>x.sort().join(""))),[]);
+// 	return a.concat(b,c).every(x=>x=="123456789");
+//    }
+//    console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
+// 	[6, 7, 2, 1, 9, 5, 3, 4, 8],
+// 	[1, 9, 8, 3, 4, 2, 5, 6, 7],
+// 	[8, 5, 9, 7, 6, 1, 4, 2, 3],
+// 	[4, 2, 6, 8, 5, 3, 7, 9, 1],
+// 	[7, 1, 3, 9, 2, 4, 8, 5, 6],
+// 	[9, 6, 1, 5, 3, 7, 0, 8, 4],
+// 	[2, 8, 7, 4, 1, 9, 6, 3, 5],
+// 	[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
+
+// const validSolution = (board) => {
+// 	const suok = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// 	const columns = [[], [], [], [], [], [], [], [], []];
+// 	const grid = [[], [], [], [], [], [], [], [], []];
+
+// 	// Grid and Column creation
+// 	for (let i = 0; i < board.length; i++) {
+// 	  board[i].forEach((elem, index) => {
+// 	    columns[index].push(elem);
+// 	    if (i < 3) {
+// 		 if (index < 3) {
+// 		    grid[0].push(elem);
+// 		 } else if (index < 6) {
+// 		    grid[1].push(elem);
+// 		 } else if (index < 9) {
+// 		    grid[2].push(elem);
+// 		 }
+// 	    }
+// 	    if (i >= 3 && i <= 5) {
+// 		 if (index < 3) {
+// 		    grid[3].push(elem);
+// 		 } else if (index < 6) {
+// 		    grid[4].push(elem);
+// 		 } else if (index < 9) {
+// 		    grid[5].push(elem);
+// 		 }
+// 	    }
+// 	    if ( i > 5) {
+// 		 if (index < 3) {
+// 		    grid[6].push(elem);
+// 		 } else if (index < 6) {
+// 		    grid[7].push(elem);
+// 		 } else if (index < 9) {
+// 		    grid[8].push(elem);
+// 		 }
+// 	    }
+// 	  })
+// 	}
+
+// 	// Row, Columns and Grid check
+// 	for (let i = 0; i < columns.length; i++) {
+// 	   const isSudokuColumns = suok.every(elem => columns[i].indexOf(elem) > -1);
+// 	   const isSudokuGrid = suok.every(elem => grid[i].indexOf(elem) > -1);
+// 	   const isSudokuRows = suok.every(elem => board[i].indexOf(elem) > -1);
+// 	   if (!isSudokuColumns || !isSudokuGrid || !isSudokuRows) return false;
+// 	}
+
+// 	return true
+//    }
+//    console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
+// 	[6, 7, 2, 1, 9, 5, 3, 4, 8],
+// 	[1, 9, 8, 3, 4, 2, 5, 6, 7],
+// 	[8, 5, 9, 7, 6, 1, 4, 2, 3],
+// 	[4, 2, 6, 8, 5, 3, 7, 9, 1],
+// 	[7, 1, 3, 9, 2, 4, 8, 5, 6],
+// 	[9, 6, 1, 5, 3, 7, 0, 8, 4],
+// 	[2, 8, 7, 4, 1, 9, 6, 3, 5],
+// 	[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
 
 
-	// function validSolution(board){
-	// 	var validSet = s => s.size == 9 && !s.has(0);
-	// 	var rowSet = i => board[i].reduce((s,v) => s.add(v), new Set());
-	// 	var columnSet = i => board.reduce((s,v) => s.add(v[i]), new Set());
-	// 	var boxSet = ([r,c]) => board.slice(r,r+3).reduce((s,v) => v.slice(c,c+3).reduce((s,v) => s.add(v), s), new Set());
-	// 	var boxCorner = i => [Math.floor(i / 3) * 3,(i % 3) * 3];
-	// 	for (var i = 0; i < 9; i++)
-	// 	  if ( !validSet(rowSet(i)) || !validSet(columnSet(i)) || !validSet(boxSet(boxCorner(i))) )
-	// 	    return false;
-	// 	return true;
-	//    }
-	//    console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
-	// 	[6, 7, 2, 1, 9, 5, 3, 4, 8],
-	// 	[1, 9, 8, 3, 4, 2, 5, 6, 7],
-	// 	[8, 5, 9, 7, 6, 1, 4, 2, 3],
-	// 	[4, 2, 6, 8, 5, 3, 7, 9, 1],
-	// 	[7, 1, 3, 9, 2, 4, 8, 5, 6],
-	// 	[9, 6, 1, 5, 3, 7, 0, 8, 4],
-	// 	[2, 8, 7, 4, 1, 9, 6, 3, 5],
-	// 	[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
+// function validSolution(board){
+// 	var h = Array(9).fill(0x3e);
+// 	var v = Array(9).fill(0x3e);
+// 	var q = Array(9).fill(0x3e);
 
-  // function validSolution(board){
-  //   for (i = 0; i < 9; i++) {
-  //     let sq1 = new Set(),
-  //         sq2 = new Set();
-  //     for (j = 0; j < 9; j++) {
-  //       sq1.add(board[i][j]);
-  //       sq2.add(board[j][i]);
-  //     }
-  //     if (sq1.size !== 9 || sq2.size !== 9) return false;
-  //   }
-    
-  //   for (k1 = 0; k1 < 3; k1++) {
-  //     for (k2 = 0; k2 < 3; k2++) {
-  //       let sq = new Set();
-  //       for (i = k1 * 3; i < (k1 + 1) * 3; i++) {
-  //         for(j = k2 * 3; j < (k2 + 1) * 3; j++) {
-  //           sq.add(board[i][j])
-  //         }
-  //       }
-  //       if (sq.size < 9) return false;
-  //     }
-  //   }
-  //   return true;
-  // }
+// 	for (j = 0 ; j < 9; j++) {
+// 	  for (i = 0; i < 9; i++) {
+// 	    mark = ~(1 << board[j][i]);
+// 	    h[j] &= mark;
+// 	    v[i] &= mark;
+// 	    q[~~(j/3)*3+~~(i/3)] &= mark;
+// 	  }
+// 	}
 
-  //console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
-    // 	[6, 7, 2, 1, 9, 5, 3, 4, 8],
-    // 	[1, 9, 8, 3, 4, 2, 5, 6, 7],
-    // 	[8, 5, 9, 7, 6, 1, 4, 2, 3],
-    // 	[4, 2, 6, 8, 5, 3, 7, 9, 1],
-    // 	[7, 1, 3, 9, 2, 4, 8, 5, 6],
-    // 	[9, 6, 1, 5, 3, 7, 0, 8, 4],
-    // 	[2, 8, 7, 4, 1, 9, 6, 3, 5],
-    // 	[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
+// 	t = 0;
+// 	for (i = 0; i < 9; i++) {
+// 	  t += h[i] + v[i] + q[i]; 
+// 	}
 
-	// function validArr(arr){
-	// 	return arr.sort(function(a,b){return a-b}).join("") === "123456789" && arr.reduce(function(a,b){return a + b},0) == 45
-	//  }
-	 
-	//  function validSolution(board){
-	//    var arrh = [[],[],[],[],[],[],[],[],[]];
-	//    var arrv = [[],[],[],[],[],[],[],[],[]];
-	//    var arrb = [[[],[],[]],[[],[],[]],[[],[],[]]];
-	//    for (var i=0;i<9;i++){
-	// 	for (var j=0;j<9;j++){
-	// 	  arrh[i].push(board[i][j]);
-	// 	  arrv[j].push(board[i][j]);
-	// 	  arrb[Math.floor(i/3)][Math.floor(j/3)].push(board[i][j]);
-	// 	}
-	//    }
-	//    for (var i=0;i<3;i++) if (!arrb[i].every(validArr)) return false;
-	//    return (arrh.every(validArr) && arrv.every(validArr));
-	//  }
-	//    console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
-	// 	[6, 7, 2, 1, 9, 5, 3, 4, 8],
-	// 	[1, 9, 8, 3, 4, 2, 5, 6, 7],
-	// 	[8, 5, 9, 7, 6, 1, 4, 2, 3],
-	// 	[4, 2, 6, 8, 5, 3, 7, 9, 1],
-	// 	[7, 1, 3, 9, 2, 4, 8, 5, 6],
-	// 	[9, 6, 1, 5, 3, 7, 0, 8, 4],
-	// 	[2, 8, 7, 4, 1, 9, 6, 3, 5],
-	// 	[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
+// 	return (t==0);
 
-	// function validSolution(bd){
-	// 	var o=[0,1,2,3,4,5,6,7,8] , p=[[0,1,2],[3,4,5],[6,7,8]],
-	// 	a = o.map(i=>bd[i].slice().sort().join("")),
-	// 	b = o.map(i=>o.map(j=>bd[j][i]).sort().join("")),
-	// 	c = p.map(x=>p.map(y=>y.reduce((m,n)=>m.concat(x.map(z=>bd[z][n])),[]))).reduce((m,n)=>m.concat(n.map(x=>x.sort().join(""))),[]);
-	// 	return a.concat(b,c).every(x=>x=="123456789");
-	//    }
-	//    console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
-		// 	[6, 7, 2, 1, 9, 5, 3, 4, 8],
-		// 	[1, 9, 8, 3, 4, 2, 5, 6, 7],
-		// 	[8, 5, 9, 7, 6, 1, 4, 2, 3],
-		// 	[4, 2, 6, 8, 5, 3, 7, 9, 1],
-		// 	[7, 1, 3, 9, 2, 4, 8, 5, 6],
-		// 	[9, 6, 1, 5, 3, 7, 0, 8, 4],
-		// 	[2, 8, 7, 4, 1, 9, 6, 3, 5],
-		// 	[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
+//    }
 
-		// const validSolution = (board) => {
-		// 	const suok = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-		// 	const columns = [[], [], [], [], [], [], [], [], []];
-		// 	const grid = [[], [], [], [], [], [], [], [], []];
-			
-		// 	// Grid and Column creation
-		// 	for (let i = 0; i < board.length; i++) {
-		// 	  board[i].forEach((elem, index) => {
-		// 	    columns[index].push(elem);
-		// 	    if (i < 3) {
-		// 		 if (index < 3) {
-		// 		    grid[0].push(elem);
-		// 		 } else if (index < 6) {
-		// 		    grid[1].push(elem);
-		// 		 } else if (index < 9) {
-		// 		    grid[2].push(elem);
-		// 		 }
-		// 	    }
-		// 	    if (i >= 3 && i <= 5) {
-		// 		 if (index < 3) {
-		// 		    grid[3].push(elem);
-		// 		 } else if (index < 6) {
-		// 		    grid[4].push(elem);
-		// 		 } else if (index < 9) {
-		// 		    grid[5].push(elem);
-		// 		 }
-		// 	    }
-		// 	    if ( i > 5) {
-		// 		 if (index < 3) {
-		// 		    grid[6].push(elem);
-		// 		 } else if (index < 6) {
-		// 		    grid[7].push(elem);
-		// 		 } else if (index < 9) {
-		// 		    grid[8].push(elem);
-		// 		 }
-		// 	    }
-		// 	  })
-		// 	}
-			
-		// 	// Row, Columns and Grid check
-		// 	for (let i = 0; i < columns.length; i++) {
-		// 	   const isSudokuColumns = suok.every(elem => columns[i].indexOf(elem) > -1);
-		// 	   const isSudokuGrid = suok.every(elem => grid[i].indexOf(elem) > -1);
-		// 	   const isSudokuRows = suok.every(elem => board[i].indexOf(elem) > -1);
-		// 	   if (!isSudokuColumns || !isSudokuGrid || !isSudokuRows) return false;
-		// 	}
-			
-		// 	return true
-		//    }
-		//    console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
-			// 	[6, 7, 2, 1, 9, 5, 3, 4, 8],
-			// 	[1, 9, 8, 3, 4, 2, 5, 6, 7],
-			// 	[8, 5, 9, 7, 6, 1, 4, 2, 3],
-			// 	[4, 2, 6, 8, 5, 3, 7, 9, 1],
-			// 	[7, 1, 3, 9, 2, 4, 8, 5, 6],
-			// 	[9, 6, 1, 5, 3, 7, 0, 8, 4],
-			// 	[2, 8, 7, 4, 1, 9, 6, 3, 5],
-			// 	[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
+//    console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
+// 	[6, 7, 2, 1, 9, 5, 3, 4, 8],
+// 	[1, 9, 8, 3, 4, 2, 5, 6, 7],
+// 	[8, 5, 9, 7, 6, 1, 4, 2, 3],
+// 	[4, 2, 6, 8, 5, 3, 7, 9, 1],
+// 	[7, 1, 3, 9, 2, 4, 8, 5, 6],
+// 	[9, 6, 1, 5, 3, 7, 0, 8, 4],
+// 	[2, 8, 7, 4, 1, 9, 6, 3, 5],
+// 	[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
 
+// function validSolution(board){
+// 	//TOP
+// 	const tl = board[0].slice(0,3).concat(board[1].slice(0,3)).concat(board[2].slice(0,3));
+// 	const tm = board[0].slice(3,6).concat(board[1].slice(3,6)).concat(board[2].slice(3,6));
+// 	const tr = board[0].slice(6,9).concat(board[1].slice(6,9)).concat(board[2].slice(6,9));
+// 	//MID
+// 	const ml = board[3].slice(0,3).concat(board[4].slice(0,3)).concat(board[5].slice(0,3));
+// 	const mm = board[3].slice(3,6).concat(board[4].slice(3,6)).concat(board[5].slice(3,6));
+// 	const mr = board[3].slice(6,9).concat(board[4].slice(6,9)).concat(board[5].slice(6,9));
+// 	//BOT
+// 	const bl = board[6].slice(0,3).concat(board[7].slice(0,3)).concat(board[8].slice(0,3));
+// 	const bm = board[6].slice(3,6).concat(board[7].slice(3,6)).concat(board[8].slice(3,6));
+// 	const br = board[6].slice(6,9).concat(board[7].slice(6,9)).concat(board[8].slice(6,9));
+// 	const sectors = [tl,tm,tr,ml,mm,mr,bl,bm,br];
+// 	return sectors.reduce((acc,cur) => {
+// 	  let range = [];
+// 	  cur.every((element) => {return range.push(element);})
+// 	  if((new Set(range)).size !== range.length) return false;
+// 	  return true;
+// 	})
+//    }
 
-			// function validSolution(board){
-			// 	var h = Array(9).fill(0x3e);
-			// 	var v = Array(9).fill(0x3e);
-			// 	var q = Array(9).fill(0x3e);
-			    
-			// 	for (j = 0 ; j < 9; j++) {
-			// 	  for (i = 0; i < 9; i++) {
-			// 	    mark = ~(1 << board[j][i]);
-			// 	    h[j] &= mark;
-			// 	    v[i] &= mark;
-			// 	    q[~~(j/3)*3+~~(i/3)] &= mark;
-			// 	  }
-			// 	}
-				
-			// 	t = 0;
-			// 	for (i = 0; i < 9; i++) {
-			// 	  t += h[i] + v[i] + q[i]; 
-			// 	}
-				 
-			// 	return (t==0);
-				
-			//    }
+//    console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
+// 	[6, 7, 2, 1, 9, 5, 3, 4, 8],
+// 	[1, 9, 8, 3, 4, 2, 5, 6, 7],
+// 	[8, 5, 9, 7, 6, 1, 4, 2, 3],
+// 	[4, 2, 6, 8, 5, 3, 7, 9, 1],
+// 	[7, 1, 3, 9, 2, 4, 8, 5, 6],
+// 	[9, 6, 1, 5, 3, 7, 0, 8, 4],
+// 	[2, 8, 7, 4, 1, 9, 6, 3, 5],
+// 	[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
 
-			//    console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
-				// 	[6, 7, 2, 1, 9, 5, 3, 4, 8],
-				// 	[1, 9, 8, 3, 4, 2, 5, 6, 7],
-				// 	[8, 5, 9, 7, 6, 1, 4, 2, 3],
-				// 	[4, 2, 6, 8, 5, 3, 7, 9, 1],
-				// 	[7, 1, 3, 9, 2, 4, 8, 5, 6],
-				// 	[9, 6, 1, 5, 3, 7, 0, 8, 4],
-				// 	[2, 8, 7, 4, 1, 9, 6, 3, 5],
-				// 	[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
+//BOT
+// 	const bl = board[6].slice(0,3).concat(board[7].slice(0,3)).concat(board[8].slice(0,3));
+// 	const bm = board[6].slice(3,6).concat(board[7].slice(3,6)).concat(board[8].slice(3,6));
+// 	const br = board[6].slice(6,9).concat(board[7].slice(6,9)).concat(board[8].slice(6,9));
+// 	const sectors = [tl,tm,tr,ml,mm,mr,bl,bm,br];
+// 	return sectors.reduce((acc,cur) => {
+// 	  let range = [];
+// 	  cur.every((element) => {return range.push(element);})
+// 	  if((new Set(range)).size !== range.length) return false;
+// 	  return true;
+// 	})
+//    }
 
-				// function validSolution(board){
-				// 	//TOP
-				// 	const tl = board[0].slice(0,3).concat(board[1].slice(0,3)).concat(board[2].slice(0,3));
-				// 	const tm = board[0].slice(3,6).concat(board[1].slice(3,6)).concat(board[2].slice(3,6));
-				// 	const tr = board[0].slice(6,9).concat(board[1].slice(6,9)).concat(board[2].slice(6,9));
-				// 	//MID
-				// 	const ml = board[3].slice(0,3).concat(board[4].slice(0,3)).concat(board[5].slice(0,3));
-				// 	const mm = board[3].slice(3,6).concat(board[4].slice(3,6)).concat(board[5].slice(3,6));
-				// 	const mr = board[3].slice(6,9).concat(board[4].slice(6,9)).concat(board[5].slice(6,9));
-				// 	//BOT
-				// 	const bl = board[6].slice(0,3).concat(board[7].slice(0,3)).concat(board[8].slice(0,3));
-				// 	const bm = board[6].slice(3,6).concat(board[7].slice(3,6)).concat(board[8].slice(3,6));
-				// 	const br = board[6].slice(6,9).concat(board[7].slice(6,9)).concat(board[8].slice(6,9));
-				// 	const sectors = [tl,tm,tr,ml,mm,mr,bl,bm,br];
-				// 	return sectors.reduce((acc,cur) => {
-				// 	  let range = [];
-				// 	  cur.every((element) => {return range.push(element);})
-				// 	  if((new Set(range)).size !== range.length) return false;
-				// 	  return true;
-				// 	})
-				//    }
-
-				//    console.log(validSolution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
-					// 	[6, 7, 2, 1, 9, 5, 3, 4, 8],
-					// 	[1, 9, 8, 3, 4, 2, 5, 6, 7],
-					// 	[8, 5, 9, 7, 6, 1, 4, 2, 3],
-					// 	[4, 2, 6, 8, 5, 3, 7, 9, 1],
-					// 	[7, 1, 3, 9, 2, 4, 8, 5, 6],
-					// 	[9, 6, 1, 5, 3, 7, 0, 8, 4],
-					// 	[2, 8, 7, 4, 1, 9, 6, 3, 5],
-					// 	[3, 4, 5, 2, 8, 6, 1, 7, 9]]));
-
-					 	//BOT
-				// 	const bl = board[6].slice(0,3).concat(board[7].slice(0,3)).concat(board[8].slice(0,3));
-				// 	const bm = board[6].slice(3,6).concat(board[7].slice(3,6)).concat(board[8].slice(3,6));
-				// 	const br = board[6].slice(6,9).concat(board[7].slice(6,9)).concat(board[8].slice(6,9));
-				// 	const sectors = [tl,tm,tr,ml,mm,mr,bl,bm,br];
-				// 	return sectors.reduce((acc,cur) => {
-				// 	  let range = [];
-				// 	  cur.every((element) => {return range.push(element);})
-				// 	  if((new Set(range)).size !== range.length) return false;
-				// 	  return true;
-				// 	})
-				//    }
-				
-			82
-			function solution(list){
-				// TODO: complete solution 
-			    }
+82
+function solution(list) {
+	return list.forEach((e,i,arr) => {
+		if (e-arr[i+1] ==1||e-arr[i+1] ==-1||e+arr[i+1]==1||e+arr[i+1]==-1){ e = '-'}
+		else { }
+	}
+	);
+	
+}
+ console.log(solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]));
