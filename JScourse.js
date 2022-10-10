@@ -3182,11 +3182,11 @@
 
 82
 function solution(list) {
-	return list.forEach((e,i,arr) => {
-		if (e-arr[i+1] ==1||e-arr[i+1] ==-1||e+arr[i+1]==1||e+arr[i+1]==-1){ e = '-'}
+	let lis = list.forEach((e,i,arr) => {
+		if (e-arr[i+1] ==1||e-arr[i+1] ==-1||e+arr[i+1]==1||e+arr[i+1]==-1){ list[i] =  '-'}
 		else { }
 	}
 	);
-	
+	return lis
 }
  console.log(solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]));
