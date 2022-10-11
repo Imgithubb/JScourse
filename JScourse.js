@@ -3182,11 +3182,13 @@
 
 82
 function solution(list) {
-	let lis = list.forEach((e,i,arr) => {
-		if (e-arr[i+1] ==1||e-arr[i+1] ==-1||e+arr[i+1]==1||e+arr[i+1]==-1){ list[i] =  '-'}
-		else { }
+	for (let i = 0; i < list.length; i++) {
+		if (list[i] - list[i + 1] == 1 || list[i] - list[i + 1] == -1 || list[i] + list[i + 1] == 1 || list[i] + list[i + 1] == -1 && list[i - 1] == '-') { list[i] = '-' }
+		else { i++ }
+		if (list[i] == '' && list[i - 1] == '-') { list.splice(i - 1, 1) }
 	}
-	);
-	return lis
+	list = list.join`,`
+	list = list.replace('-'  , '1')
+	return list
 }
- console.log(solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]));
+console.log(solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]));
