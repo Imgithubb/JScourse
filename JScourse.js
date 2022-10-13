@@ -3183,13 +3183,32 @@
 82
 function solution(list) {
 	for (let i = 0; i < list.length; i++) {
-		if (i==0) i++
-		if (list[i] - list[i + 1] == 1 || list[i] - list[i + 1] == -1 || list[i] + list[i + 1] == 1 || list[i] + list[i + 1] == -1 && list[i - 1] == '-') { list[i] = '-' }
+		if (i == 0) i++
+		if (
+			//list[i] + list[i + 1] == -1 &&
+			//list[i - 1] == '-' &&
+			(!(list[i] + list[i - 1] > 1) ||
+			!(list[i] + list[i - 1] < -1) || 
+			!(list[i] - list[i - 1] > 1) ||
+			!(list[i] - list[i - 1] > 1)
+		 ) &&
+			(list[i] - list[i + 1] == 1 ||
+			list[i] - list[i + 1] == -1) 
+			//list[i] + list[i + 1] == 1 
+		) 
+		{ list[i] = '-' }
 		else { i++ }
 		if (list[i] == '' && list[i - 1] == '-') { list.splice(i - 1, 1) }
 	}
 	list = list.join`,`
-	list = list.replace(/(,*-,)+/gi  , '-')
+	list = list.replace(/(,*-,)+/gi, '-')
 	return list
 }
 console.log(solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]));
+
+// function n1(p) {
+// 	if (p < 10 && p > -10 && (p == 20 || p == 45)) { return true }
+// 	else { return false }
+// }
+// console.log(n1(20));
+
