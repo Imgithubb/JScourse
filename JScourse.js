@@ -3186,23 +3186,23 @@ function solution(list) {
 		if (
 			(
 				(
-					list[i] + list[i - 1] !== 1 &&
-					list[i] + list[i - 1] !== -1 &&
-					list[i] - list[i - 1] !== 1 &&
+					(list[i] > 0 && list[i - 1] > 0 && list[i] + list[i - 1] !== 1) ||
+					list[i] + list[i - 1] !== -1 ||
+					list[i] - list[i - 1] !== 1 ||
 					list[i] - list[i - 1] !== 1
 				) &&
 				(
-					list[i] + list[i + 1] == 1 ||
-					list[i] + list[i + 1] == -1 ||
-					list[i] - list[i + 1] == 1 ||
-					list[i] - list[i + 1] == - 1
+					//list[i] + list[i + 1] == 1 ||
+					//list[i] + list[i + 1] == -1 ||
+					(list[i] < 0 && list[i] - list[i + 1] == 1) ||
+					(list[i] >= 0 && list[i] - list[i + 1] == - 1)
 				)
 			) ||
 			(
-				list[i] + list[i - 1] == 1 ||
-				list[i] + list[i - 1] == -1 ||
-				list[i] - list[i - 1] == 1 ||
-				list[i] - list[i - 1]== 1
+				//list[i] + list[i - 1] == 1 ||
+				//list[i] + list[i - 1] == -1 ||
+				(list[i] < 0 && list[i] - list[i - 1] == -1) ||
+				(list[i] >= 0 && list[i] - list[i - 1] == 1)
 			) &&
 			(
 				list[i] + list[i + 1] !== 1 &&
@@ -3217,10 +3217,8 @@ function solution(list) {
 			for (; i < list.length; i++) {
 				if (
 					(
-						list[i] + list[i + 1] == 1 ||
-						list[i] + list[i + 1] == -1 ||
-						list[i] - list[i + 1] == 1 ||
-						list[i] - list[i + 1] == - 1
+						(list[i] < 0 && list[i] - list[i + 1] == 1) ||
+						(list[i] >= 0 && list[i] - list[i + 1] == - 1)
 					) &&
 					list[i - 1] == '-'
 				) { list[i] = '-' }
