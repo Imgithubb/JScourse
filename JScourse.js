@@ -2633,7 +2633,7 @@
 //      }
 //      console.log(nextBigger(2017));
 
-// let func = x => {return x[2]-x[1] } 
+// let func = x => {return x[2]-x[1] }
 // console.log(func([2,1,8,3,4,5]));
 
 // 79
@@ -2884,7 +2884,7 @@
 // const formatDuration = s => s == 0 ? 'now' :
 //      [Math.floor(s/60/60/24/365),
 //       Math.floor(s/60/60/24)%365,
-//       Math.floor(s/60/60)%24,  
+//       Math.floor(s/60/60)%24,
 //       Math.floor(s/60)%60 ,
 //       s%60]
 //      .map((e,i)=> e + ' ' + ['year', 'day', 'hour', 'minute', 'second'][i] + (+e>1?'s': ''))
@@ -3118,7 +3118,7 @@
 
 // 	t = 0;
 // 	for (i = 0; i < 9; i++) {
-// 	  t += h[i] + v[i] + q[i]; 
+// 	  t += h[i] + v[i] + q[i];
 // 	}
 
 // 	return (t==0);
@@ -3180,58 +3180,59 @@
 // 	})
 //    }
 
-82
-function solution(list) {
-	for (let i = 1; i < list.length; i++) {
-		if (
-			(
-				(
-					(list[i] > 0 && list[i - 1] > 0 && list[i] + list[i - 1] !== 1) ||
-					list[i] + list[i - 1] !== -1 ||
-					list[i] - list[i - 1] !== 1 ||
-					list[i] - list[i - 1] !== 1
-				) &&
-				(
-					//list[i] + list[i + 1] == 1 ||
-					//list[i] + list[i + 1] == -1 ||
-					(list[i] < 0 && list[i] - list[i + 1] == 1) ||
-					(list[i] >= 0 && list[i] - list[i + 1] == - 1)
-				)
-			) ||
-			(
-				//list[i] + list[i - 1] == 1 ||
-				//list[i] + list[i - 1] == -1 ||
-				(list[i] < 0 && list[i] - list[i - 1] == -1) ||
-				(list[i] >= 0 && list[i] - list[i - 1] == 1)
-			) &&
-			(
-				list[i] + list[i + 1] !== 1 &&
-				list[i] + list[i + 1] !== -1 &&
-				list[i] - list[i + 1] !== 1 &&
-				list[i] - list[i + 1] !== - 1
-			)
-		) { }
-		else {
-			list[i] = '-'
-			i++
-			for (; i < list.length; i++) {
-				if (
-					(
-						(list[i] < 0 && list[i] - list[i + 1] == 1) ||
-						(list[i] >= 0 && list[i] - list[i + 1] == - 1)
-					) &&
-					list[i - 1] == '-'
-				) { list[i] = '-' }
-				else { break }
-			}
-		}
-	}
+// 82
+// function solution(list) {
+// 	for (let i = 1; i < list.length; i++) {
+// 		if (
+// 			(
+// 				(
+// 					(list[i] > 0 && list[i - 1] > 0 && list[i] + list[i - 1] !== 1) ||
+// 					list[i] + list[i - 1] !== -1 ||
+// 					list[i] - list[i - 1] !== 1 ||
+// 					list[i] - list[i - 1] !== 1
+// 				) &&
+// 				(
+// 					//list[i] + list[i + 1] == 1 ||
+// 					//list[i] + list[i + 1] == -1 ||
+// 					(list[i] < 0 && list[i] - list[i + 1] == 1) ||
+// 					(list[i] >= 0 && list[i] - list[i + 1] == - 1)
+// 				)
+// 			) ||
+// 			(
+// 				//list[i] + list[i - 1] == 1 ||
+// 				//list[i] + list[i - 1] == -1 ||
+// 				(list[i] < 0 && list[i] - list[i - 1] == -1) ||
+// 				(list[i] >= 0 && list[i] - list[i - 1] == 1)
+// 			) &&
+// 			(
+// 				list[i] + list[i + 1] !== 1 &&
+// 				list[i] + list[i + 1] !== -1 &&
+// 				list[i] - list[i + 1] !== 1 &&
+// 				list[i] - list[i + 1] !== - 1
+// 			)
+// 		) { }
+// 		else {
+// 			list[i] = '-'
+// 			i++
+// 			for (; i < list.length; i++) {
+// 				if (
+// 					(
+// 						(list[i] < 0 && list[i] - list[i + 1] == 1) ||
+// 						(list[i] >= 0 && list[i] - list[i + 1] == - 1)
+// 					) &&
+// 					list[i - 1] == '-'
+// 				) { list[i] = '-' }
+// 				else { break }
+// 			}
+// 		}
+// 	}
 
-	list = list.join`,`
-	list = list.replace(/(,*-,)+/gi, '-')
-	return list
-}
-console.log(solution([-3, -2, -1, 2, 10, 15, 16, 18, 19, 20]));
+// 	list = list.join`,`
+// 	list = list.replace(/(,*-,)+/gi, '-')
+// 	return list
+// }
+// console.log(solution([-3, -2, -1, 2, 10, 15, 16, 18, 19, 20]));
+
 //-3--1,2,10,15,16,18-20
 
 // function n1(p) {
@@ -3239,4 +3240,3 @@ console.log(solution([-3, -2, -1, 2, 10, 15, 16, 18, 19, 20]));
 // 	else { return false }
 // }
 // console.log(n1(20));
-
