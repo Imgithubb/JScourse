@@ -3240,3 +3240,11 @@
 // 	else { return false }
 // }
 // console.log(n1(20));
+
+//n2
+// function solution(str, ending) {
+//   str = str.split``
+//   str = str.slice(-ending.length).join``
+//   return str==ending||ending==''?true:false
+// }
+// console.log(trueLastCharts('abc', ''));
