@@ -3248,3 +3248,23 @@
 //   return str==ending||ending==''?true:false
 // }
 // console.log(trueLastCharts('abc', ''));
+
+// n3
+// function findEvenIndex(arr){
+
+//     if (arr.reduce((acc,cur)=> acc+=cur)==0) { 
+//         return 0
+//     }
+
+//     for (let i = 0; i < arr.length; i++) {
+//         let currIndex = i
+//         let x = arr.slice(0,currIndex)
+//         let z = arr[i]
+//         let y = arr.slice(currIndex+1,arr.length)
+//         let sumX = x.reduce((a,c)=>a+=c,0)
+//         let sumY = y.reduce((a1,c1)=>a1+=c1,0)
+//         if (sumX==sumY){return i}
+//     }
+//     return -1
+// }
+// console.log(findEvenIndex([20,10,30,10,10,15,35]));
