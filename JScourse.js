@@ -3268,3 +3268,42 @@
 //     return -1
 // }
 // console.log(findEvenIndex([20,10,30,10,10,15,35]));
+
+//n4
+
+// 83
+// function solution(input, markers) {
+//     let y = input.split('\n')
+
+//     markers = markers.map(el=> {
+//         if (el == "$"){
+//             return '\\'+ el
+//         }
+//         else return el
+//     })
+//     let p = markers.join('|')
+//     let l = '('+ p + ')'
+
+//  y = y.map(e => {
+//     let z = new RegExp(`\\s*${l}.*`,'g')
+//     e = e.replace(z ,'')
+//     return e
+//     });
+
+// y = y.join('\n')
+// return  y
+// };
+// console.log(solution("a\n c \nd $e f g", ["$", "!"]));
+
+function solution(input, markers) {
+    let r = input.split('\n')
+    e = r.map(
+      line => markers.reduce(
+        (line, marker) =>{ 
+            let u = line.split(marker)
+            u[0].trim()}, line
+)
+    ).join('\n')
+    return r
+  }
+  console.log(solution("a\n c \nd $e f g", ["$", "!"]));
