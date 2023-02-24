@@ -3180,61 +3180,6 @@
 // 	})
 //    }
 
-// 82
-// function solution(list) {
-// 	for (let i = 1; i < list.length; i++) {
-// 		if (
-// 			(
-// 				(
-// 					(list[i] > 0 && list[i - 1] > 0 && list[i] + list[i - 1] !== 1) ||
-// 					list[i] + list[i - 1] !== -1 ||
-// 					list[i] - list[i - 1] !== 1 ||
-// 					list[i] - list[i - 1] !== 1
-// 				) &&
-// 				(
-// 					//list[i] + list[i + 1] == 1 ||
-// 					//list[i] + list[i + 1] == -1 ||
-// 					(list[i] < 0 && list[i] - list[i + 1] == 1) ||
-// 					(list[i] >= 0 && list[i] - list[i + 1] == - 1)
-// 				)
-// 			) ||
-// 			(
-// 				//list[i] + list[i - 1] == 1 ||
-// 				//list[i] + list[i - 1] == -1 ||
-// 				(list[i] < 0 && list[i] - list[i - 1] == -1) ||
-// 				(list[i] >= 0 && list[i] - list[i - 1] == 1)
-// 			) &&
-// 			(
-// 				list[i] + list[i + 1] !== 1 &&
-// 				list[i] + list[i + 1] !== -1 &&
-// 				list[i] - list[i + 1] !== 1 &&
-// 				list[i] - list[i + 1] !== - 1
-// 			)
-// 		) { }
-// 		else {
-// 			list[i] = '-'
-// 			i++
-// 			for (; i < list.length; i++) {
-// 				if (
-// 					(
-// 						(list[i] < 0 && list[i] - list[i + 1] == 1) ||
-// 						(list[i] >= 0 && list[i] - list[i + 1] == - 1)
-// 					) &&
-// 					list[i - 1] == '-'
-// 				) { list[i] = '-' }
-// 				else { break }
-// 			}
-// 		}
-// 	}
-
-// 	list = list.join`,`
-// 	list = list.replace(/(,*-,)+/gi, '-')
-// 	return list
-// }
-// console.log(solution([-3, -2, -1, 2, 10, 15, 16, 18, 19, 20]));
-
-//-3--1,2,10,15,16,18-20
-
 // function n1(p) {
 // 	if (p < 10 && p > -10 && (p == 20 || p == 45)) { return true }
 // 	else { return false }
@@ -3295,15 +3240,72 @@
 // };
 // console.log(solution("a\n c \nd $e f g", ["$", "!"]));
 
-function solution(input, markers) {
-    let r = input.split('\n')
-    e = r.map(
-      line => markers.reduce(
-        (line, marker) =>{ 
-            let u = line.split(marker)
-            u[0].trim()}, line
-)
-    ).join('\n')
-    return r
-  }
-  console.log(solution("a\n c \nd $e f g", ["$", "!"]));
+// function solution(input, markers) {
+//     let r = input.split('\n')
+//     e = r.map(
+//       line => markers.reduce(
+//         (line, marker) =>{ 
+//             let u = line.split(marker)
+//             u[0].trim()}, line
+// )
+//     ).join('\n')
+//     return r
+//   }
+//   console.log(solution("a\n c \nd $e f g", ["$", "!"]));
+
+
+//   console.log(window);
+
+// 82
+
+// function solution(list) {
+
+// 	let n = list.filter(el => el <= 0)
+// 	let p = list.filter(el => el >= 0)
+
+// 	for (let i = 1; i < n.length - 1; i++) {
+// 		if (
+// 			(n[i] - n[i - 1] == 1) &&
+// 			(n[i + 1] - n[i] == 1)
+
+// 		) {
+// 			list[i] = '-'
+// 		}
+// 	}
+
+// 	if (
+// 		(n[n.length - 1] == 0) &&
+// 		(p[0] == 0)
+// 	) {
+// 		if (
+// 			(n[n.length - 1] - n[n.length - 2] == 1) &&
+// 			(p[1] - p[0] == 1)
+// 		) {
+// 			list[n.length - 1] = '-'
+// 		}
+// 	}
+
+// 	for (let i = 1; i < p.length - 1; i++) {
+// 		if (
+// 			(p[i] - p[i - 1] == 1) &&
+// 			(p[i + 1] - p[i] == 1)
+// 		) {
+
+// 			if (
+// 				p.includes(0)
+// 			) {
+// 				list[i - 1 + n.length] = '-'
+// 			}
+// 			else {
+// 				list[i + n.length] = '-'
+// 			}
+// 		}
+// 	}
+// 	list = list.join`,`
+// 	list = list.replace(/(,*-,)+/gi, '-')
+// 	return list
+// }
+// console.log(
+// 	solution([-3, -2, -1, 2, 10, 11, 12, 15, 16, 18, 19, 20]),
+// 	solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20])
+// );
