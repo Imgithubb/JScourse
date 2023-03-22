@@ -3316,14 +3316,30 @@
 
 //     return function stage3() {
 //         return new Promise(function (r) {
-    
+
 //         setTimeout( function(){
 //             let num = 4
 //              r(num = 3)
-            
+
 //             },2000)
-            
+
 //         })
 //     }
 //     }
 //     stage2()() .then((t)=> console.log(t))
+
+//n5
+// function LOCALTIME(date, timeZone) {
+
+//     if (timeZone == 'ET') return date
+//     else if (timeZone == 'CT') {
+//         date.setHours(date.getHours() + 2)
+//         return date
+//     }
+//     else if (timeZone == 'MT') return date.setHours(date.getHours() - 2)
+//     else if (timeZone == 'PT') return date.setHours(date.getHours() - 3)
+//     else return ""
+
+// }
+// let today = new Date('2022-05-15T12:00:00.000Z');
+// console.log(LOCALTIME(today, 'CT'));
